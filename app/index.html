@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Roomie — Your shared home</title><style>
+:root{--ink:#10164a;--muted:#858aa7;--purple:#7047ff;--line:#ececf6;--green:#18c798;--bg:#f7f8fc}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b8a7ff;outline-offset:3px}button{border:0;background:none;color:inherit}svg{vertical-align:middle}.logo{display:flex;gap:12px;align-items:center;font-weight:800;font-size:34px;letter-spacing:-1.5px}.mark{width:42px;height:46px}.sidebar{position:fixed;inset:0 auto 0 0;width:244px;background:white;padding:35px 25px;display:flex;flex-direction:column;border-right:1px solid var(--line)}.house{margin:38px 0 24px;padding:16px 13px;border:1px solid var(--line);border-radius:13px;display:flex;align-items:center;gap:10px}.house strong{font-size:12px}.house small{display:block;font-size:10px;color:var(--muted);margin-top:5px}.nav{display:grid;gap:8px}.nav button{display:flex;gap:14px;align-items:center;text-align:left;padding:15px 17px;border-radius:11px;color:#777e9a;font-size:14px}.nav button.active{background:#eee8ff;color:var(--purple);font-weight:700}.icon{font-size:20px;width:24px;text-align:center}.sidebar .bottom{margin-top:auto}.help{padding:20px;background:#f7f5ff;border-radius:16px;font-size:12px;line-height:1.7;margin-bottom:20px}.help strong{display:block;font-size:14px}.person{display:flex;align-items:center;gap:10px}.avatar{display:inline-grid;place-items:center;flex:none;width:36px;height:36px;background:#e9e3ff;border-radius:50%;font-size:20px}.person strong{font-size:12px}.person small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.main{margin-left:244px;padding:36px 45px;max-width:1600px}.top{display:flex;align-items:center;justify-content:space-between;padding-bottom:29px;border-bottom:1px solid var(--line)}.eyebrow{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}.top .right{display:flex;gap:21px;align-items:center}.demo{font-size:10px;color:var(--purple);border:1px solid #dcd2ff;padding:6px 9px;border-radius:6px;letter-spacing:1px}.heading{display:flex;justify-content:space-between;align-items:center;margin:32px 0 27px;gap:15px}h1{font-size:30px;letter-spacing:-1px;margin:0 0 9px}p{color:var(--muted);font-size:13px;line-height:1.65;margin:0}.btn{background:var(--purple);color:white;padding:12px 19px;border-radius:9px;font-size:12px;font-weight:700;box-shadow:0 5px 13px #7047ff19}.btn.secondary{background:white;border:1px solid var(--line);color:var(--ink);box-shadow:none}.grid{display:grid;grid-template-columns:1.65fr 1fr;gap:23px}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:24px}.card h2{font-size:16px;margin:0}.cardhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.link{font-size:11px;color:var(--purple)}.balance{background:linear-gradient(115deg,#6e44f8,#8d65ff);color:white;position:relative;overflow:hidden;min-height:219px;padding:29px}.balance:after{content:'';position:absolute;right:-50px;top:-76px;width:280px;height:280px;border:45px solid #ffffff0b;border-radius:50%;pointer-events:none}.balance p{color:#e5dcff;font-size:12px}.balance .amount{font-size:46px;letter-spacing:-2px;font-weight:700;margin:12px 0}.balance .pill{background:#ffffff22;padding:6px 10px;border-radius:20px;font-size:10px}.balancefoot{display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-size:11px}.balancefoot button{color:white;font-size:11px}.quick{display:flex;justify-content:space-around;padding:24px 0 2px}.quick button{font-size:11px}.bubble{display:grid;place-items:center;width:45px;height:45px;border-radius:15px;margin:0 auto 10px;font-size:22px}.mint{background:#e0faf2;color:#09ad80}.lavender{background:#eee8ff;color:var(--purple)}.blue{background:#e4f2ff;color:#388aeb}.peach{background:#fff1dc;color:#dd9d25}.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.stat{padding:20px}.stat small{color:var(--muted);font-size:11px}.stat strong{display:block;font-size:22px;margin-top:10px}.row{display:flex;align-items:center;gap:13px;padding:17px 0;border-bottom:1px solid #f1f2f8}.row:last-child{border-bottom:0}.row .bubble{width:37px;height:37px;margin:0;border-radius:12px;font-size:18px;flex:none}.row .info{flex:1;min-width:0}.row strong{font-size:12px;font-weight:600}.row small{display:block;color:var(--muted);font-size:10px;margin-top:7px}.row .money{font-size:12px;text-align:right}.tag{display:inline-block;font-size:9px;padding:4px 7px;border-radius:5px;margin-top:7px;background:#e3f8eb;color:#259453}.tag.pending{background:#fff3df;color:#bd862e}.tag.progress{background:#e7f0ff;color:#3779db}.members{display:flex;margin:21px 0 18px;gap:9px}.members .avatar{border:3px solid white;width:40px;height:40px}.home-note{background:#f3f0ff;padding:14px;border-radius:10px;color:#77708f;font-size:11px;line-height:1.7}.lower{margin-top:23px}.tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}.tabs button{padding:9px 20px;font-size:11px;background:#f3f4fa;color:#7e84a0;border-radius:8px}.tabs button.active{color:white;background:var(--purple)}.list-card{padding:24px 28px}.check{appearance:none;width:19px;height:19px;border:1.5px solid #c5c9de;border-radius:5px;cursor:pointer;flex:none}.check:checked{background:var(--purple);border-color:var(--purple)}.check:checked:after{content:'✓';display:block;text-align:center;color:white;font-size:14px}.done{text-decoration:line-through;color:var(--muted)}.calendar{display:flex;justify-content:space-between;background:#f8f7ff;padding:18px;border-radius:13px;margin-bottom:15px}.day{text-align:center;font-size:10px;color:#8b8ba8}.day b{display:grid;place-items:center;width:32px;height:32px;margin-top:7px;color:var(--ink)}.day.selected b{background:var(--purple);color:white;border-radius:50%}.empty{padding:35px;text-align:center;color:var(--muted);font-size:13px}.footer{display:flex;justify-content:space-between;margin-top:27px;color:#a0a4ba;font-size:10px}.welcome{position:fixed;inset:0;background:#f8f9ff;z-index:20;display:none;place-items:center;padding:25px}.welcome.show{display:grid}.welcome-inner{text-align:center;max-width:430px}.welcome .logo{justify-content:center;font-size:52px}.welcome .mark{width:58px;height:65px}.welcome h1{font-size:38px;margin:25px 0 12px}.welcome .illustration{font-size:110px;margin:35px 0 25px;filter:drop-shadow(0 15px 25px #8a72dc33)}.welcome .btn{display:block;width:100%;margin-top:12px;padding:15px}.modal{position:fixed;inset:0;background:#13173355;backdrop-filter:blur(5px);z-index:30;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.dialog{background:white;padding:28px;border-radius:20px;width:420px;max-height:90vh;overflow:auto}.dialog h2{font-size:21px;margin:0}.dialog label{display:block;font-size:11px;margin:19px 0 8px}.dialog input,.dialog select{width:100%;padding:12px;border:1px solid #e2e4ef;border-radius:8px;color:var(--ink);background:white}.dialog .btn{width:100%;margin-top:24px}.close{font-size:24px;color:var(--muted)}.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);padding:14px 24px;background:var(--ink);color:white;border-radius:10px;font-size:12px;z-index:50;display:none}.toast.show{display:block}.settings-row{padding:20px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px}.settings-row span{color:var(--muted)}
+@media(min-width:1400px){.main{padding:40px 65px}.grid{gap:28px}}@media(max-width:1050px){.sidebar{width:200px;padding:30px 17px}.main{margin-left:200px;padding:28px}.grid{grid-template-columns:1.3fr 1fr}.card{padding:20px}.heading h1{font-size:26px}}@media(max-width:760px){.sidebar{width:100%;height:70px;top:auto;bottom:0;padding:5px 6px;z-index:10;border-top:1px solid var(--line)}.sidebar>.logo,.sidebar>.house,.sidebar>.bottom{display:none}.nav{display:flex;justify-content:space-around;gap:0}.nav button{flex-direction:column;gap:4px;padding:8px;font-size:9px;border-radius:8px}.nav button[data-page=settings]{display:none}.nav .icon{font-size:20px}.main{margin:0;padding:23px 19px 100px}.top{padding-bottom:22px}.top .right{gap:12px}.eyebrow{font-size:9px}.top .date{display:none}.heading{margin:27px 0 22px}.heading h1{font-size:24px}.heading p{font-size:11px}.heading>.btn{padding:11px;font-size:10px}.grid{grid-template-columns:1fr}.balance{min-height:210px}.card{padding:22px}.footer{line-height:1.7}.grid .household{display:none}.lower{margin-top:20px}.list-card{padding:20px}.profile-nav{display:none}}@media(prefers-reduced-motion:no-preference){.card{animation:appear .35s ease both}@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}}
+
+.roommate-picker{font-size:11px;color:var(--muted)}.roommate-picker select{padding:8px;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:white;margin-left:7px}.prototype-note{font-size:11px;padding:12px 16px;border:1px solid #ded6ff;background:#f2efff;border-radius:10px;margin:20px 0;color:#6d6390;line-height:1.7}.participants{display:grid;grid-template-columns:1fr 1fr;gap:8px}.participants label{margin:0!important;display:flex!important;align-items:center;gap:8px;padding:10px;background:#f8f7fc;border-radius:8px}.participants input{width:auto!important}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.row-actions{display:flex;gap:6px;margin-left:8px}.row-actions button{font-size:10px;color:var(--muted);padding:6px}.status-action{display:flex;gap:8px;align-items:center}.board-meter{height:6px;background:#eeeaf7;border-radius:9px;overflow:hidden}.board-meter>span{display:block;height:100%;background:var(--green)}.dialog .btn.secondary{margin-top:10px}.dialog input[type=checkbox]{width:auto}.form-error{font-size:12px;background:#fff0f0;color:#b64b5c;padding:10px;border-radius:8px;margin-top:16px}.due-over{color:#c04f69!important}.settlement{margin-top:18px;background:#f6f4ff;padding:15px;border-radius:12px}.board-empty{padding:30px 10px;text-align:center;color:var(--muted);font-size:12px}.summary-total{padding-top:20px;margin-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px}.mini-btn{font-size:11px;color:var(--purple)}.amount.owe{color:#fff}.text-danger{color:#b54d62!important}.note{font-size:11px;color:var(--muted);line-height:1.8;margin-top:15px}.week-strip{display:flex;justify-content:space-between;background:#f7f5ff;padding:13px;border-radius:11px;font-size:11px;margin-bottom:20px}.chart-caption{font-size:10px;color:var(--muted);margin:12px 0 7px}.file-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.file-controls .btn{font-size:11px}button:disabled{opacity:.5;cursor:default}.data-empty{margin:25px 0;padding:25px;border:1px dashed #d9d5ec;border-radius:12px;font-size:12px;color:var(--muted);text-align:center}@media(max-width:760px){.toast{bottom:85px}.top .right{gap:8px}.top .eyebrow{display:none}.top .right{width:100%;justify-content:space-between}.roommate-picker{font-size:10px}.row-actions{gap:0;margin-left:0}.row{gap:10px}.row-actions button{padding:5px}.field-grid{grid-template-columns:1fr}.heading{align-items:flex-start}.heading .btn{white-space:nowrap}.card h2{font-size:14px}.row strong{overflow-wrap:anywhere}.demo{font-size:8px}.main .top .avatar{display:none}.balance .amount{font-size:40px}}
+.storage-warning{background:#fff1e6;border:1px solid #efc49b;padding:17px;border-radius:12px;margin-top:20px;font-size:12px;color:#75472a}.storage-warning p{font-size:11px;color:#75472a;margin:8px 0}.storage-warning button{font-size:11px;color:#75472a;padding:7px 10px;background:#fff9f4;border:1px solid #efc49b;border-radius:7px;margin-right:8px}
+.card{animation:none!important}
+/* Roomie: shared-home workbench. Violet actions, mint completion, navy data. */
+:root{--ink:#172044;--muted:#69748e;--purple:#6845ed;--line:#e4e8f2;--green:#13ad88;--bg:#f3f5fa}body{font-family:"Avenir Next","Segoe UI",Arial,sans-serif}.logo,h1,.amount{font-family:"Trebuchet MS","Avenir Next",sans-serif}.main{max-width:1680px}.sidebar{background:#fcfcff}.nav button{font-weight:600}.nav button.active{box-shadow:inset 3px 0 var(--purple);background:#eeeaff}.house{background:#f3f6fc;border:0}.top{padding-bottom:22px}.demo{letter-spacing:.6px;background:#f0ecff}.heading h1{font-size:32px;letter-spacing:-1.1px}.heading p{font-size:14px}.card{box-shadow:0 4px 20px #1d295305;border-radius:18px}.card h2{font-size:17px}.row{padding:18px 0}.row strong{font-size:14px}.row small{font-size:12px;line-height:1.5;margin-top:5px}.row .money{font-size:14px;font-variant-numeric:tabular-nums}.link,.mini-btn,.row-actions button{font-size:12px;font-weight:600;min-height:36px}.row-actions button:hover,.link:hover{background:#f0ecff;border-radius:7px}.tag{font-size:11px;min-height:29px}.btn{font-size:13px;min-height:43px}.balance{background:#263665;min-height:228px}.balance:after{border-color:#8c9cca19}.balance .amount{font-size:52px;font-variant-numeric:tabular-nums}.balance p{color:#dee6ff}.balancefoot{gap:15px;line-height:1.6}.balance .pill{background:#d8f9ed;color:#106748;font-weight:700;font-size:12px}.quick{background:white;margin-top:15px;border:1px solid var(--line);border-radius:15px;padding:18px 0}.quick button{font-size:12px;font-weight:600;min-width:90px}.attention-bar{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;background:white;margin-bottom:24px;overflow:hidden}.attention-bar button{display:flex;align-items:center;gap:10px;padding:17px 20px;text-align:left;font-size:12px}.attention-bar button+button{border-left:1px solid var(--line)}.attention-bar button:hover{background:#f6f5ff}.attention-bar strong{font-size:21px;font-variant-numeric:tabular-nums}.attention-bar button>span:last-child{margin-left:auto;color:var(--muted)}.attention-dot{width:8px;height:8px;border-radius:50%;background:var(--purple);flex:none}.attention-dot.overdue{background:#d36b51}.shopping-dot{background:var(--green)}.list-tools{display:flex;align-items:center;gap:14px;margin:0 0 20px}.search-box{display:flex;align-items:center;gap:9px;border:1px solid #dce1ef;background:#fafbfe;padding:0 13px;border-radius:10px;max-width:420px;width:100%}.search-box:focus-within{outline:2px solid #a58df4;outline-offset:2px}.search-box>span{font-size:24px;color:var(--muted)}.search-box input{width:100%;min-width:0;padding:12px 0;background:none;border:0;outline:none;color:var(--ink);font-size:14px}.search-box input:focus-visible{outline:none}.tabs{gap:7px}.tabs button{font-size:12px;min-height:38px;padding:9px 15px}.prototype-note{background:transparent;border:0;padding:0;margin:19px 0;color:#69748e;font-size:11px}.dialog{width:480px;box-shadow:0 24px 100px #14204c33}.dialog label{font-size:13px}.dialog input,.dialog select{min-height:44px}.dialog input[type=checkbox]{min-height:auto}.stat strong{font-variant-numeric:tabular-nums}.footer{font-size:11px}.board-empty{font-size:13px;line-height:1.7}
+@media(max-width:1050px){.attention-bar button{padding:15px 12px;gap:7px}.attention-bar button>span:last-child{display:none}.heading h1{font-size:28px}}
+@media(max-width:760px){.main{padding:20px 16px 106px}.heading h1{font-size:27px}.attention-bar{margin-bottom:18px}.attention-bar button{padding:13px 7px;flex-wrap:wrap;gap:5px;justify-content:center;text-align:center}.attention-bar button>span:nth-last-child(2){flex-basis:100%;font-size:10px}.attention-bar strong{font-size:22px}.nav button{min-height:56px}.nav button.active{box-shadow:none}.row{gap:9px}.row strong{font-size:13px}.row small{font-size:11px}.row-actions button{min-height:40px;padding:7px}.row .money{font-size:13px}.balance .amount{font-size:46px}.balancefoot span{max-width:170px}.list-card{padding:20px 16px}.tabs button{padding:9px 11px}.heading p{font-size:12px}.prototype-note{font-size:10px;line-height:1.6}.card{padding:21px}.quick button{font-size:11px;min-width:75px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+
+</style></head><body>
+<svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+<aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><span class="avatar">🏡</span><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><div class="help"><strong>A little more harmony. ✨</strong>Less keeping tabs.<br>More feeling at home.</div><button class="person" onclick="navigate('profile')"><span class="avatar">👩🏻</span><div><strong id="sidebar-name">Alex Chen</strong><small>Local preview &nbsp; ›</small></div></button></div></aside>
+<main class="main"><header class="top"><div class="eyebrow">Your home, in harmony</div><div class="right"><span class="demo">NO LOGIN REQUIRED</span><label class="roommate-picker">Viewing as <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden><strong>Changes are not saved to this browser.</strong><p>Your changes remain in this tab only. Export a backup before refreshing or closing.</p><button type="button" onclick="exportData()">Export backup now</button><button type="button" onclick="retrySave()">Retry saving</button></div><div id="content"></div><footer class="footer"><span>Roomie · Made for living together.</span><button onclick="showWelcome()" style="font-size:10px;color:var(--purple)">View welcome screen ↗</button></footer></main>
+<div class="welcome" id="welcome"><div class="welcome-inner"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><h1>Better roommates.<br>Happier living.</h1><p>The operating system for shared living.<br>Expenses, groceries, and chores. All under one roof.</p><div class="illustration">🌳🏡🌿</div><button class="btn" onclick="enter()">Get started →</button><button class="btn secondary" onclick="enter()">Explore preview</button><p style="font-size:10px;margin-top:20px">A shared home starts with a little teamwork.</p></div></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="cardhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()" aria-label="Close">×</button></div><form id="form"></form></div></div><div class="toast" id="toast" role="status"></div>
+<script>
+function isSafeRecordId(value) {
+  return (
+    typeof value === "string" &&
+    value.length <= 120 &&
+    /^[A-Za-z0-9]/.test(value) &&
+    !/[^A-Za-z0-9_-]/.test(value)
+  );
+}
+const MEMBER_IDS = ["Alex", "Jamie", "Taylor", "Sam"];
+function parseMoney(value) {
+  const raw = String(value).trim();
+  if (!/^\d+(\.\d{1,2})?$/.test(raw))
+    throw new Error("Enter an amount with at most two decimal places.");
+  const [whole, decimal = ""] = raw.split(".");
+  const cents = Number(whole) * 100 + Number(decimal.padEnd(2, "0"));
+  if (!Number.isSafeInteger(cents) || cents < 1 || cents > 100000000)
+    throw new Error("Enter an amount between $0.01 and $1,000,000.00.");
+  return cents;
+}
+function splitCents(cents, participants) {
+  if (!Number.isSafeInteger(cents) || cents < 1)
+    throw new Error("Invalid expense amount.");
+  const ids = [...new Set(participants)].sort();
+  if (!ids.length || ids.some((id) => !MEMBER_IDS.includes(id)))
+    throw new Error("Choose at least one roommate.");
+  return Object.fromEntries(
+    ids.map((id, i) => [
+      id,
+      Math.floor(cents / ids.length) + (i < cents % ids.length ? 1 : 0),
+    ]),
+  );
+}
+function balances(data) {
+  const result = Object.fromEntries(MEMBER_IDS.map((id) => [id, 0]));
+  for (const expense of data.expenses) {
+    if (!expense.paid) continue;
+    const shares = splitCents(expense.cents, expense.participants);
+    result[expense.payer] += expense.cents;
+    for (const [id, cents] of Object.entries(shares)) result[id] -= cents;
+  }
+  for (const item of data.settlements) {
+    result[item.from] += item.cents;
+    result[item.to] -= item.cents;
+  }
+  return result;
+}
+function settlementPlan(data) {
+  const all = balances(data);
+  const debt = MEMBER_IDS.filter((id) => all[id] < 0).map((id) => ({
+    id,
+    cents: -all[id],
+  }));
+  const credit = MEMBER_IDS.filter((id) => all[id] > 0).map((id) => ({
+    id,
+    cents: all[id],
+  }));
+  const result = [];
+  let i = 0,
+    j = 0;
+  while (i < debt.length && j < credit.length) {
+    const cents = Math.min(debt[i].cents, credit[j].cents);
+    result.push({ from: debt[i].id, to: credit[j].id, cents });
+    debt[i].cents -= cents;
+    credit[j].cents -= cents;
+    if (!debt[i].cents) i++;
+    if (!credit[j].cents) j++;
+  }
+  return result;
+}
+function nextDue(date, repeat) {
+  const d = new Date(date + "T12:00:00");
+  if (repeat === "Daily") d.setDate(d.getDate() + 1);
+  else if (repeat === "Weekly") d.setDate(d.getDate() + 7);
+  else if (repeat === "Monthly") {
+    const day = d.getDate();
+    d.setDate(1);
+    d.setMonth(d.getMonth() + 2);
+    d.setDate(0);
+    d.setDate(Math.min(day, d.getDate()));
+  } else return date;
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function validateData(data) {
+  const fail = () => {
+    throw new Error("This file is not a valid Roomie product backup.");
+  };
+  if (
+    data?.version !== 2 ||
+    !MEMBER_IDS.includes(data.viewer) ||
+    typeof data.houseName !== "string" ||
+    !data.houseName.trim() ||
+    data.houseName.length > 80
+  )
+    fail();
+  for (const key of [
+    "expenses",
+    "shopping",
+    "chores",
+    "settlements",
+    "activity",
+  ])
+    if (!Array.isArray(data[key]) || data[key].length > 10000) fail();
+  const text = (x) =>
+    typeof x === "string" && x.trim().length > 0 && x.length <= 120;
+  const date = (x) =>
+    typeof x === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(x) &&
+    !isNaN(new Date(x + "T12:00:00").getTime()) &&
+    new Date(x + "T12:00:00").toISOString().slice(0, 10) === x;
+  const amount = (x) => Number.isSafeInteger(x) && x > 0 && x <= 100000000;
+  for (const key of [
+    "expenses",
+    "shopping",
+    "chores",
+    "settlements",
+    "activity",
+  ]) {
+    const seen = new Set();
+    for (const item of data[key]) {
+      if (!item || !isSafeRecordId(item.id) || seen.has(item.id)) fail();
+      seen.add(item.id);
+    }
+  }
+  for (const e of data.expenses) {
+    if (
+      !text(e.name) ||
+      !amount(e.cents) ||
+      !MEMBER_IDS.includes(e.payer) ||
+      typeof e.paid !== "boolean" ||
+      !date(e.date) ||
+      !["Housing", "Utilities", "Groceries", "Other"].includes(e.category) ||
+      !Array.isArray(e.participants) ||
+      new Set(e.participants).size !== e.participants.length
+    )
+      fail();
+    splitCents(e.cents, e.participants);
+  }
+  for (const s of data.shopping)
+    if (
+      !text(s.name) ||
+      !amount(s.cents) ||
+      !MEMBER_IDS.includes(s.owner) ||
+      typeof s.done !== "boolean" ||
+      (s.expenseId !== undefined && !isSafeRecordId(s.expenseId))
+    )
+      fail();
+  for (const c of data.chores)
+    if (
+      !text(c.name) ||
+      !MEMBER_IDS.includes(c.owner) ||
+      !date(c.due) ||
+      typeof c.done !== "boolean" ||
+      !["Daily", "Weekly", "Monthly", "One time"].includes(c.repeat)
+    )
+      fail();
+  for (const s of data.settlements)
+    if (
+      !MEMBER_IDS.includes(s.from) ||
+      !MEMBER_IDS.includes(s.to) ||
+      s.from === s.to ||
+      !amount(s.cents) ||
+      !date(s.date)
+    )
+      fail();
+  for (const a of data.activity)
+    if (
+      typeof a.text !== "string" ||
+      !a.text.trim() ||
+      a.text.length > 250 ||
+      typeof a.detail !== "string" ||
+      a.detail.length > 250 ||
+      !["Expenses", "Purchases", "Chores", "Household"].includes(a.type) ||
+      !MEMBER_IDS.includes(a.actor) ||
+      typeof a.at !== "string" ||
+      isNaN(Date.parse(a.at))
+    )
+      fail();
+  for (const c of data.chores) {
+    if (c.nextId !== undefined) {
+      if (
+        !isSafeRecordId(c.nextId) ||
+        !c.done ||
+        !data.chores.some((n) => n.id === c.nextId)
+      )
+        fail();
+      const visited = new Set([c.id]);
+      let n = c;
+      while (n.nextId) {
+        if (visited.has(n.nextId)) fail();
+        visited.add(n.nextId);
+        n = data.chores.find((x) => x.id === n.nextId);
+        if (!n) fail();
+      }
+    }
+    if (c.modified !== undefined && typeof c.modified !== "boolean") fail();
+  }
+  return data;
+}
+
+const $ = (id) => document.getElementById(id),
+  esc = (s) =>
+    String(s ?? "").replace(
+      /[&<>"']/g,
+      (c) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c],
+    ),
+  money = (c) =>
+    new Intl.NumberFormat("en-CA", {
+      style: "currency",
+      currency: "CAD",
+    }).format(c / 100);
+const faces = { Alex: "👩🏻", Jamie: "👨🏻", Taylor: "👩🏼", Sam: "👨🏽" },
+  names = {
+    Alex: "Alex Chen",
+    Jamie: "Jamie Park",
+    Taylor: "Taylor Wilson",
+    Sam: "Sam Patel",
+  },
+  storageKey = "roomie-product-v2",
+  uid = () => crypto.randomUUID();
+const today = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+};
+function seed() {
+  const date = today();
+  return {
+    version: 2,
+    viewer: "Alex",
+    houseName: "Maple Residence",
+    expenses: [
+      {
+        id: uid(),
+        name: "October rent",
+        cents: 240000,
+        payer: "Alex",
+        participants: [...MEMBER_IDS],
+        paid: true,
+        category: "Housing",
+        date,
+      },
+      {
+        id: uid(),
+        name: "Shared groceries",
+        cents: 6230,
+        payer: "Taylor",
+        participants: [...MEMBER_IDS],
+        paid: true,
+        category: "Groceries",
+        date,
+      },
+      {
+        id: uid(),
+        name: "Internet bill",
+        cents: 7100,
+        payer: "Jamie",
+        participants: [...MEMBER_IDS],
+        paid: true,
+        category: "Utilities",
+        date,
+      },
+      {
+        id: uid(),
+        name: "Next water bill",
+        cents: 3800,
+        payer: "Sam",
+        participants: [...MEMBER_IDS],
+        paid: false,
+        category: "Utilities",
+        date: nextDue(date, "Weekly"),
+      },
+    ],
+    shopping: [
+      {
+        id: uid(),
+        name: "Toilet paper",
+        cents: 1299,
+        owner: "Alex",
+        done: true,
+      },
+      {
+        id: uid(),
+        name: "Laundry detergent",
+        cents: 1549,
+        owner: "Jamie",
+        done: false,
+      },
+      { id: uid(), name: "Milk", cents: 429, owner: "Taylor", done: false },
+      { id: uid(), name: "Eggs", cents: 399, owner: "Sam", done: false },
+      { id: uid(), name: "Dish soap", cents: 299, owner: "Jamie", done: false },
+    ],
+    chores: [
+      {
+        id: uid(),
+        name: "Clean kitchen",
+        owner: "Alex",
+        due: date,
+        repeat: "Weekly",
+        done: true,
+      },
+      {
+        id: uid(),
+        name: "Take out trash",
+        owner: "Jamie",
+        due: date,
+        repeat: "Weekly",
+        done: false,
+      },
+      {
+        id: uid(),
+        name: "Clean bathroom",
+        owner: "Taylor",
+        due: nextDue(date, "Daily"),
+        repeat: "Weekly",
+        done: false,
+      },
+      {
+        id: uid(),
+        name: "Vacuum living room",
+        owner: "Sam",
+        due: nextDue(date, "Weekly"),
+        repeat: "Weekly",
+        done: false,
+      },
+    ],
+    settlements: [],
+    activity: [
+      {
+        id: uid(),
+        actor: "Alex",
+        text: "Welcome to Maple Residence",
+        detail: "Sample records · explore with any roommate",
+        type: "Household",
+        at: new Date().toISOString(),
+      },
+    ],
+  };
+}
+let state,
+  loadIssue = false;
+try {
+  const raw = localStorage.getItem(storageKey);
+  state = raw ? validateData(JSON.parse(raw)) : seed();
+} catch {
+  state = seed();
+  loadIssue = true;
+}
+let storageFailed = false;
+let page = "home",
+  filter = "All",
+  query = "",
+  lastFocus,
+  toastTimer;
+const me = () => state.viewer;
+function persist() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(state));
+    storageFailed = false;
+    $("storage-warning").hidden = true;
+    return true;
+  } catch {
+    storageFailed = true;
+    $("storage-warning").hidden = false;
+    return false;
+  }
+}
+function log(text, detail, type) {
+  state.activity.unshift({
+    id: uid(),
+    actor: me(),
+    text,
+    detail,
+    type,
+    at: new Date().toISOString(),
+  });
+  state.activity = state.activity.slice(0, 500);
+  return persist();
+}
+function retrySave() {
+  toast(
+    persist()
+      ? "Saved successfully"
+      : "Still not saved. Export a backup to keep your changes.",
+  );
+}
+function toast(text) {
+  $("toast").textContent = text;
+  $("toast").classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $("toast").classList.remove("show"), 3500);
+}
+function navigate(p) {
+  page = p;
+  query = "";
+  filter = "All";
+  render();
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+function setFilter(value) {
+  filter = value;
+  render();
+}
+function matchesSearch(record) {
+  return !query || [record.name,record.owner,record.payer,record.category,record.text,record.detail,record.actor].filter(Boolean).join(" ").toLocaleLowerCase().includes(query.toLocaleLowerCase().trim());
+}
+function searchList(label) {
+ return `<div class="list-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="list-search" type="search" aria-label="Search ${label}" placeholder="Search ${label}…" maxlength="120" value="${esc(query)}" oninput="updateSearch(this.value)"></label>${query?'<button class="link" onclick="updateSearch(&quot;&quot;)">Clear search</button>':''}</div>`;
+}
+function updateSearch(value) {
+ const position=$("list-search")?.selectionStart;
+ query=value;render();const input=$("list-search");input?.focus();
+ if(input && position!==null && position!==undefined)input.setSelectionRange(position,position);
+}
+function showDue(value){navigate('chores');setFilter(value);}
+function tabs(items) {
+  return (
+    '<div class="tabs">' +
+    items
+      .map(
+        (v) =>
+          `<button class="${filter === v ? "active" : ""}" aria-pressed="${filter === v}" onclick="setFilter('${v}')">${v}</button>`,
+      )
+      .join("") +
+    "</div>"
+  );
+}
+function head(title, sub, action, type) {
+  return `<div class="heading"><div><h1>${esc(title)}</h1><p>${esc(sub)}</p></div>${action ? `<button class="btn" onclick="openAdd('${type}')">＋ ${action}</button>` : ""}</div>`;
+}
+const categoryIcon = (c) =>
+  ({ Housing: "⌂", Utilities: "ϟ", Groceries: "🛒", Other: "＄" })[c];
+function expenseRow(e) {
+  const shares = splitCents(e.cents, e.participants);
+  return `<div class="row"><span class="bubble ${e.category === "Housing" ? "lavender" : "mint"}">${categoryIcon(e.category)}</span><div class="info"><strong>${esc(e.name)}</strong><small>${esc(e.payer)} ${e.paid ? "paid" : "will pay"} · ${esc(e.date)} · ${e.participants.length} people</small><small>${shares[me()] !== undefined ? "Your share: " + money(shares[me()]) : "You are not in this split"}</small></div><div class="money">${money(e.cents)}<br><button class="tag ${e.paid ? "" : "pending"}" onclick="${e.paid ? `expenseDetails('${e.id}')` : `markPaid('${e.id}')`}">${e.paid ? "Recorded ✓" : "Mark paid"}</button></div><div class="row-actions"><button aria-label="Edit ${esc(e.name)}" onclick="openAdd('expense','${e.id}')">Edit</button></div></div>`;
+}
+function activityRows(limit = 500) {
+  const rows = state.activity
+    .filter((a) => (filter === "All" || filter === a.type) && (page !== "activity" || matchesSearch(a)))
+    .slice(0, limit);
+  return (
+    rows
+      .map(
+        (a) =>
+          `<div class="row"><span class="avatar">${faces[a.actor]}</span><div class="info"><strong>${esc(a.text)}</strong><small>${esc(a.detail)} · ${esc(new Date(a.at).toLocaleString("en-CA", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</small></div></div>`,
+      )
+      .join("") ||
+    '<div class="board-empty">No activity in this view yet.</div>'
+  );
+}
+function shoppingRow(s) {
+  return `<div class="row"><input class="check" type="checkbox" aria-label="Purchased ${esc(s.name)}" ${s.done ? "checked" : ""} onchange="toggleShopping('${s.id}')"><div class="info"><strong class="${s.done ? "done" : ""}">${esc(s.name)}</strong><small>${faces[s.owner]} ${esc(s.owner)}${s.expenseId ? " · Added to expenses" : ""}</small></div><div class="money">${money(s.cents)}${s.done && !s.expenseId ? `<br><button class="mini-btn" onclick="purchaseExpense('${s.id}')">Split cost</button>` : ""}</div><div class="row-actions"><button aria-label="Edit ${esc(s.name)}" onclick="openAdd('purchase','${s.id}')">Edit</button></div></div>`;
+}
+function choreRow(c) {
+  const overdue = !c.done && c.due < today();
+  return `<div class="row"><span class="bubble ${c.done ? "mint" : "blue"}">${c.done ? "✓" : "✦"}</span><div class="info"><strong class="${c.done ? "done" : ""}">${esc(c.name)}</strong><small>${faces[c.owner]} ${esc(c.owner)} · ${esc(c.repeat)}</small><small class="${overdue ? "due-over" : ""}">${overdue ? "Overdue · " : ""}Due ${esc(c.due)}</small></div><button class="tag ${c.done ? "" : "pending"}" onclick="toggleChore('${c.id}')">${c.done ? "Reopen" : "Mark done"}</button><div class="row-actions"><button aria-label="Edit ${esc(c.name)}" onclick="openAdd('chore','${c.id}')">Edit</button></div></div>`;
+}
+function render() {
+  const all = balances(state),
+    balance = all[me()],
+    paid = state.expenses.filter((e) => e.paid),
+    pending = state.expenses.filter((e) => !e.paid),
+    chores = state.chores.filter((c) => !c.done),
+    myChores = chores.filter((c) => c.owner === me());
+  $("sidebar-name").textContent = names[me()];
+  document.querySelector(".sidebar .person .avatar").textContent = faces[me()];
+  document.querySelector(".top .avatar").textContent = faces[me()];
+  $("viewer").innerHTML = MEMBER_IDS.map(
+    (id) => `<option ${id === me() ? "selected" : ""}>${id}</option>`,
+  ).join("");
+  document.querySelector(".house strong").textContent = state.houseName;
+  $("nav").innerHTML = [
+    ["home", "⌂", "Home"],
+    ["expenses", "◈", "Expenses"],
+    ["shopping", "♧", "Shopping"],
+    ["chores", "✿", "Chores"],
+    ["activity", "◷", "Activity"],
+    ["settings", "⚙", "House settings"],
+  ]
+    .map(
+      ([p, i, n]) =>
+        `<button data-page="${p}" class="${page === p ? "active" : ""}" ${page === p ? 'aria-current="page"' : ""} onclick="navigate('${p}')"><span class="icon">${i}</span>${n}</button>`,
+    )
+    .join("");
+  let html = "";
+  if (page === "home")
+    html =
+      head(`Hey, ${me()}! 👋`, "A little teamwork. A happier home.") +
+      `<section class="attention-bar" aria-label="Household overview"><button onclick="showDue('Overdue')"><span class="attention-dot overdue"></span><strong>${chores.filter(c=>c.due<today()).length}</strong><span>overdue chores</span><span aria-hidden="true">→</span></button><button onclick="showDue('Due today')"><span class="attention-dot"></span><strong>${chores.filter(c=>c.due===today()).length}</strong><span>due today</span><span aria-hidden="true">→</span></button><button onclick="navigate('shopping');setFilter('To buy')"><span class="attention-dot shopping-dot"></span><strong>${state.shopping.filter(s=>!s.done).length}</strong><span>items to buy</span><span aria-hidden="true">→</span></button></section>` +
+      `<div class="grid"><div><div class="card balance"><p>Your shared expense balance · CAD</p><div class="amount">${money(Math.abs(balance))}</div><span class="pill">${balance > 0 ? "↗ You are owed" : balance < 0 ? "↘ You owe" : "✓ All settled up"}</span><div class="balancefoot"><span>Calculated from paid expenses & settlements</span><button onclick="navigate('expenses')">View breakdown →</button></div></div><div class="quick"><button onclick="openAdd('expense')"><span class="bubble mint">＄</span>Add expense</button><button onclick="openAdd('purchase')"><span class="bubble lavender">♧</span>Add purchase</button><button onclick="openAdd('chore')"><span class="bubble blue">✓</span>Add chore</button></div><div class="stats"><div class="card stat"><small>Total recorded expenses</small><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><div class="card stat"><small>Your chores to do</small><strong>${myChores.length}<span style="font-size:12px;color:var(--muted)"> assigned to you</span></strong></div></div></div><div class="card"><div class="cardhead"><h2>Coming up</h2><button class="link" onclick="navigate('expenses')">View all →</button></div>${pending.map(expenseRow).join("") || '<div class="board-empty">No unpaid bills. Nice work!</div>'}<div style="margin-top:25px"><div class="cardhead"><h2>Household chores</h2><button class="link" onclick="navigate('chores')">See all →</button></div><p>${state.chores.filter((c) => c.done).length} of ${state.chores.length} completed</p><div class="board-meter" style="margin-top:12px"><span style="width:${state.chores.length ? (state.chores.filter((c) => c.done).length / state.chores.length) * 100 : 0}%"></span></div>${myChores.slice(0, 2).map(choreRow).join("")}</div></div></div><div class="grid lower"><div class="card"><div class="cardhead"><h2>What’s happening</h2><button class="link" onclick="navigate('activity')">All activity →</button></div>${activityRows(3)}</div><div class="card"><div class="cardhead"><h2>Your people</h2><button class="link" onclick="navigate('settings')">Manage →</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}${id === me() ? " · You" : ""}</strong><small>${all[id] > 0 ? "Owed " + money(all[id]) : all[id] < 0 ? "Owes " + money(-all[id]) : "Settled up"}</small></div></div>`).join("")}</div></div>`;
+  if (page === "expenses") {
+    const rows = state.expenses.filter(matchesSearch).filter(
+      (e) =>
+        filter === "All" ||
+        (filter === "My expenses"
+          ? e.participants.includes(me())
+          : filter === "Planned"
+            ? !e.paid
+            : e.paid),
+    );
+    html =
+      head(
+        "Expenses",
+        "Clear splits. No awkward conversations.",
+        "Add expense",
+        "expense",
+      ) +
+      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><p class="note">Planned bills don’t affect balances until marked paid. Rounding is allocated consistently, down to the cent.</p></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
+        settlementPlan(state)
+          .map(
+            (s) =>
+              `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong></div><span class="money">${money(s.cents)}</span></div>`,
+          )
+          .join("") || '<p class="note">Everyone is settled up.</p>'
+      }</div><p class="note">Record transfers made outside Roomie. This preview does not move money.</p></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}</span><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
+  }
+  if (page === "shopping") {
+    const rows = state.shopping.filter(matchesSearch).filter(
+      (s) =>
+        filter === "All" ||
+        (filter === "To buy"
+          ? !s.done
+          : filter === "Mine"
+            ? s.owner === me()
+            : s.done),
+    );
+    html =
+      head(
+        "Shopping list",
+        "The essentials, without the “did anyone buy milk?”",
+        "Add purchase",
+        "purchase",
+      ) +
+      `<div class="card list-card">${searchList("shopping")}${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div><p class="note">Buying an item doesn’t automatically add an expense. Choose “Split cost” once the actual purchase is ready to record.</p></div>`;
+  }
+  if (page === "chores") {
+    const rows = state.chores
+      .filter(matchesSearch)
+      .filter(
+        (c) =>
+          filter === "All" ||
+          (filter === "Mine"
+            ? c.owner === me()
+            : filter === "To do"
+              ? !c.done
+              : filter === "Overdue" ? !c.done && c.due < today()
+              : filter === "Due today" ? !c.done && c.due === today()
+              : c.done),
+      )
+      .sort(
+        (a, b) => Number(a.done) - Number(b.done) || a.due.localeCompare(b.due),
+      );
+    html =
+      head(
+        "Chores",
+        "A fair share makes a happier home.",
+        "Add chore",
+        "chore",
+      ) +
+      `<div class="card list-card"><div class="week-strip"><strong>${state.chores.filter((c) => c.done).length} completed</strong><span>${chores.length} to do · ${today()}</span></div>${searchList("chores")}${tabs(["All", "Mine", "To do", "Overdue", "Due today", "Completed"])}${rows.map(choreRow).join("") || '<div class="board-empty">No chores in this view.</div>'}<p class="note">Repeating chores create their next occurrence when completed. Reopening removes that untouched occurrence so it isn’t duplicated.</p></div>`;
+  }
+  if (page === "activity")
+    html =
+      head("Activity", "The little updates that keep your home running.") +
+      `<div class="card list-card">${searchList("activity")}${tabs(["All", "Expenses", "Purchases", "Chores", "Household"])}${activityRows()}</div>`;
+  if (page === "settings")
+    html =
+      head("House settings", "Make yourself at home.") +
+      `<div class="grid"><div class="card"><div class="cardhead"><h2>${esc(state.houseName)}</h2><button class="link" onclick="openHouse()">Edit name</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${names[id]}</strong><small>${id === me() ? "Current preview roommate" : "Sample roommate"}</small></div><button class="link" onclick="switchViewer('${id}')">View as</button></div>`).join("")}<div class="settings-row"><strong>Split method</strong><span>Equal · selected participants</span></div><div class="settings-row"><strong>Currency</strong><span>CAD ($)</span></div><p class="note">These are sample people on one device. Switching a roommate changes your view, not permissions or a real account.</p></div><div class="card"><h2>Your preview data</h2><p class="note">Stored in this browser. Back it up before changing devices or clearing browser data.</p><div class="file-controls"><button class="btn secondary" onclick="exportData()">Export backup</button><button class="btn secondary" onclick="$('import-file').click()">Import backup</button></div><div class="line" style="margin:25px 0;border-top:1px solid var(--line)"></div><button class="btn secondary" onclick="openReset()">Restore sample data</button><p class="note">The connected account app is separate. No Supabase requests are made from this preview.</p></div></div>`;
+  if (page === "profile")
+    html =
+      head(
+        "Your profile",
+        "Try living together from every roommate’s perspective.",
+      ) +
+      `<div class="card"><div class="person"><span class="avatar" style="width:60px;height:60px;font-size:36px">${faces[me()]}</span><div><strong>${names[me()]}</strong><small>${esc(state.houseName)}</small></div></div><div class="settings-row"><strong>Shared balance</strong><span>${balance >= 0 ? "You are owed " : "You owe "}${money(Math.abs(balance))}</span></div><div class="settings-row"><strong>Your remaining chores</strong><span>${myChores.length}</span></div><button class="btn secondary" style="margin-top:20px" onclick="navigate('settings')">Switch roommate</button></div>`;
+  $("content").innerHTML =
+    '<div class="prototype-note">✦ &nbsp; No account needed · Open and use Roomie. Data stays in this browser; export a backup to move devices. Roommate switching is a preview.</div>' +
+    html;
+}
+function switchViewer(id) {
+  if (!MEMBER_IDS.includes(id)) return;
+  state.viewer = id;
+  persist();
+  render();
+  toast(`Viewing as ${id}`);
+}
+$("viewer").addEventListener("change", (e) => switchViewer(e.target.value));
+function modal(title, html, save) {
+  lastFocus = document.activeElement;
+  $("modalTitle").textContent = title;
+  $("form").innerHTML =
+    html + '<div id="form-error" class="form-error" role="alert" hidden></div>';
+  $("form").onsubmit = (e) => {
+    e.preventDefault();
+    const error = $("form-error");
+    error.hidden = true;
+    try {
+      save(new FormData(e.target));
+    } catch (e) {
+      error.textContent = e.message;
+      error.hidden = false;
+    }
+  };
+  $("modal").classList.add("show");
+  setTimeout(() => $("form").querySelector("input,select,button")?.focus(), 0);
+}
+const options = (selected) =>
+  MEMBER_IDS.map(
+    (id) => `<option ${id === selected ? "selected" : ""}>${id}</option>`,
+  ).join("");
+function closeModal() {
+  $("modal").classList.remove("show");
+  lastFocus?.focus();
+}
+function finish(text, detail, type) {
+  const saved = log(text, detail, type);
+  closeModal();
+  render();
+  toast(
+    saved
+      ? "Saved successfully"
+      : "Not saved to this browser. Export a backup before closing.",
+  );
+}
+function openAdd(type, id, source) {
+  const key = { expense: "expenses", purchase: "shopping", chore: "chores" }[
+    type
+  ];
+  const existing = id ? state[key].find((x) => x.id === id) : null;
+  if (id && !existing) return;
+  const item = existing || source || {};
+  const chore = type === "chore",
+    expense = type === "expense";
+  const participants = item.participants || [...MEMBER_IDS];
+  modal(
+    (existing ? "Edit " : "Add ") + type,
+    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${w}</label>`).join("")}</div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
+    (fd) => {
+      const name = fd.get("name").trim();
+      if (!name) throw new Error("Enter a name.");
+      const owner = fd.get("owner");
+      let record = { ...item, id: existing?.id || uid(), name };
+      if (expense) {
+        const cents = parseMoney(fd.get("amount"));
+        const participants = fd.getAll("participants");
+        splitCents(cents, participants);
+        Object.assign(record, {
+          cents,
+          participants,
+          payer: owner,
+          category: fd.get("category"),
+          date: fd.get("date"),
+          paid: fd.get("status") === "paid",
+        });
+      } else if (chore) {
+        Object.assign(record, {
+          owner,
+          due: fd.get("due"),
+          repeat: fd.get("repeat"),
+          done: item.done || false,
+        });
+        if (existing) record.modified = true;
+        if (
+          existing?.done &&
+          existing.nextId &&
+          (record.due !== existing.due || record.repeat !== existing.repeat)
+        )
+          throw new Error(
+            "Reopen this recurring chore before changing its schedule.",
+          );
+      } else
+        Object.assign(record, {
+          owner,
+          cents: parseMoney(fd.get("amount")),
+          done: fd.get("status") === "done",
+        });
+      if (existing)
+        state[key][state[key].findIndex((x) => x.id === id)] = record;
+      else state[key].unshift(record);
+      if (expense && source?.purchaseId) {
+        const purchase = state.shopping.find((s) => s.id === source.purchaseId);
+        purchase.expenseId = record.id;
+        delete record.purchaseId;
+      }
+      finish(
+        `${me()} ${existing ? "updated" : "added"} ${name}`,
+        expense ? money(record.cents) + " · " + record.payer + " paid" : owner,
+        expense ? "Expenses" : chore ? "Chores" : "Purchases",
+      );
+    },
+  );
+}
+function markPaid(id) {
+  const e = state.expenses.find((x) => x.id === id);
+  if (!e || e.paid) return;
+  modal(
+    "Record bill as paid",
+    `<p>${esc(e.payer)} paid ${money(e.cents)} for ${esc(e.name)}?</p><p class="note">This updates household balances. No money is transferred.</p><button class="btn" type="submit">Confirm paid</button>`,
+    () => {
+      e.paid = true;
+      finish(
+        `${me()} recorded ${e.name} as paid`,
+        e.payer + " · " + money(e.cents),
+        "Expenses",
+      );
+    },
+  );
+}
+function expenseDetails(id) {
+  const e = state.expenses.find((x) => x.id === id);
+  if (!e) return;
+  modal(
+    e.name,
+    `<p>${esc(e.payer)} paid ${money(e.cents)} · ${e.date}</p>${Object.entries(
+      splitCents(e.cents, e.participants),
+    )
+      .map(
+        ([name, cents]) =>
+          `<div class="settings-row"><strong>${name}</strong><span>${money(cents)}</span></div>`,
+      )
+      .join(
+        "",
+      )}<p class="note">Shares always add up to the exact expense amount.</p><button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
+    () => {},
+  );
+}
+function toggleShopping(id) {
+  const s = state.shopping.find((x) => x.id === id);
+  if (!s) return;
+  s.done = !s.done;
+  const saved = log(
+    `${me()} ${s.done ? "purchased" : "marked to buy"} ${s.name}`,
+    money(s.cents),
+    "Purchases",
+  );
+  render();
+  toast(
+    saved
+      ? s.done
+        ? "Marked as purchased"
+        : "Moved to shopping list"
+      : "Updated in this tab only. Export a backup before closing.",
+  );
+}
+function purchaseExpense(id) {
+  const s = state.shopping.find((x) => x.id === id);
+  if (!s || !s.done || s.expenseId) return;
+  openAdd("expense", null, {
+    name: s.name,
+    cents: s.cents,
+    payer: s.owner,
+    category: "Groceries",
+    purchaseId: id,
+    paid: true,
+  });
+}
+function toggleChore(id) {
+  const c = state.chores.find((x) => x.id === id);
+  if (!c) return;
+  if (c.done && c.nextId) {
+    const next = state.chores.find((x) => x.id === c.nextId);
+    if (next && (next.done || next.modified)) {
+      toast(
+        "The next occurrence was edited or completed. Delete it before reopening this one.",
+      );
+      return;
+    }
+    state.chores = state.chores.filter((x) => x.id !== c.nextId);
+    delete c.nextId;
+  }
+  c.done = !c.done;
+  if (c.done && c.repeat !== "One time") {
+    const next = {
+      id: uid(),
+      name: c.name,
+      owner: c.owner,
+      due: nextDue(c.due, c.repeat),
+      repeat: c.repeat,
+      done: false,
+    };
+    state.chores.unshift(next);
+    c.nextId = next.id;
+  }
+  const saved = log(
+    `${me()} ${c.done ? "completed" : "reopened"} ${c.name}`,
+    c.done && c.repeat !== "One time" ? "Next occurrence scheduled" : c.owner,
+    "Chores",
+  );
+  render();
+  toast(
+    saved
+      ? c.done
+        ? "Chore completed"
+        : "Chore reopened"
+      : "Updated in this tab only. Export a backup before closing.",
+  );
+}
+function openSettle() {
+  const plan = settlementPlan(state),
+    item = plan.find((s) => s.from === me() || s.to === me()) || plan[0];
+  if (!item) return toast("Everyone is already settled up.");
+  modal(
+    "Record a settlement",
+    `<p>Record a transfer that already happened outside Roomie.</p><label for="from">From</label><select id="from" name="from">${options(item.from)}</select><label for="to">To</label><select id="to" name="to">${options(item.to)}</select><label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${(item.cents / 100).toFixed(2)}" required><p class="note">This records a transfer only. Roomie does not move money.</p><button class="btn" type="submit">Record settlement</button>`,
+    (fd) => {
+      const from = fd.get("from"),
+        to = fd.get("to"),
+        cents = parseMoney(fd.get("amount")),
+        all = balances(state);
+      if (from === to || all[from] >= 0 || all[to] <= 0)
+        throw new Error("Choose someone who owes and someone who is owed.");
+      if (cents > Math.min(-all[from], all[to]))
+        throw new Error("This amount is larger than the outstanding balance.");
+      state.settlements.unshift({ id: uid(), from, to, cents, date: today() });
+      finish(
+        `${me()} recorded a settlement`,
+        from + " → " + to + " · " + money(cents),
+        "Expenses",
+      );
+    },
+  );
+}
+function removeRecord(type, id) {
+  const key = {
+      expense: "expenses",
+      purchase: "shopping",
+      chore: "chores",
+      settlement: "settlements",
+    }[type],
+    item = state[key].find((x) => x.id === id);
+  if (!item) return;
+  modal(
+    `Delete ${type}?`,
+    `<p>${type === "settlement" ? "Undo this settlement record?" : esc(item.name) + " will be removed."}</p><p class="note">Balances and totals will be recalculated.${type === "chore" && item.nextId ? " Only this occurrence will be deleted; its next occurrence will be kept." : ""}${type === "purchase" && item.expenseId ? " The linked expense will stay in Expenses." : ""}</p><button class="btn" type="submit">Confirm delete</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
+    () => {
+      state[key] = state[key].filter((x) => x.id !== id);
+      if (type === "expense")
+        for (const s of state.shopping)
+          if (s.expenseId === id) delete s.expenseId;
+      if (type === "chore") {
+        for (const c of state.chores) if (c.nextId === id) delete c.nextId;
+      }
+      finish(
+        `${me()} deleted a ${type}`,
+        item.name || "Settlement record",
+        type === "purchase"
+          ? "Purchases"
+          : type === "chore"
+            ? "Chores"
+            : "Expenses",
+      );
+    },
+  );
+}
+function openHouse() {
+  modal(
+    "Household name",
+    `<label for="name">Name</label><input id="name" name="name" maxlength="80" required value="${esc(state.houseName)}"><button type="submit" class="btn">Save name</button>`,
+    (fd) => {
+      const name = fd.get("name").trim();
+      if (!name) throw new Error("Enter a house name.");
+      state.houseName = name;
+      finish(`${me()} renamed the household`, name, "Household");
+    },
+  );
+}
+function exportData() {
+  const blob = new Blob([JSON.stringify(state, null, 2)], {
+      type: "application/json",
+    }),
+    url = URL.createObjectURL(blob),
+    a = document.createElement("a");
+  a.href = url;
+  a.download = "roomie-backup-" + today() + ".json";
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  toast("Backup exported");
+}
+async function importData(file) {
+  if (!file) return;
+  try {
+    if (file.size > 2000000)
+      throw new Error("Choose a Roomie backup smaller than 2 MB.");
+    const incoming = validateData(JSON.parse(await file.text()));
+    modal(
+      "Replace preview data?",
+      `<p>Import ${incoming.expenses.length} expenses, ${incoming.shopping.length} shopping items and ${incoming.chores.length} chores for ${esc(incoming.houseName)}?</p><p class="note">This replaces this browser’s preview data. Export a backup first if you want to keep it.</p><button class="btn" type="submit">Import backup</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
+      () => {
+        state = incoming;
+        const saved = persist();
+        closeModal();
+        render();
+        toast(
+          saved
+            ? "Backup imported"
+            : "Backup loaded in this tab only. Export before closing.",
+        );
+      },
+    );
+  } catch (error) {
+    toast(
+      error.message === "Unexpected end of JSON input"
+        ? "This file is not valid JSON."
+        : error.message,
+    );
+  }
+}
+function openReset() {
+  modal(
+    "Restore sample data?",
+    `<p>This replaces your local entries with the sample household. Export a backup first if you want to keep your records.</p><button class="btn" type="submit">Restore samples</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
+    () => {
+      state = seed();
+      const saved = persist();
+      closeModal();
+      render();
+      toast(
+        saved
+          ? "Sample household restored"
+          : "Samples restored in this tab only. Browser saving is unavailable.",
+      );
+    },
+  );
+}
+function showWelcome() {
+  $("welcome").classList.add("show");
+}
+function enter() {
+  $("welcome").classList.remove("show");
+  navigate("home");
+}
+const fileInput = document.createElement("input");
+fileInput.id = "import-file";
+fileInput.type = "file";
+fileInput.accept = ".json,application/json";
+fileInput.hidden = true;
+fileInput.addEventListener("change", () => {
+  importData(fileInput.files[0]);
+  fileInput.value = "";
+});
+document.body.append(fileInput);
+$("modal").addEventListener("click", (e) => {
+  if (e.target === $("modal")) closeModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (!$("modal").classList.contains("show")) return;
+  if (e.key === "Escape") closeModal();
+  if (e.key === "Tab") {
+    const els = [...$("modal").querySelectorAll("button,input,select")].filter(
+        (el) => !el.disabled,
+      ),
+      first = els[0],
+      last = els.at(-1);
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+});
+render();
+if (!loadIssue) persist();
+if (loadIssue)
+  toast(
+    "Saved preview data could not be loaded. It has not been overwritten; export or restore samples to continue.",
+  );
+
+window.addEventListener("beforeunload", (e) => {
+  if (storageFailed) {
+    e.preventDefault();
+    e.returnValue = "";
+  }
+});
+
+</script></body></html>
