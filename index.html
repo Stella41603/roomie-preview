@@ -4,13 +4,22 @@
 @media(min-width:1400px){.main{padding:40px 65px}.grid{gap:28px}}@media(max-width:1050px){.sidebar{width:200px;padding:30px 17px}.main{margin-left:200px;padding:28px}.grid{grid-template-columns:1.3fr 1fr}.card{padding:20px}.heading h1{font-size:26px}}@media(max-width:760px){.sidebar{width:100%;height:70px;top:auto;bottom:0;padding:5px 6px;z-index:10;border-top:1px solid var(--line)}.sidebar>.logo,.sidebar>.house,.sidebar>.bottom{display:none}.nav{display:flex;justify-content:space-around;gap:0}.nav button{flex-direction:column;gap:4px;padding:8px;font-size:9px;border-radius:8px}.nav button[data-page=settings]{display:none}.nav .icon{font-size:20px}.main{margin:0;padding:23px 19px 100px}.top{padding-bottom:22px}.top .right{gap:12px}.eyebrow{font-size:9px}.top .date{display:none}.heading{margin:27px 0 22px}.heading h1{font-size:24px}.heading p{font-size:11px}.heading>.btn{padding:11px;font-size:10px}.grid{grid-template-columns:1fr}.balance{min-height:210px}.card{padding:22px}.footer{line-height:1.7}.grid .household{display:none}.lower{margin-top:20px}.list-card{padding:20px}.profile-nav{display:none}}@media(prefers-reduced-motion:no-preference){.card{animation:appear .35s ease both}@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}}
 
 .roommate-picker{font-size:11px;color:var(--muted)}.roommate-picker select{padding:8px;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:white;margin-left:7px}.prototype-note{font-size:11px;padding:12px 16px;border:1px solid #ded6ff;background:#f2efff;border-radius:10px;margin:20px 0;color:#6d6390;line-height:1.7}.participants{display:grid;grid-template-columns:1fr 1fr;gap:8px}.participants label{margin:0!important;display:flex!important;align-items:center;gap:8px;padding:10px;background:#f8f7fc;border-radius:8px}.participants input{width:auto!important}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.row-actions{display:flex;gap:6px;margin-left:8px}.row-actions button{font-size:10px;color:var(--muted);padding:6px}.status-action{display:flex;gap:8px;align-items:center}.board-meter{height:6px;background:#eeeaf7;border-radius:9px;overflow:hidden}.board-meter>span{display:block;height:100%;background:var(--green)}.dialog .btn.secondary{margin-top:10px}.dialog input[type=checkbox]{width:auto}.form-error{font-size:12px;background:#fff0f0;color:#b64b5c;padding:10px;border-radius:8px;margin-top:16px}.due-over{color:#c04f69!important}.settlement{margin-top:18px;background:#f6f4ff;padding:15px;border-radius:12px}.board-empty{padding:30px 10px;text-align:center;color:var(--muted);font-size:12px}.summary-total{padding-top:20px;margin-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px}.mini-btn{font-size:11px;color:var(--purple)}.amount.owe{color:#fff}.text-danger{color:#b54d62!important}.note{font-size:11px;color:var(--muted);line-height:1.8;margin-top:15px}.week-strip{display:flex;justify-content:space-between;background:#f7f5ff;padding:13px;border-radius:11px;font-size:11px;margin-bottom:20px}.chart-caption{font-size:10px;color:var(--muted);margin:12px 0 7px}.file-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.file-controls .btn{font-size:11px}button:disabled{opacity:.5;cursor:default}.data-empty{margin:25px 0;padding:25px;border:1px dashed #d9d5ec;border-radius:12px;font-size:12px;color:var(--muted);text-align:center}@media(max-width:760px){.toast{bottom:85px}.top .right{gap:8px}.top .eyebrow{display:none}.top .right{width:100%;justify-content:space-between}.roommate-picker{font-size:10px}.row-actions{gap:0;margin-left:0}.row{gap:10px}.row-actions button{padding:5px}.field-grid{grid-template-columns:1fr}.heading{align-items:flex-start}.heading .btn{white-space:nowrap}.card h2{font-size:14px}.row strong{overflow-wrap:anywhere}.demo{font-size:8px}.main .top .avatar{display:none}.balance .amount{font-size:40px}}
+.storage-warning{background:#fff1e6;border:1px solid #efc49b;padding:17px;border-radius:12px;margin-top:20px;font-size:12px;color:#75472a}.storage-warning p{font-size:11px;color:#75472a;margin:8px 0}.storage-warning button{font-size:11px;color:#75472a;padding:7px 10px;background:#fff9f4;border:1px solid #efc49b;border-radius:7px;margin-right:8px}
 </style></head><body>
 <svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 <aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><span class="avatar">🏡</span><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><div class="help"><strong>A little more harmony. ✨</strong>Less keeping tabs.<br>More feeling at home.</div><button class="person" onclick="navigate('profile')"><span class="avatar">👩🏻</span><div><strong id="sidebar-name">Alex Chen</strong><small>Local preview &nbsp; ›</small></div></button></div></aside>
-<main class="main"><header class="top"><div class="eyebrow">Your home, in harmony</div><div class="right"><span class="demo">LOCAL PRODUCT PREVIEW</span><label class="roommate-picker">Viewing as <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="content"></div><footer class="footer"><span>Roomie · Made for living together.</span><button onclick="showWelcome()" style="font-size:10px;color:var(--purple)">View welcome screen ↗</button></footer></main>
+<main class="main"><header class="top"><div class="eyebrow">Your home, in harmony</div><div class="right"><span class="demo">LOCAL PRODUCT PREVIEW</span><label class="roommate-picker">Viewing as <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden><strong>Changes are not saved to this browser.</strong><p>Your changes remain in this tab only. Export a backup before refreshing or closing.</p><button type="button" onclick="exportData()">Export backup now</button><button type="button" onclick="retrySave()">Retry saving</button></div><div id="content"></div><footer class="footer"><span>Roomie · Made for living together.</span><button onclick="showWelcome()" style="font-size:10px;color:var(--purple)">View welcome screen ↗</button></footer></main>
 <div class="welcome" id="welcome"><div class="welcome-inner"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><h1>Better roommates.<br>Happier living.</h1><p>The operating system for shared living.<br>Expenses, groceries, and chores. All under one roof.</p><div class="illustration">🌳🏡🌿</div><button class="btn" onclick="enter()">Get started →</button><button class="btn secondary" onclick="enter()">Explore preview</button><p style="font-size:10px;margin-top:20px">A shared home starts with a little teamwork.</p></div></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="cardhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()" aria-label="Close">×</button></div><form id="form"></form></div></div><div class="toast" id="toast" role="status"></div>
 <script>
+function isSafeRecordId(value) {
+  return (
+    typeof value === "string" &&
+    value.length <= 120 &&
+    /^[A-Za-z0-9]/.test(value) &&
+    !/[^A-Za-z0-9_-]/.test(value)
+  );
+}
 const MEMBER_IDS = ["Alex", "Jamie", "Taylor", "Sam"];
 function parseMoney(value) {
   const raw = String(value).trim();
@@ -122,7 +131,7 @@ function validateData(data) {
   ]) {
     const seen = new Set();
     for (const item of data[key]) {
-      if (!text(item.id) || seen.has(item.id)) fail();
+      if (!item || !isSafeRecordId(item.id) || seen.has(item.id)) fail();
       seen.add(item.id);
     }
   }
@@ -146,7 +155,7 @@ function validateData(data) {
       !amount(s.cents) ||
       !MEMBER_IDS.includes(s.owner) ||
       typeof s.done !== "boolean" ||
-      (s.expenseId !== undefined && typeof s.expenseId !== "string")
+      (s.expenseId !== undefined && !isSafeRecordId(s.expenseId))
     )
       fail();
   for (const c of data.chores)
@@ -183,7 +192,7 @@ function validateData(data) {
   for (const c of data.chores) {
     if (c.nextId !== undefined) {
       if (
-        typeof c.nextId !== "string" ||
+        !isSafeRecordId(c.nextId) ||
         !c.done ||
         !data.chores.some((n) => n.id === c.nextId)
       )
@@ -356,6 +365,7 @@ try {
   state = seed();
   loadIssue = true;
 }
+let storageFailed = false;
 let page = "home",
   filter = "All",
   lastFocus,
@@ -364,9 +374,12 @@ const me = () => state.viewer;
 function persist() {
   try {
     localStorage.setItem(storageKey, JSON.stringify(state));
+    storageFailed = false;
+    $("storage-warning").hidden = true;
     return true;
   } catch {
-    toast("Changes remain in this tab only. Export a backup before closing.");
+    storageFailed = true;
+    $("storage-warning").hidden = false;
     return false;
   }
 }
@@ -380,7 +393,14 @@ function log(text, detail, type) {
     at: new Date().toISOString(),
   });
   state.activity = state.activity.slice(0, 500);
-  persist();
+  return persist();
+}
+function retrySave() {
+  toast(
+    persist()
+      ? "Saved successfully"
+      : "Still not saved. Export a backup to keep your changes.",
+  );
 }
 function toast(text) {
   $("toast").textContent = text;
@@ -595,10 +615,14 @@ function closeModal() {
   lastFocus?.focus();
 }
 function finish(text, detail, type) {
-  log(text, detail, type);
+  const saved = log(text, detail, type);
   closeModal();
   render();
-  toast("Saved successfully");
+  toast(
+    saved
+      ? "Saved successfully"
+      : "Not saved to this browser. Export a backup before closing.",
+  );
 }
 function openAdd(type, id, source) {
   const key = { expense: "expenses", purchase: "shopping", chore: "chores" }[
@@ -706,13 +730,19 @@ function toggleShopping(id) {
   const s = state.shopping.find((x) => x.id === id);
   if (!s) return;
   s.done = !s.done;
-  log(
+  const saved = log(
     `${me()} ${s.done ? "purchased" : "marked to buy"} ${s.name}`,
     money(s.cents),
     "Purchases",
   );
   render();
-  toast(s.done ? "Marked as purchased" : "Moved to shopping list");
+  toast(
+    saved
+      ? s.done
+        ? "Marked as purchased"
+        : "Moved to shopping list"
+      : "Updated in this tab only. Export a backup before closing.",
+  );
 }
 function purchaseExpense(id) {
   const s = state.shopping.find((x) => x.id === id);
@@ -753,13 +783,19 @@ function toggleChore(id) {
     state.chores.unshift(next);
     c.nextId = next.id;
   }
-  log(
+  const saved = log(
     `${me()} ${c.done ? "completed" : "reopened"} ${c.name}`,
     c.done && c.repeat !== "One time" ? "Next occurrence scheduled" : c.owner,
     "Chores",
   );
   render();
-  toast(c.done ? "Chore completed" : "Chore reopened");
+  toast(
+    saved
+      ? c.done
+        ? "Chore completed"
+        : "Chore reopened"
+      : "Updated in this tab only. Export a backup before closing.",
+  );
 }
 function openSettle() {
   const plan = settlementPlan(state),
@@ -797,18 +833,13 @@ function removeRecord(type, id) {
   if (!item) return;
   modal(
     `Delete ${type}?`,
-    `<p>${type === "settlement" ? "Undo this settlement record?" : esc(item.name) + " will be removed."}</p><p class="note">Balances and totals will be recalculated.${type === "purchase" && item.expenseId ? " The linked expense will stay in Expenses." : ""}</p><button class="btn" type="submit">Confirm delete</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
+    `<p>${type === "settlement" ? "Undo this settlement record?" : esc(item.name) + " will be removed."}</p><p class="note">Balances and totals will be recalculated.${type === "chore" && item.nextId ? " Only this occurrence will be deleted; its next occurrence will be kept." : ""}${type === "purchase" && item.expenseId ? " The linked expense will stay in Expenses." : ""}</p><button class="btn" type="submit">Confirm delete</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
     () => {
       state[key] = state[key].filter((x) => x.id !== id);
       if (type === "expense")
         for (const s of state.shopping)
           if (s.expenseId === id) delete s.expenseId;
       if (type === "chore") {
-        if (item.nextId) {
-          const next = state.chores.find((x) => x.id === item.nextId);
-          if (next && !next.done)
-            state.chores = state.chores.filter((x) => x.id !== item.nextId);
-        }
         for (const c of state.chores) if (c.nextId === id) delete c.nextId;
       }
       finish(
@@ -858,10 +889,14 @@ async function importData(file) {
       `<p>Import ${incoming.expenses.length} expenses, ${incoming.shopping.length} shopping items and ${incoming.chores.length} chores for ${esc(incoming.houseName)}?</p><p class="note">This replaces this browser’s preview data. Export a backup first if you want to keep it.</p><button class="btn" type="submit">Import backup</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
       () => {
         state = incoming;
-        persist();
+        const saved = persist();
         closeModal();
         render();
-        toast("Backup imported");
+        toast(
+          saved
+            ? "Backup imported"
+            : "Backup loaded in this tab only. Export before closing.",
+        );
       },
     );
   } catch (error) {
@@ -878,10 +913,14 @@ function openReset() {
     `<p>This replaces your local entries with the sample household. Export a backup first if you want to keep your records.</p><button class="btn" type="submit">Restore samples</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
     () => {
       state = seed();
-      persist();
+      const saved = persist();
       closeModal();
       render();
-      toast("Sample household restored");
+      toast(
+        saved
+          ? "Sample household restored"
+          : "Samples restored in this tab only. Browser saving is unavailable.",
+      );
     },
   );
 }
@@ -929,5 +968,12 @@ if (loadIssue)
   toast(
     "Saved preview data could not be loaded. It has not been overwritten; export or restore samples to continue.",
   );
+
+window.addEventListener("beforeunload", (e) => {
+  if (storageFailed) {
+    e.preventDefault();
+    e.returnValue = "";
+  }
+});
 
 </script></body></html>
