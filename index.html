@@ -12,6 +12,8 @@
 @media(max-width:760px){.main{padding:20px 16px 106px}.heading h1{font-size:27px}.attention-bar{margin-bottom:18px}.attention-bar button{padding:13px 7px;flex-wrap:wrap;gap:5px;justify-content:center;text-align:center}.attention-bar button>span:nth-last-child(2){flex-basis:100%;font-size:10px}.attention-bar strong{font-size:22px}.nav button{min-height:56px}.nav button.active{box-shadow:none}.row{gap:9px}.row strong{font-size:13px}.row small{font-size:11px}.row-actions button{min-height:40px;padding:7px}.row .money{font-size:13px}.balance .amount{font-size:46px}.balancefoot span{max-width:170px}.list-card{padding:20px 16px}.tabs button{padding:9px 11px}.heading p{font-size:12px}.prototype-note{font-size:10px;line-height:1.6}.card{padding:21px}.quick button{font-size:11px;min-width:75px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
 
+
+.split-preview{background:#f6f3ff;border:1px solid #e5ddff;border-radius:13px;padding:16px;margin-top:20px}.split-title{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:13px}.split-title>span{font-size:11px;color:#73658e}.split-person{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e9e2f7;font-size:12px}.split-person strong{font-variant-numeric:tabular-nums}.split-preview p{font-size:11px;margin-top:12px;color:#726289}.draft-warning{background:#fff5e8;border:1px solid #ebc991;border-radius:12px;padding:16px;margin-top:18px;font-size:13px}.draft-warning p{color:#765c36}.draft-warning>div{display:flex;gap:10px}.draft-warning .btn{margin-top:12px;font-size:12px}.list-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:-5px 0 18px;font-size:12px;color:var(--muted)}.list-meta select{padding:8px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);margin-left:6px}.result-count{margin:-8px 0 15px;font-size:12px}.dialog>.cardhead{position:sticky;top:-28px;z-index:2;background:white;padding:12px 0;margin-top:-12px}.dialog .close{min-width:44px;min-height:44px}.dialog input[type=date]{min-width:0;width:100%}@media(max-width:760px){.modal{padding:0;align-items:flex-end}.dialog{width:100%;max-height:94dvh;border-radius:22px 22px 0 0;padding:22px 20px max(22px,env(safe-area-inset-bottom))}.dialog input,.dialog select{font-size:16px}.dialog>.cardhead{top:-22px}.split-title{flex-wrap:wrap}.dialog form>.btn[type=submit]{position:sticky;bottom:0;z-index:1;box-shadow:0 -6px 14px #ffffffdd}.draft-warning{position:relative;z-index:3}}
 </style></head><body>
 <svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 <aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><span class="avatar">🏡</span><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><div class="help"><strong>A little more harmony. ✨</strong>Less keeping tabs.<br>More feeling at home.</div><button class="person" onclick="navigate('profile')"><span class="avatar">👩🏻</span><div><strong id="sidebar-name">Alex Chen</strong><small>Local preview &nbsp; ›</small></div></button></div></aside>
@@ -376,6 +378,8 @@ let storageFailed = false;
 let page = "home",
   filter = "All",
   query = "",
+  expenseSort = "Newest",
+  modalDirty = false,
   lastFocus,
   toastTimer;
 const me = () => state.viewer;
@@ -523,7 +527,7 @@ function render() {
           : filter === "Planned"
             ? !e.paid
             : e.paid),
-    );
+    ).sort((a,b)=>expenseSort==="Largest"?b.cents-a.cents:expenseSort==="Oldest"?a.date.localeCompare(b.date):b.date.localeCompare(a.date));
     html =
       head(
         "Expenses",
@@ -531,7 +535,7 @@ function render() {
         "Add expense",
         "expense",
       ) +
-      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><p class="note">Planned bills don’t affect balances until marked paid. Rounding is allocated consistently, down to the cent.</p></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
+      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><p class="note">Planned bills don’t affect balances until marked paid. Rounding is allocated consistently, down to the cent.</p></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
         settlementPlan(state)
           .map(
             (s) =>
@@ -557,7 +561,7 @@ function render() {
         "Add purchase",
         "purchase",
       ) +
-      `<div class="card list-card">${searchList("shopping")}${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div><p class="note">Buying an item doesn’t automatically add an expense. Choose “Split cost” once the actual purchase is ready to record.</p></div>`;
+      `<div class="card list-card">${searchList("shopping")}<p class="result-count" role="status">${rows.length} of ${state.shopping.length} items</p>${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div><p class="note">Buying an item doesn’t automatically add an expense. Choose “Split cost” once the actual purchase is ready to record.</p></div>`;
   }
   if (page === "chores") {
     const rows = state.chores
@@ -583,7 +587,7 @@ function render() {
         "Add chore",
         "chore",
       ) +
-      `<div class="card list-card"><div class="week-strip"><strong>${state.chores.filter((c) => c.done).length} completed</strong><span>${chores.length} to do · ${today()}</span></div>${searchList("chores")}${tabs(["All", "Mine", "To do", "Overdue", "Due today", "Completed"])}${rows.map(choreRow).join("") || '<div class="board-empty">No chores in this view.</div>'}<p class="note">Repeating chores create their next occurrence when completed. Reopening removes that untouched occurrence so it isn’t duplicated.</p></div>`;
+      `<div class="card list-card"><div class="week-strip"><strong>${state.chores.filter((c) => c.done).length} completed</strong><span>${chores.length} to do · ${today()}</span></div>${searchList("chores")}<p class="result-count" role="status">${rows.length} of ${state.chores.length} chores</p>${tabs(["All", "Mine", "To do", "Overdue", "Due today", "Completed"])}${rows.map(choreRow).join("") || '<div class="board-empty">No chores in this view.</div>'}<p class="note">Repeating chores create their next occurrence when completed. Reopening removes that untouched occurrence so it isn’t duplicated.</p></div>`;
   }
   if (page === "activity")
     html =
@@ -617,6 +621,9 @@ function modal(title, html, save) {
   $("modalTitle").textContent = title;
   $("form").innerHTML =
     html + '<div id="form-error" class="form-error" role="alert" hidden></div>';
+  modalDirty = false;
+  $("form").oninput = () => {modalDirty=true;};
+  $("form").onchange = () => {modalDirty=true;};
   $("form").onsubmit = (e) => {
     e.preventDefault();
     const error = $("form-error");
@@ -635,13 +642,20 @@ const options = (selected) =>
   MEMBER_IDS.map(
     (id) => `<option ${id === selected ? "selected" : ""}>${id}</option>`,
   ).join("");
-function closeModal() {
+function closeModal(force = false) {
+  if (modalDirty && !force) {
+    let warning=$("discard-draft");
+    if(!warning){warning=document.createElement("div");warning.id="discard-draft";warning.className="draft-warning";warning.setAttribute("role","alert");warning.innerHTML='<strong>Keep your changes?</strong><p>You have an unsaved draft.</p><div><button type="button" class="btn secondary" onclick="keepEditing()">Keep editing</button><button type="button" class="btn" onclick="closeModal(true)">Discard draft</button></div>';$("form").append(warning);}
+    warning.querySelector("button").focus();warning.scrollIntoView({block:"nearest"});return;
+  }
+  modalDirty=false;
   $("modal").classList.remove("show");
   lastFocus?.focus();
 }
+function keepEditing() { $("discard-draft")?.remove(); $("form").querySelector("input,select")?.focus(); }
 function finish(text, detail, type) {
   const saved = log(text, detail, type);
-  closeModal();
+  closeModal(true);
   render();
   toast(
     saved
@@ -661,7 +675,7 @@ function openAdd(type, id, source) {
   const participants = item.participants || [...MEMBER_IDS];
   modal(
     (existing ? "Edit " : "Add ") + type,
-    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${w}</label>`).join("")}</div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
+    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${w}</label>`).join("")}</div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}${expense ? '<section id="split-preview" class="split-preview" aria-label="Split preview"></section>' : ""}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
     (fd) => {
       const name = fd.get("name").trim();
       if (!name) throw new Error("Enter a name.");
@@ -716,7 +730,16 @@ function openAdd(type, id, source) {
       );
     },
   );
+  if(expense){
+    const update=()=>{
+      const panel=$("split-preview"),fd=new FormData($("form"));
+      try{const cents=parseMoney(fd.get("amount"));const people=fd.getAll("participants");const shares=splitCents(cents,people);panel.innerHTML=`<div class="split-title"><strong>Everyone’s share</strong><span>${people.length} people · ${money(cents)}</span></div>${Object.entries(shares).map(([name,value])=>`<div class="split-person"><span>${faces[name]} ${esc(name)}${name===fd.get("owner")?' · Pays upfront':''}</span><strong>${money(value)}</strong></div>`).join('')}<p>Equal split · every cent accounted for.${fd.get("status")==='planned'?' Planned bills enter balances only when marked paid.':''}</p>`;}
+      catch{panel.innerHTML='<strong>Everyone’s share</strong><p>Enter an amount and choose at least one roommate to preview the split.</p>';}
+    };
+    $("form").oninput=()=>{modalDirty=true;update();};$("form").onchange=()=>{modalDirty=true;update();};update();
+  }
 }
+
 function markPaid(id) {
   const e = state.expenses.find((x) => x.id === id);
   if (!e || e.paid) return;
@@ -915,7 +938,7 @@ async function importData(file) {
       () => {
         state = incoming;
         const saved = persist();
-        closeModal();
+        closeModal(true);
         render();
         toast(
           saved
@@ -939,7 +962,7 @@ function openReset() {
     () => {
       state = seed();
       const saved = persist();
-      closeModal();
+      closeModal(true);
       render();
       toast(
         saved
@@ -995,7 +1018,7 @@ if (loadIssue)
   );
 
 window.addEventListener("beforeunload", (e) => {
-  if (storageFailed) {
+  if (storageFailed || modalDirty) {
     e.preventDefault();
     e.returnValue = "";
   }
