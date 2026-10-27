@@ -214,6 +214,7 @@ function validateData(data) {
       fail();
   for (const a of data.activity)
     if (
+      (a.actor_name !== undefined && (typeof a.actor_name !== "string" || a.actor_name.length > 60)) ||
       typeof a.text !== "string" ||
       !a.text.trim() ||
       a.text.length > 250 ||
@@ -433,6 +434,7 @@ function log(text, detail, type) {
   state.activity.unshift({
     id: uid(),
     actor: me(),
+    actor_name: memberLabel(me()),
     text,
     detail,
     type,
@@ -468,7 +470,7 @@ function setFilter(value) {
   if(restore) [...document.querySelectorAll('.tabs button')].find(b=>b.textContent===value)?.focus({preventScroll:true});
 }
 function matchesSearch(record) {
-  return !query || [record.name,record.owner,record.payer,record.category,record.text,record.detail,record.actor].filter(Boolean).join(" ").toLocaleLowerCase().includes(query.toLocaleLowerCase().trim());
+  return !query || [record.name,record.owner,record.payer,record.category,record.text,record.detail,record.actor,record.actor ? memberLabel(record.actor) : ""].filter(Boolean).join(" ").toLocaleLowerCase().includes(query.toLocaleLowerCase().trim());
 }
 function searchList(label) {
  return `<div class="list-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="list-search" type="search" aria-label="Search ${label}" placeholder="Search ${label}…" maxlength="120" value="${esc(query)}" oninput="updateSearch(this.value)"></label>${query?'<button class="link" onclick="updateSearch(&quot;&quot;)">Clear search</button>':''}</div>`;
@@ -501,6 +503,15 @@ function expenseRow(e) {
   const shares = splitCents(e.cents, e.participants);
   return `<div class="row expense-row"><span class="bubble ${e.category === "Housing" ? "lavender" : "mint"}">${categoryIcon(e.category)}</span><div class="info"><strong>${esc(e.name)}</strong><small>${esc(memberLabel(e.payer))} ${e.paid ? "paid" : "will pay"} · ${esc(e.date)} · ${e.participants.length} people</small><small>${shares[me()] !== undefined ? "Your share: " + money(shares[me()]) : "You are not in this split"}</small></div><div class="money">${money(e.cents)}<br><button class="tag ${e.paid ? "" : "pending"}" onclick="${e.paid ? `expenseDetails('${e.id}')` : `markPaid('${e.id}')`}">${e.paid ? "Paid" : "Mark paid"}</button></div><div class="row-actions"><button aria-label="Edit ${esc(e.name)}" onclick="openAdd('expense','${e.id}')">Edit</button></div></div>`;
 }
+function activityTitle(item) {
+  const name=memberLabel(item.actor);
+  for(const previous of [item.actor_name, item.actor, names[item.actor]]) {
+    if(typeof previous==='string' && item.text.startsWith(previous+' ')) return name+item.text.slice(previous.length);
+  }
+  // Older profile updates stored the display name directly in the message.
+  if(item.text.endsWith(' updated their profile')) return name+' updated their profile';
+  return item.text;
+}
 function activityRows(limit = 500) {
   const rows = state.activity
     .filter((a) => (filter === "All" || filter === a.type) && (page !== "activity" || matchesSearch(a)))
@@ -509,7 +520,7 @@ function activityRows(limit = 500) {
     rows
       .map(
         (a) =>
-          `<div class="row">${avatarHTML(a.actor)}<div class="info"><strong>${esc(a.text)}</strong><small>${esc(a.detail === "Sample records · explore with any roommate" ? "Household created" : a.detail)} · ${esc(new Date(a.at).toLocaleString("en-CA", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</small></div></div>`,
+          `<div class="row">${avatarHTML(a.actor)}<div class="info"><strong>${esc(activityTitle(a))}</strong><small>${a.detail ? esc(a.detail === "Sample records · explore with any roommate" ? "Household created" : a.detail)+" · " : ""}${esc(new Date(a.at).toLocaleString("en-CA", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</small></div></div>`,
       )
       .join("") ||
     '<div class="board-empty">No activity in this view yet.</div>'
