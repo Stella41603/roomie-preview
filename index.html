@@ -37,6 +37,8 @@
 body:has(.receipt-viewer[open]){overflow:hidden}@media(max-width:760px){.settlement-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.settlement-row>.info{grid-column:1;grid-row:1}.settlement-row>.money{grid-column:2;grid-row:1}.settlement-row>.mini-btn:nth-last-child(2){grid-column:1;justify-self:start}.settlement-row>.mini-btn:last-child{grid-column:2;justify-self:end}}
 
 .pdf-tools{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:4px;padding:5px 8px;margin-bottom:10px;gap:10px}.pdf-tools>div{display:flex;align-items:center;gap:8px}.pdf-tools button{border:1px solid var(--line);border-radius:3px;min-width:34px;min-height:34px;font-size:20px}.pdf-tools button:hover{background:#f2efff}.pdf-page-status{font-size:12px;min-width:52px;text-align:center;font-variant-numeric:tabular-nums}.pdf-page-canvas{max-height:65dvh;overflow:auto;background:#f0f1f3;border:1px solid var(--line);padding:12px;min-height:200px}.pdf-page-canvas canvas{display:block;max-width:none;background:white;margin:0 auto;box-shadow:0 1px 5px #0002}@media(max-width:760px){.pdf-page-canvas{max-height:52dvh;padding:8px}.pdf-tools{gap:4px}.pdf-tools>div{gap:4px}.pdf-tools button{min-width:32px}}
+[hidden]{display:none!important}.ratio-fields{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:5px}.dialog .ratio-fields label{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:6px 0;font-size:12px}.ratio-fields label>span{display:flex;align-items:center;gap:7px}.dialog .ratio-fields input{width:95px;text-align:right;padding:9px}.ratio-fields p{font-size:12px;margin:10px 0 0}.expense-row-notes{overflow-wrap:anywhere;white-space:pre-wrap}.expense-detail-notes{white-space:pre-wrap;overflow-wrap:anywhere;margin:18px 0;color:var(--ink);font-size:13px}.calendar-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);align-items:start;gap:24px}.calendar-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:20px}.calendar-toolbar h2{font-size:15px;margin:0}.calendar-toolbar>div{display:flex;align-items:center;gap:5px}.calendar-toolbar button{min-width:32px;min-height:34px;font-size:20px}.calendar-toolbar button.link{font-size:11px}.calendar-weekdays,.calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.calendar-weekdays{font-size:10px;color:var(--muted);text-align:center;margin-bottom:10px}.calendar-weekdays span{padding:5px 0}.calendar-day{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:57px;position:relative;font-size:13px;border:1px solid transparent;border-radius:5px}.calendar-day:hover{background:#f3f2f8}.calendar-day.repayment-day{color:#633ce0;background:#eee8ff;font-weight:600}.calendar-day.selected-day{border-color:#7047ff}.calendar-day.calendar-today>span{text-decoration:underline;text-underline-offset:4px}.calendar-day i{width:4px;height:4px;background:#a0a5ae;border-radius:50%;position:absolute;bottom:5px}.repayment-day i{background:var(--purple)}.compact-calendar .calendar-day{min-height:36px;font-size:12px}.calendar-legend{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);margin-top:18px}.calendar-legend>span{width:9px;height:9px;border-radius:2px;background:#ddd0ff}.calendar-entry{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}.calendar-entry>div:first-child{flex:1;min-width:0}.calendar-entry>div:last-child{text-align:right}.calendar-entry strong{font-size:13px;display:block;line-height:1.5;overflow-wrap:anywhere;font-weight:500}.calendar-entry small{font-size:11px;color:var(--muted);display:block;line-height:1.6;margin-top:4px}.calendar-entry .calendar-kind{margin:0 0 6px;font-size:10px}.payment-entry .calendar-kind{color:var(--purple)}.calendar-entry p{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0;font-size:12px}.calendar-entry .link{margin-top:6px}.calendar-amount{white-space:nowrap;font-variant-numeric:tabular-nums}.spending-card{margin-top:24px}.spending-card select{max-width:140px;padding:8px;border:1px solid var(--line);border-radius:4px;background:white;color:var(--ink);font:inherit;font-size:11px}.spending-period{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:var(--muted)}.spending-period button{min-width:32px;min-height:32px;font-size:20px}.spending-chart{width:190px;height:190px;margin:12px auto 20px;position:relative}.spending-chart svg{width:100%;height:100%}.spending-chart>div{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;pointer-events:none}.spending-chart strong{font-size:17px;letter-spacing:-.4px;font-weight:600;font-variant-numeric:tabular-nums;max-width:128px}.spending-chart small{font-size:10px;color:var(--muted);margin-top:5px}.spending-category{display:grid;grid-template-columns:8px minmax(0,1fr) auto 46px;gap:9px;align-items:center;font-size:12px;padding:10px 0;border-top:1px solid var(--line)}.spending-category>span:first-child{width:7px;height:7px;border-radius:2px}.spending-category strong{font-weight:500;font-variant-numeric:tabular-nums}.spending-category small{text-align:right;color:var(--muted);font-size:11px}.spending-comparison{margin-top:16px;font-size:11px;color:var(--muted)}
+@media(max-width:1010px){.calendar-layout{grid-template-columns:1fr}.calendar-detail{scroll-margin-top:20px}}@media(max-width:760px){.calendar-layout{gap:18px}.calendar-day{min-height:42px;font-size:12px}.calendar-days,.calendar-weekdays{gap:3px}.calendar-toolbar{margin-bottom:14px}.calendar-toolbar h2{font-size:14px}.calendar-detail .cardhead{align-items:flex-start}.calendar-detail h2{font-size:14px}.calendar-entry{gap:10px}.spending-card{margin-top:18px}.spending-card .cardhead{align-items:center}.spending-card .cardhead h2{font-size:14px}.spending-card select{max-width:116px}.spending-chart{width:180px;height:180px}.dialog .ratio-fields input{font-size:16px}.compact-calendar .calendar-day{min-height:35px}}
 </style></head><body>
 <svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 <aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><svg class="house-small" aria-hidden="true"><use href="#house-logo"/></svg><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><button class="person" onclick="navigate('profile')"><span class="avatar">AC</span><div><strong id="sidebar-name">Alex Chen</strong><small>Profile &nbsp; ›</small></div></button></div></aside>
@@ -125,24 +127,36 @@ function parseMoney(value) {
     throw new Error("Enter an amount between $0.01 and $1,000,000.00.");
   return cents;
 }
-function splitCents(cents, participants) {
-  if (!Number.isSafeInteger(cents) || cents < 1)
-    throw new Error("Invalid expense amount.");
-  const ids = [...new Set(participants)].sort();
-  if (!ids.length || ids.some((id) => !MEMBER_IDS.includes(id)))
-    throw new Error("Choose at least one roommate.");
-  return Object.fromEntries(
-    ids.map((id, i) => [
-      id,
-      Math.floor(cents / ids.length) + (i < cents % ids.length ? 1 : 0),
-    ]),
-  );
+function splitCents(cents, participants, ratios) {
+  if (!Number.isSafeInteger(cents) || cents < 1) throw new Error('Invalid expense amount.');
+  const ids=[...new Set(participants)].sort();
+  if(!ids.length || ids.some(id=>!MEMBER_IDS.includes(id))) throw new Error('Choose at least one roommate.');
+  if(ratios!==undefined && (!ratios || typeof ratios!=='object' || Array.isArray(ratios) || Object.keys(ratios).length!==ids.length || Object.keys(ratios).some(id=>!ids.includes(id)) || ids.some(id=>!Number.isInteger(ratios[id])||ratios[id]<0||ratios[id]>10000) || ids.reduce((n,id)=>n+ratios[id],0)!==10000)) throw new Error('Percentages must add up to 100%.');
+  const denominator=ratios===undefined?ids.length:10000;
+  const parts=ids.map(id=>{const numerator=cents*(ratios===undefined?1:ratios[id]);return {id,cents:Math.floor(numerator/denominator),remainder:numerator%denominator};});
+  let left=cents-parts.reduce((n,p)=>n+p.cents,0);
+  for(const part of [...parts].sort((a,b)=>b.remainder-a.remainder||a.id.localeCompare(b.id))){if(left--<=0)break;part.cents++;}
+  return Object.fromEntries(parts.map(p=>[p.id,p.cents]));
+}
+function splitExpense(expense){return splitCents(expense.cents,expense.participants,expense.splitMethod==='percent'?expense.ratios:undefined);}
+function parsePercent(value){const raw=String(value).trim();if(!/^\d+(\.\d{1,2})?$/.test(raw))throw new Error('Use percentages with up to two decimal places.');const [whole,decimal='']=raw.split('.');const result=Number(whole)*100+Number(decimal.padEnd(2,'0'));if(result>10000)throw new Error('Each percentage must be between 0 and 100.');return result;}
+function localISO(date){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;}
+function reminderDate(reminder,month){
+  if(reminder.repeat==='One time')return reminder.date.startsWith(month)?reminder.date:null;
+  if(month<reminder.date.slice(0,7))return null;
+  const [year,m]=month.split('-').map(Number),day=Math.min(Number(reminder.date.slice(8)),new Date(year,m,0,12).getDate());
+  return `${month}-${String(day).padStart(2,'0')}`;
+}
+function spendingBreakdown(data,month,viewer=null){
+  const categories={Housing:0,Utilities:0,Groceries:0,Other:0};
+  for(const expense of data.expenses){if(!expense.paid||expense.date.slice(0,7)!==month)continue;categories[expense.category]+=viewer?(splitExpense(expense)[viewer]||0):expense.cents;}
+  return {categories,total:Object.values(categories).reduce((a,b)=>a+b,0)};
 }
 function balances(data) {
   const result = Object.fromEntries(MEMBER_IDS.map((id) => [id, 0]));
   for (const expense of data.expenses) {
     if (!expense.paid) continue;
-    const shares = splitCents(expense.cents, expense.participants);
+    const shares = splitExpense(expense);
     result[expense.payer] += expense.cents;
     for (const [id, cents] of Object.entries(shares)) result[id] -= cents;
   }
@@ -175,9 +189,10 @@ function settlementPlan(data) {
   }
   return result;
 }
-function nextDue(date, repeat) {
+function nextDue(date, repeat, everyDays) {
   const d = new Date(date + "T12:00:00");
-  if (repeat === "Daily") d.setDate(d.getDate() + 1);
+  if(repeat==='Custom'){if(!Number.isInteger(everyDays)||everyDays<1||everyDays>3650)throw new Error('Enter a repeat interval from 1 to 3650 days.');d.setDate(d.getDate()+everyDays);}
+  else if (repeat === "Daily") d.setDate(d.getDate() + 1);
   else if (repeat === "Weekly") d.setDate(d.getDate() + 7);
   else if (repeat === "Monthly") {
     const day = d.getDate();
@@ -265,7 +280,11 @@ function validateData(data) {
       new Set(e.participants).size !== e.participants.length
     )
       fail();
-    splitCents(e.cents, e.participants);
+    if(e.notes!==undefined && (typeof e.notes!=='string'||e.notes.length>500))fail();
+    if(e.splitMethod!==undefined&&!['equal','percent'].includes(e.splitMethod))fail();
+    if(e.splitMethod==='percent' && e.ratios===undefined)fail();
+    if(e.splitMethod!=='percent' && e.ratios!==undefined)fail();
+    splitExpense(e);
   }
   for (const s of data.shopping)
     if (
@@ -282,9 +301,14 @@ function validateData(data) {
       !MEMBER_IDS.includes(c.owner) ||
       !date(c.due) ||
       typeof c.done !== "boolean" ||
-      !["Daily", "Weekly", "Monthly", "One time"].includes(c.repeat)
+      !["Daily", "Weekly", "Monthly", "One time", "Custom"].includes(c.repeat) ||
+      (c.repeat==='Custom' && (!Number.isInteger(c.everyDays)||c.everyDays<1||c.everyDays>3650))
     )
       fail();
+  if(data.reminders!==undefined){
+    if(!Array.isArray(data.reminders)||data.reminders.length>1000)fail();const ids=new Set();
+    for(const r of data.reminders){if(!r||!isSafeRecordId(r.id)||ids.has(r.id)||!text(r.title)||!date(r.date)||!['One time','Monthly'].includes(r.repeat)||!MEMBER_IDS.includes(r.owner)||(r.notes!==undefined&&(typeof r.notes!=='string'||r.notes.length>500)))fail();ids.add(r.id);}
+  }
   for (const s of data.settlements)
     if (
       !MEMBER_IDS.includes(s.from) ||
@@ -438,6 +462,50 @@ async function receiptImport(data){
   }return files;
 }
 
+function choreRepeatLabel(chore){return chore.repeat==='Custom'?`Every ${chore.everyDays} days`:chore.repeat;}
+let calendarMonth=localISO(new Date()).slice(0,7),calendarSelected=localISO(new Date()),spendingMonth=localISO(new Date()).slice(0,7),spendingScope='mine';
+function monthShift(month,delta){const [year,m]=month.split('-').map(Number);return localISO(new Date(year,m-1+delta,1,12)).slice(0,7);}
+function monthTitle(month){return new Date(month+'-01T12:00:00').toLocaleDateString('en-CA',{month:'long',year:'numeric'});}
+function calendarEntries(day){
+  const list=[];
+  for(const r of state.reminders||[])if(reminderDate(r,day.slice(0,7))===day)list.push({kind:'reminder',id:r.id,title:r.title,detail:memberLabel(r.owner)+(r.repeat==='Monthly'?' · Monthly':''),notes:r.notes||''});
+  for(const e of state.expenses)if(e.date===day)list.push({kind:'expense',id:e.id,title:e.name,detail:`${memberLabel(e.payer)} · ${e.paid?'Paid':'Planned'}`,amount:money(e.cents),notes:e.notes||''});
+  for(const c of state.chores)if(c.due===day)list.push({kind:'chore',id:c.id,title:c.name,detail:`${memberLabel(c.owner)} · ${c.done?'Completed':'To do'} · ${choreRepeatLabel(c)}`});
+  for(const s of state.settlements)if(s.date===day)list.push({kind:'settlement',id:s.id,title:'Repayment recorded',detail:`${memberLabel(s.from)} → ${memberLabel(s.to)}`,amount:money(s.cents)});
+  return list;
+}
+function calendarGrid(compact=false){
+  const [year,month]=calendarMonth.split('-').map(Number),first=new Date(year,month-1,1,12),days=new Date(year,month,0,12).getDate(),offset=(first.getDay()+6)%7;
+  let cells='<span class="calendar-blank"></span>'.repeat(offset);
+  for(let day=1;day<=days;day++){
+    const date=calendarMonth+'-'+String(day).padStart(2,'0'),events=calendarEntries(date),repayment=events.some(e=>e.kind==='reminder'),selected=date===calendarSelected,isToday=date===today();
+    cells+=`<button type="button" data-date="${date}" class="calendar-day${repayment?' repayment-day':''}${selected?' selected-day':''}${isToday?' calendar-today':''}" aria-label="${date}${repayment?' · Repayment due':''}" aria-pressed="${selected}" onclick="selectCalendarDay('${date}')"><span>${day}</span>${events.length?'<i aria-hidden="true"></i>':''}</button>`;
+  }
+  return `<div class="calendar-toolbar"><h2>${esc(monthTitle(calendarMonth))}</h2><div><button type="button" aria-label="Previous calendar month" onclick="moveCalendarMonth(-1)">‹</button><button type="button" class="link" onclick="calendarToday()">Today</button><button type="button" aria-label="Next calendar month" onclick="moveCalendarMonth(1)">›</button></div></div><div class="calendar-weekdays">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<span>${d}</span>`).join('')}</div><div class="calendar-days${compact?' compact-calendar':''}">${cells}</div>`;
+}
+function moveCalendarMonth(delta){calendarMonth=monthShift(calendarMonth,delta);calendarSelected=calendarMonth+'-01';render();}
+function calendarToday(){calendarSelected=today();calendarMonth=today().slice(0,7);render();}
+function selectCalendarDay(day){calendarSelected=day;calendarMonth=day.slice(0,7);navigate('calendar');document.querySelector(`[data-date="${day}"]`)?.focus({preventScroll:true});}
+function dayDetails(){
+  const events=calendarEntries(calendarSelected),title=new Date(calendarSelected+'T12:00:00').toLocaleDateString('en-CA',{weekday:'long',month:'short',day:'numeric'});
+  return `<section class="card calendar-detail"><div class="cardhead"><h2>${esc(title)}</h2><button class="link" onclick="openReminder(null,'${calendarSelected}')">Add repayment</button></div>${events.map(e=>`<div class="calendar-entry${e.kind==='reminder'?' payment-entry':''}"><div><small class="calendar-kind">${{reminder:'Repayment due',expense:'Expense',chore:'Chore',settlement:'Repayment'}[e.kind]}</small><strong>${esc(e.title)}</strong><small>${esc(e.detail)}</small>${e.notes?`<p>${esc(e.notes)}</p>`:''}</div><div>${e.amount?`<strong class="calendar-amount">${e.amount}</strong>`:''}<button class="link" onclick="${e.kind==='reminder'?`openReminder('${e.id}')`:e.kind==='expense'?`openAdd('expense','${e.id}')`:e.kind==='chore'?`openAdd('chore','${e.id}')`:`navigate('expenses')`}">${e.kind==='settlement'?'View':'Edit'}</button></div></div>`).join('')||'<div class="board-empty">Nothing scheduled.</div>'}</section>`;
+}
+function calendarPage(){return head('Calendar','','Add repayment','reminder')+`<div class="calendar-layout"><section class="card">${calendarGrid()}<div class="calendar-legend"><span></span>Repayment due</div></section>${dayDetails()}</div>`;}
+function calendarHome(){return `<div class="card"><div class="cardhead"><h2>Calendar</h2><button class="link" onclick="navigate('calendar')">View all</button></div>${calendarGrid(true)}</div>`;}
+function openReminder(id,date=calendarSelected){
+  const existing=(state.reminders||[]).find(r=>r.id===id),item=existing||{title:'',date,repeat:'Monthly',owner:me(),notes:''};
+  modal(existing?'Edit repayment date':'Add repayment date',`<label for="reminder-title">Title</label><input id="reminder-title" name="title" maxlength="120" value="${esc(item.title)}" placeholder="e.g. Rent repayment" required><label for="reminder-date">First due date</label><input id="reminder-date" type="date" name="date" value="${item.date}" required><label for="reminder-repeat">Repeat</label><select id="reminder-repeat" name="repeat"><option ${item.repeat==='Monthly'?'selected':''}>Monthly</option><option ${item.repeat==='One time'?'selected':''}>One time</option></select><label for="reminder-owner">Assigned to</label><select id="reminder-owner" name="owner">${options(item.owner)}</select><label for="reminder-notes">Notes</label><textarea id="reminder-notes" name="notes" maxlength="500" rows="2">${esc(item.notes)}</textarea><p class="note">A calendar reminder. Record completed repayments in Expenses.</p><button class="btn" type="submit">Save repayment date</button>${existing?`<button type="button" class="btn secondary text-danger" onclick="removeReminder('${existing.id}')">Delete repayment date</button>`:''}`,fd=>{
+    const title=fd.get('title').trim();if(!title)throw new Error('Enter a title.');const record={id:existing?.id||uid(),title,date:fd.get('date'),repeat:fd.get('repeat'),owner:fd.get('owner'),notes:fd.get('notes').trim()};
+    const candidate={...state,reminders:existing?state.reminders.map(r=>r.id===id?record:r):[...(state.reminders||[]),record]};validateData(candidate);state.reminders=candidate.reminders;calendarMonth=record.date.slice(0,7);calendarSelected=record.date;finish(`${me()} set a repayment date`,title,'Household');
+  });
+}
+function removeReminder(id){const item=state.reminders.find(r=>r.id===id);if(!item)return;modal('Delete repayment date?',`<p>${esc(item.title)} will be removed from the calendar.</p><button class="btn" type="submit">Confirm delete</button>`,()=>{state.reminders=state.reminders.filter(r=>r.id!==id);finish(`${me()} removed a repayment date`,item.title,'Household');});}
+function spendingCard(){
+  const data=spendingBreakdown(state,spendingMonth,spendingScope==='mine'?me():null),previous=spendingBreakdown(state,monthShift(spendingMonth,-1),spendingScope==='mine'?me():null),colors={Housing:'#7047ff',Utilities:'#839bb5',Groceries:'#5e9c8c',Other:'#c3aa88'};
+  let start=0;const arcs=Object.entries(data.categories).filter(([,value])=>value>0).map(([category,value])=>{const part=value/data.total*100,arc=`<circle cx="70" cy="70" r="52" fill="none" stroke="${colors[category]}" stroke-width="13" pathLength="100" stroke-dasharray="${part} ${100-part}" stroke-dashoffset="${-start}" transform="rotate(-90 70 70)"/>`;start+=part;return arc;}).join('');
+  return `<section class="card spending-card"><div class="cardhead"><h2>Spending by category</h2><select aria-label="Spending scope" onchange="spendingScope=this.value;render()"><option value="mine" ${spendingScope==='mine'?'selected':''}>Your share</option><option value="household" ${spendingScope==='household'?'selected':''}>Household</option></select></div><div class="spending-period"><button aria-label="Previous spending month" onclick="spendingMonth=monthShift(spendingMonth,-1);render()">‹</button><span>${esc(monthTitle(spendingMonth))}</span><button aria-label="Next spending month" onclick="spendingMonth=monthShift(spendingMonth,1);render()">›</button></div><div class="spending-chart"><svg viewBox="0 0 140 140" role="img" aria-label="${esc((spendingScope==='mine'?'Your share':'Household')+' paid expenses: '+money(data.total))}"><circle cx="70" cy="70" r="52" fill="none" stroke="#eeeff2" stroke-width="13"/>${arcs}</svg><div><strong data-spending-total>${money(data.total)}</strong><small>Paid expenses</small></div></div>${data.total?Object.entries(data.categories).map(([category,value])=>`<div class="spending-category"><span style="background:${colors[category]}"></span><span>${category}</span><strong>${money(value)}</strong><small>${(value/data.total*100).toFixed(1)}%</small></div>`).join(''):'<p class="board-empty">No paid expenses this month.</p>'}${previous.total?`<p class="spending-comparison">${data.total>=previous.total?'+':''}${((data.total-previous.total)/previous.total*100).toFixed(1)}% vs previous month</p>`:''}</section>`;
+}
+
 const $ = (id) => document.getElementById(id),
   esc = (s) =>
     String(s ?? "").replace(
@@ -578,6 +646,7 @@ function seed() {
       },
     ],
     settlements: [],
+    reminders: [],
     activity: [
       {
         id: uid(),
@@ -599,6 +668,7 @@ try {
   state = seed();
   loadIssue = true;
 }
+state.reminders ||= [];
 let storageFailed = false;
 let page = "home",
   filter = "All",
@@ -647,7 +717,7 @@ function toast(text) {
   toastTimer = setTimeout(() => $("toast").classList.remove("show"), 3500);
 }
 function navigate(p) {
-  page = p;
+  page = p === "activity" ? "calendar" : p;
   query = "";
   filter = "All";
   render();
@@ -660,7 +730,7 @@ function setFilter(value) {
   if(restore) [...document.querySelectorAll('.tabs button')].find(b=>b.textContent===value)?.focus({preventScroll:true});
 }
 function matchesSearch(record) {
-  return !query || [record.name,record.owner,record.payer,record.category,record.text,record.detail,record.actor,record.actor ? memberLabel(record.actor) : ""].filter(Boolean).join(" ").toLocaleLowerCase().includes(query.toLocaleLowerCase().trim());
+  return !query || [record.name,record.notes,record.owner,record.payer,record.category,record.text,record.detail,record.actor,record.actor ? memberLabel(record.actor) : ""].filter(Boolean).join(" ").toLocaleLowerCase().includes(query.toLocaleLowerCase().trim());
 }
 function searchList(label) {
  return `<div class="list-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="list-search" type="search" aria-label="Search ${label}" placeholder="Search ${label}…" maxlength="120" value="${esc(query)}" oninput="updateSearch(this.value)"></label>${query?'<button class="link" onclick="updateSearch(&quot;&quot;)">Clear search</button>':''}</div>`;
@@ -686,12 +756,12 @@ function tabs(items) {
 function head(title, sub, action, type) {
   return `<div class="heading"><div><h1>${esc(title)}</h1>${sub ? `<p>${esc(sub)}</p>` : ""}</div>${action ? `<button class="btn" onclick="openAdd('${type}')">＋ ${action}</button>` : ""}</div>`;
 }
-const iconPaths = {"home": "<path d=\"m3 10 9-7 9 7v10H3z\"/><path d=\"M9 20v-7h6v7\"/>", "expenses": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"1\"/><path d=\"M8 8h8M8 12h8M8 16h5\"/>", "shopping": "<path d=\"m3 4 2 0 3 12h11l2-8H6\"/><circle cx=\"9\" cy=\"20\" r=\"1\"/><circle cx=\"18\" cy=\"20\" r=\"1\"/>", "chores": "<rect x=\"5\" y=\"5\" width=\"15\" height=\"16\" rx=\"1\"/><path d=\"M9 3h7v4H9zM9 14l3 3 5-6\"/>", "activity": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>", "settings": "<path d=\"M4 7h16M4 17h16\"/><circle cx=\"9\" cy=\"7\" r=\"3\" fill=\"white\"/><circle cx=\"16\" cy=\"17\" r=\"3\" fill=\"white\"/>", "other": "<path d=\"M12 3v18M17 6H9a3 3 0 0 0 0 6h6a3 3 0 0 1 0 6H6\"/>", "utility": "<path d=\"m13 2-8 12h7l-1 8 8-12h-7z\"/>"};
+const iconPaths = {"home": "<path d=\"m3 10 9-7 9 7v10H3z\"/><path d=\"M9 20v-7h6v7\"/>", "expenses": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"1\"/><path d=\"M8 8h8M8 12h8M8 16h5\"/>", "shopping": "<path d=\"m3 4 2 0 3 12h11l2-8H6\"/><circle cx=\"9\" cy=\"20\" r=\"1\"/><circle cx=\"18\" cy=\"20\" r=\"1\"/>", "chores": "<rect x=\"5\" y=\"5\" width=\"15\" height=\"16\" rx=\"1\"/><path d=\"M9 3h7v4H9zM9 14l3 3 5-6\"/>", "activity": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>", "calendar": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"1\"/><path d=\"M7 3v4M17 3v4M3 10h18M7 14h2M14 14h2M7 18h2\"/>", "settings": "<path d=\"M4 7h16M4 17h16\"/><circle cx=\"9\" cy=\"7\" r=\"3\" fill=\"white\"/><circle cx=\"16\" cy=\"17\" r=\"3\" fill=\"white\"/>", "other": "<path d=\"M12 3v18M17 6H9a3 3 0 0 0 0 6h6a3 3 0 0 1 0 6H6\"/>", "utility": "<path d=\"m13 2-8 12h7l-1 8 8-12h-7z\"/>"};
 function uiIcon(name){return `<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconPaths[name]||iconPaths.other}</svg>`;}
 const categoryIcon = c => uiIcon(({Housing:'home',Utilities:'utility',Groceries:'shopping',Other:'other'})[c]);
 function expenseRow(e) {
-  const shares = splitCents(e.cents, e.participants);
-  return `<div class="row expense-row"><span class="bubble ${e.category === "Housing" ? "lavender" : "mint"}">${categoryIcon(e.category)}</span><div class="info"><strong>${esc(e.name)}</strong><small>${esc(memberLabel(e.payer))} ${e.paid ? "paid" : "will pay"} · ${esc(e.date)} · ${e.participants.length} people</small><small>${shares[me()] !== undefined ? "Your share: " + money(shares[me()]) : "You are not in this split"}</small></div><div class="money">${money(e.cents)}<br><button class="tag ${e.paid ? "" : "pending"}" onclick="${e.paid ? `expenseDetails('${e.id}')` : `markPaid('${e.id}')`}">${e.paid ? "Paid" : "Mark paid"}</button>${attachmentLink("expense",e)}</div><div class="row-actions"><button aria-label="Edit ${esc(e.name)}" onclick="openAdd('expense','${e.id}')">Edit</button></div></div>`;
+  const shares = splitExpense(e);
+  return `<div class="row expense-row"><span class="bubble ${e.category === "Housing" ? "lavender" : "mint"}">${categoryIcon(e.category)}</span><div class="info"><strong>${esc(e.name)}</strong><small>${esc(memberLabel(e.payer))} ${e.paid ? "paid" : "will pay"} · ${esc(e.date)} · ${e.participants.length} people</small><small>${shares[me()] !== undefined ? "Your share: " + money(shares[me()]) : "You are not in this split"}${e.splitMethod==='percent'?" · Custom split":""}</small>${e.notes?`<small class="expense-row-notes">${esc(e.notes)}</small>`:""}</div><div class="money">${money(e.cents)}<br><button class="tag ${e.paid ? "" : "pending"}" onclick="${e.paid ? `expenseDetails('${e.id}')` : `markPaid('${e.id}')`}">${e.paid ? "Paid" : "Mark paid"}</button>${attachmentLink("expense",e)}</div><div class="row-actions"><button aria-label="Edit ${esc(e.name)}" onclick="openAdd('expense','${e.id}')">Edit</button></div></div>`;
 }
 function activityTitle(item) {
   const name=memberLabel(item.actor);
@@ -721,7 +791,7 @@ function shoppingRow(s) {
 }
 function choreRow(c) {
   const overdue = !c.done && c.due < today();
-  return `<div class="row chore-row"><span class="bubble ${c.done ? "mint" : "blue"}">${uiIcon("chores")}</span><div class="info"><strong class="${c.done ? "done" : ""}">${esc(c.name)}</strong><small>${esc(memberLabel(c.owner))} · ${esc(c.repeat)}</small><small class="${overdue ? "due-over" : ""}">${overdue ? "Overdue · " : ""}Due ${esc(c.due)}</small></div><button class="tag ${c.done ? "" : "pending"}" onclick="toggleChore('${c.id}')">${c.done ? "Reopen" : "Mark done"}</button><div class="row-actions"><button aria-label="Edit ${esc(c.name)}" onclick="openAdd('chore','${c.id}')">Edit</button></div></div>`;
+  return `<div class="row chore-row"><span class="bubble ${c.done ? "mint" : "blue"}">${uiIcon("chores")}</span><div class="info"><strong class="${c.done ? "done" : ""}">${esc(c.name)}</strong><small>${esc(memberLabel(c.owner))} · ${esc(choreRepeatLabel(c))}</small><small class="${overdue ? "due-over" : ""}">${overdue ? "Overdue · " : ""}Due ${esc(c.due)}</small></div><button class="tag ${c.done ? "" : "pending"}" onclick="toggleChore('${c.id}')">${c.done ? "Reopen" : "Mark done"}</button><div class="row-actions"><button aria-label="Edit ${esc(c.name)}" onclick="openAdd('chore','${c.id}')">Edit</button></div></div>`;
 }
 function render() {
   $("content").dataset.view = page;
@@ -743,7 +813,7 @@ function render() {
     ["expenses", "◈", "Expenses"],
     ["shopping", "♧", "Shopping"],
     ["chores", "✿", "Chores"],
-    ["activity", "◷", "Activity"],
+    ["calendar", "◷", "Calendar"],
     ["settings", "⚙", "Settings"],
   ]
     .map(
@@ -756,7 +826,7 @@ function render() {
     html =
       head("Overview", "") +
       `<section class="attention-bar" aria-label="Household overview"><button onclick="showDue('Overdue')"><span class="attention-dot overdue"></span><strong>${chores.filter(c=>c.due<today()).length}</strong><span>overdue chores</span><span aria-hidden="true">→</span></button><button onclick="showDue('Due today')"><span class="attention-dot"></span><strong>${chores.filter(c=>c.due===today()).length}</strong><span>due today</span><span aria-hidden="true">→</span></button><button onclick="navigate('shopping');setFilter('To buy')"><span class="attention-dot shopping-dot"></span><strong>${state.shopping.filter(s=>!s.done).length}</strong><span>items to buy</span><span aria-hidden="true">→</span></button></section>` +
-      `<div class="grid"><div><div class="card balance"><p>Your balance · CAD</p><div class="amount">${money(Math.abs(balance))}</div><span class="pill">${balance > 0 ? "You are owed" : balance < 0 ? "You owe" : "Settled up"}</span><div class="balancefoot"><button onclick="navigate('expenses')">View expenses</button></div></div><div class="quick"><button onclick="openAdd('expense')"><span class="bubble mint">${uiIcon("other")}</span>Add expense</button><button onclick="openAdd('purchase')"><span class="bubble lavender">${uiIcon("shopping")}</span>Add purchase</button><button onclick="openAdd('chore')"><span class="bubble blue">${uiIcon("chores")}</span>Add chore</button></div><div class="stats"><div class="card stat"><small>Total paid</small><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><div class="card stat"><small>Your chores</small><strong>${myChores.length}<span style="font-size:12px;color:var(--muted)"> remaining</span></strong></div></div></div><div class="card"><div class="cardhead"><h2>Coming up</h2><button class="link" onclick="navigate('expenses')">View all</button></div>${[...pending].sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3).map(expenseRow).join("") || '<div class="board-empty">No upcoming bills.</div>'}<div style="margin-top:25px"><div class="cardhead"><h2>Household chores</h2><button class="link" onclick="navigate('chores')">See all</button></div><p>${state.chores.filter((c) => c.done).length} of ${state.chores.length} completed</p><div class="board-meter" style="margin-top:12px"><span style="width:${state.chores.length ? (state.chores.filter((c) => c.done).length / state.chores.length) * 100 : 0}%"></span></div>${[...chores].sort((a,b)=>Number(b.owner===me())-Number(a.owner===me())||a.due.localeCompare(b.due)).slice(0,3).map(choreRow).join("") || '<div class="board-empty">All chores complete.</div>'}</div></div></div><div class="grid lower"><div class="card"><div class="cardhead"><h2>Activity</h2><button class="link" onclick="navigate('activity')">View all</button></div>${activityRows(3)}</div><div class="card"><div class="cardhead"><h2>Roommates</h2><button class="link" onclick="navigate('settings')">Manage</button></div>${MEMBER_IDS.map((id) => `<div class="row">${avatarHTML(id)}<div class="info"><strong>${esc(memberLabel(id))}${id === me() ? " · You" : ""}</strong><small>${all[id] > 0 ? "Owed " + money(all[id]) : all[id] < 0 ? "Owes " + money(-all[id]) : "Settled up"}</small></div></div>`).join("")}</div></div>`;
+      `<div class="grid"><div><div class="card balance"><p>Your balance · CAD</p><div class="amount">${money(Math.abs(balance))}</div><span class="pill">${balance > 0 ? "You are owed" : balance < 0 ? "You owe" : "Settled up"}</span><div class="balancefoot"><button onclick="navigate('expenses')">View expenses</button></div></div><div class="quick"><button onclick="openAdd('expense')"><span class="bubble mint">${uiIcon("other")}</span>Add expense</button><button onclick="openAdd('purchase')"><span class="bubble lavender">${uiIcon("shopping")}</span>Add purchase</button><button onclick="openAdd('chore')"><span class="bubble blue">${uiIcon("chores")}</span>Add chore</button></div><div class="stats"><div class="card stat"><small>Total paid</small><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><div class="card stat"><small>Your chores</small><strong>${myChores.length}<span style="font-size:12px;color:var(--muted)"> remaining</span></strong></div></div></div><div class="card"><div class="cardhead"><h2>Coming up</h2><button class="link" onclick="navigate('expenses')">View all</button></div>${[...pending].sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3).map(expenseRow).join("") || '<div class="board-empty">No upcoming bills.</div>'}<div style="margin-top:25px"><div class="cardhead"><h2>Household chores</h2><button class="link" onclick="navigate('chores')">See all</button></div><p>${state.chores.filter((c) => c.done).length} of ${state.chores.length} completed</p><div class="board-meter" style="margin-top:12px"><span style="width:${state.chores.length ? (state.chores.filter((c) => c.done).length / state.chores.length) * 100 : 0}%"></span></div>${[...chores].sort((a,b)=>Number(b.owner===me())-Number(a.owner===me())||a.due.localeCompare(b.due)).slice(0,3).map(choreRow).join("") || '<div class="board-empty">All chores complete.</div>'}</div></div></div><div class="grid lower">${calendarHome()}<div class="card"><div class="cardhead"><h2>Roommates</h2><button class="link" onclick="navigate('settings')">Manage</button></div>${MEMBER_IDS.map((id) => `<div class="row">${avatarHTML(id)}<div class="info"><strong>${esc(memberLabel(id))}${id === me() ? " · You" : ""}</strong><small>${all[id] > 0 ? "Owed " + money(all[id]) : all[id] < 0 ? "Owes " + money(-all[id]) : "Settled up"}</small></div></div>`).join("")}</div></div>`;
   if (page === "expenses") {
     const rows = state.expenses.filter(matchesSearch).filter(
       (e) =>
@@ -774,14 +844,14 @@ function render() {
         "Add expense",
         "expense",
       ) +
-      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row">${avatarHTML(id)}<div class="info"><strong>${esc(memberLabel(id))}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
+      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row">${avatarHTML(id)}<div class="info"><strong>${esc(memberLabel(id))}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
         settlementPlan(state)
           .map(
             (s) =>
               `<div class="row"><div class="info"><strong>${esc(memberLabel(s.from))} → ${esc(memberLabel(s.to))}</strong></div><span class="money">${money(s.cents)}</span></div>`,
           )
           .join("") || '<p class="note">Everyone is settled up.</p>'
-      }</div></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row settlement-row"><div class="info"><strong>${esc(memberLabel(s.from))} → ${esc(memberLabel(s.to))}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}${attachmentLink("settlement",s)}</span><button class="mini-btn" onclick="editRecordReceipts('settlement','${s.id}')">Edit attachments</button><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
+      }</div></div>${spendingCard()}<div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row settlement-row"><div class="info"><strong>${esc(memberLabel(s.from))} → ${esc(memberLabel(s.to))}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}${attachmentLink("settlement",s)}</span><button class="mini-btn" onclick="editRecordReceipts('settlement','${s.id}')">Edit attachments</button><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
   }
   if (page === "shopping") {
     const rows = state.shopping.filter(matchesSearch).filter(
@@ -828,14 +898,11 @@ function render() {
       ) +
       `<div class="card list-card"><div class="week-strip"><strong>${state.chores.filter((c) => c.done).length} completed</strong><span>${chores.length} to do · ${today()}</span></div>${searchList("chores")}<p class="result-count" role="status">${rows.length} of ${state.chores.length} chores</p>${tabs(["All", "Mine", "To do", "Overdue", "Due today", "Completed"])}${rows.map(choreRow).join("") || '<div class="board-empty">No chores in this view.</div>'}</div>`;
   }
-  if (page === "activity")
-    html =
-      head("Activity", "") +
-      `<div class="card list-card">${searchList("activity")}${tabs(["All", "Expenses", "Purchases", "Chores", "Household"])}${activityRows()}</div>`;
+  if (page === "calendar") html = calendarPage();
   if (page === "settings")
     html =
       head("House settings", "") +
-      `<div class="grid"><div class="card"><div class="cardhead"><h2>${esc(state.houseName)}</h2><button class="link" onclick="openHouse()">Edit name</button></div>${MEMBER_IDS.map((id) => `<div class="row">${avatarHTML(id)}<div class="info"><strong>${esc(profileName(id))}</strong><small>${id === me() ? "Selected" : "Example roommate"}</small></div><button class="link" onclick="switchViewer('${id}')">View as</button></div>`).join("")}<div class="settings-row"><strong>Split method</strong><span>Equal · selected participants</span></div><div class="settings-row"><strong>Currency</strong><span>CAD ($)</span></div><p class="note">Example household · saved on this device. Roommates do not sync across devices.</p></div><div class="card"><h2>Data & backups</h2><p class="note">Saved on this device. Export a backup to move your data.</p><div class="file-controls"><button class="btn secondary" onclick="exportData()">Export backup</button><button class="btn secondary" onclick="$('import-file').click()">Import backup</button></div><div class="line" style="margin:25px 0;border-top:1px solid var(--line)"></div><button class="btn secondary" onclick="openReset()">Restore sample data</button></div></div>`;
+      `<div class="grid"><div class="card"><div class="cardhead"><h2>${esc(state.houseName)}</h2><button class="link" onclick="openHouse()">Edit name</button></div>${MEMBER_IDS.map((id) => `<div class="row">${avatarHTML(id)}<div class="info"><strong>${esc(profileName(id))}</strong><small>${id === me() ? "Selected" : "Example roommate"}</small></div><button class="link" onclick="switchViewer('${id}')">View as</button></div>`).join("")}<div class="settings-row"><strong>Split method</strong><span>Equal by default</span></div><div class="settings-row"><strong>Currency</strong><span>CAD ($)</span></div><p class="note">Example household · saved on this device. Roommates do not sync across devices.</p></div><div class="card"><h2>Data & backups</h2><p class="note">Saved on this device. Export a backup to move your data.</p><div class="file-controls"><button class="btn secondary" onclick="exportData()">Export backup</button><button class="btn secondary" onclick="$('import-file').click()">Import backup</button></div><div class="line" style="margin:25px 0;border-top:1px solid var(--line)"></div><button class="btn secondary" onclick="openReset()">Restore sample data</button></div></div>`;
   if (page === "profile")
     html = head("Your profile", "") +
       `<div class="profile-layout"><section class="card profile-card"><div class="profile-heading">${avatarHTML(me(),true)}<div><h2>${esc(profileName(me()))}</h2><p>${esc(state.houseName)}</p></div><button class="btn secondary" onclick="openProfile()">Edit profile</button></div>${state.profiles?.[me()]?.bio ? `<p class="profile-bio">${esc(state.profiles[me()].bio)}</p>` : ''}<div class="profile-stats"><div><small>${balance>=0?'You are owed':'You owe'}</small><strong>${money(Math.abs(balance))}</strong></div><div><small>Chores remaining</small><strong>${myChores.length}</strong></div></div></section><section class="card"><div class="cardhead"><h2>Your chores</h2><button class="link" onclick="navigate('chores');setFilter('Mine')">View all</button></div>${[...myChores].sort((a,b)=>a.due.localeCompare(b.due)).slice(0,4).map(choreRow).join('') || '<div class="board-empty">No chores assigned.</div>'}</section></div>`;
@@ -904,6 +971,7 @@ function finish(text, detail, type) {
   return saved;
 }
 function openAdd(type, id, source) {
+  if(type==='reminder')return openReminder();
   const key = { expense: "expenses", purchase: "shopping", chore: "chores" }[
     type
   ];
@@ -914,9 +982,10 @@ function openAdd(type, id, source) {
     expense = type === "expense";
   const participants = item.participants || [...MEMBER_IDS];
   let receipts;
+  const defaultRatios=item.ratios||splitCents(10000,participants);
   modal(
     (existing ? "Edit " : "Add ") + type,
-    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${esc(memberLabel(w))}</label>`).join("")}</div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}${!chore?receiptField():""}${expense ? '<section id="split-preview" class="split-preview" aria-label="Split preview"></section>' : ""}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
+    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${esc(memberLabel(w))}</label>`).join("")}</div><label for="split-method">Split method</label><select id="split-method" name="splitMethod"><option value="equal" ${item.splitMethod!=='percent'?'selected':''}>Equal split</option><option value="percent" ${item.splitMethod==='percent'?'selected':''}>Custom percentages</option></select><div id="split-ratios" class="ratio-fields" hidden>${MEMBER_IDS.map(w=>`<label data-ratio-row="${w}">${esc(memberLabel(w))}<span><input name="ratio-${w}" aria-label="${esc(memberLabel(w))} percentage" inputmode="decimal" type="number" min="0" max="100" step="0.01" value="${((defaultRatios[w]||0)/100).toFixed(2)}"><small>%</small></span></label>`).join('')}<p id="ratio-total" role="status"></p></div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><div id="other-notes-field" hidden><label for="expense-notes">Notes</label><textarea id="expense-notes" name="notes" maxlength="500" rows="2" placeholder="What was this expense for?">${esc(item.notes||"")}</textarea></div><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly", "Custom"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><div id="custom-repeat-field" hidden><label for="every-days">Repeat every (days)</label><input id="every-days" name="everyDays" type="number" min="1" max="3650" step="1" value="${item.everyDays||3}"></div><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}${!chore?receiptField():""}${expense ? '<section id="split-preview" class="split-preview" aria-label="Split preview"></section>' : ""}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
     async (fd) => {
       const name = fd.get("name").trim();
       if (!name) throw new Error("Enter a name.");
@@ -925,27 +994,35 @@ function openAdd(type, id, source) {
       if (expense) {
         const cents = parseMoney(fd.get("amount"));
         const participants = fd.getAll("participants");
-        splitCents(cents, participants);
+        const splitMethod=fd.get('splitMethod'),ratios=splitMethod==='percent'?Object.fromEntries(participants.map(w=>[w,parsePercent(fd.get('ratio-'+w))])):undefined;
+        splitCents(cents, participants, ratios);
+        const notes=fd.get('notes')?.trim()||'';
+        if(fd.get('category')==='Other'&&!notes)throw new Error('Describe the Other expense in Notes.');
         Object.assign(record, {
           cents,
           participants,
+          splitMethod,
+          notes,
           payer: owner,
           category: fd.get("category"),
           date: fd.get("date"),
           paid: fd.get("status") === "paid",
         });
+        if(ratios)record.ratios=ratios;else delete record.ratios;
       } else if (chore) {
         Object.assign(record, {
           owner,
           due: fd.get("due"),
           repeat: fd.get("repeat"),
+          everyDays: fd.get("repeat")==="Custom"?Number(fd.get("everyDays")):undefined,
           done: item.done || false,
         });
+        if(record.repeat==='Custom' && (!Number.isInteger(record.everyDays)||record.everyDays<1||record.everyDays>3650))throw new Error('Enter a repeat interval from 1 to 3650 days.');
         if (existing) record.modified = true;
         if (
           existing?.done &&
           existing.nextId &&
-          (record.due !== existing.due || record.repeat !== existing.repeat)
+          (record.due !== existing.due || record.repeat !== existing.repeat || record.everyDays !== existing.everyDays)
         )
           throw new Error(
             "Reopen this recurring chore before changing its schedule.",
@@ -974,13 +1051,31 @@ function openAdd(type, id, source) {
     },
   );
   if(!chore)receipts=bindReceipts(item.attachments||[]);
+  if(chore){
+    const sync=()=>{const custom=$('repeat').value==='Custom';$('custom-repeat-field').hidden=!custom;$('every-days').required=custom;$('every-days').disabled=!custom;};
+    $('form').onchange=()=>{modalDirty=true;sync();};sync();
+  }
   if(expense){
+    let hasCustomDraft=item.splitMethod==='percent';
     const update=()=>{
-      const panel=$("split-preview"),fd=new FormData($("form"));
-      try{const cents=parseMoney(fd.get("amount"));const people=fd.getAll("participants");const shares=splitCents(cents,people);panel.innerHTML=`<div class="split-title"><strong>Everyone’s share</strong><span>${people.length} people · ${money(cents)}</span></div>${Object.entries(shares).map(([name,value])=>`<div class="split-person"><span>${esc(memberLabel(name))}${name===fd.get("owner")?' · Pays upfront':''}</span><strong>${money(value)}</strong></div>`).join('')}<p>Equal split.${fd.get("status")==='planned'?' Included after payment.':''}</p>`;}
-      catch{panel.innerHTML='<strong>Everyone’s share</strong><p>Enter an amount and select roommates.</p>';}
+      const form=$('form'),panel=$('split-preview'),selected=[...form.querySelectorAll('[name=participants]:checked')].map(el=>el.value),custom=$('split-method').value==='percent';
+      if(custom&&!hasCustomDraft&&selected.length){
+        const initial=splitCents(10000,selected);
+        for(const w of selected)form.elements.namedItem('ratio-'+w).value=(initial[w]/100).toFixed(2);
+        hasCustomDraft=true;
+      }
+      $('split-ratios').hidden=!custom;
+      for(const w of MEMBER_IDS){const row=form.querySelector(`[data-ratio-row="${w}"]`),input=row.querySelector('input');row.hidden=!selected.includes(w);input.disabled=!custom||!selected.includes(w);input.required=custom&&selected.includes(w);}
+      const other=$('category').value==='Other';$('other-notes-field').hidden=!other;$('expense-notes').required=other;$('expense-notes').disabled=!other;
+      const fd=new FormData(form);
+      try{
+        const ratios=custom?Object.fromEntries(selected.map(w=>[w,parsePercent(fd.get('ratio-'+w))])):undefined;
+        if(custom){const sum=Object.values(ratios).reduce((n,x)=>n+x,0);$('ratio-total').textContent='Total: '+(sum/100).toFixed(2)+'%';$('ratio-total').className=sum===10000?'':'text-danger';}
+        const cents=parseMoney(fd.get('amount')),shares=splitCents(cents,selected,ratios);
+        panel.innerHTML=`<div class="split-title"><strong>Everyone’s share</strong><span>${selected.length} people · ${money(cents)}</span></div>${Object.entries(shares).map(([name,value])=>`<div class="split-person"><span>${esc(memberLabel(name))}${name===fd.get('owner')?' · Pays upfront':''}</span><strong>${money(value)}</strong></div>`).join('')}<p>${custom?'Custom percentages.':'Equal split.'}${fd.get('status')==='planned'?' Included after payment.':''}</p>`;
+      }catch(error){panel.innerHTML='<strong>Everyone’s share</strong><p>'+esc(custom?error.message:'Enter an amount and select roommates.')+'</p>';}
     };
-    $("form").oninput=()=>{modalDirty=true;update();};$("form").onchange=()=>{modalDirty=true;update();};update();
+    $('form').oninput=()=>{modalDirty=true;update();};$('form').onchange=()=>{modalDirty=true;update();};update();
   }
 }
 
@@ -1006,7 +1101,7 @@ function expenseDetails(id) {
   modal(
     e.name,
     `<p>${esc(memberLabel(e.payer))} paid ${money(e.cents)} · ${e.date}</p>${Object.entries(
-      splitCents(e.cents, e.participants),
+      splitExpense(e),
     )
       .map(
         ([name, cents]) =>
@@ -1014,7 +1109,7 @@ function expenseDetails(id) {
       )
       .join(
         "",
-      )}<div class="detail-attachments">${attachmentLink("expense",e)}</div><button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
+      )}${e.notes?`<p class="expense-detail-notes">${esc(e.notes)}</p>`:""}<div class="detail-attachments">${attachmentLink("expense",e)}</div><button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
     () => {},
   );
 }
@@ -1069,8 +1164,9 @@ function toggleChore(id) {
       id: uid(),
       name: c.name,
       owner: c.owner,
-      due: nextDue(c.due, c.repeat),
+      due: nextDue(c.due, c.repeat, c.everyDays),
       repeat: c.repeat,
+      ...(c.repeat==='Custom'?{everyDays:c.everyDays}:{}),
       done: false,
     };
     state.chores.unshift(next);
