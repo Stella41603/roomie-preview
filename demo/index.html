@@ -17,11 +17,11 @@
 
 /* User-facing layout: keep actions prominent and remove promotional chrome. */
 .heading{margin-top:28px;margin-bottom:24px}.heading h1:last-child{margin-bottom:0}.balancefoot{justify-content:flex-end}.top{min-height:56px}.sidebar .bottom{padding-top:24px;border-top:1px solid var(--line)}.footer .link{font-size:11px}.note:empty{display:none}.card .note{max-width:65ch}.person{text-align:left}@media(max-width:760px){.top .right{justify-content:flex-end}.roommate-picker{margin-right:auto}.heading{margin-top:25px}.heading h1{font-size:28px}.balance{min-height:210px}.balancefoot{margin-top:18px}}
+.top{justify-content:flex-end}.footer{justify-content:flex-end}.heading{margin-top:24px}@media(max-width:760px){.top{padding-bottom:16px;min-height:45px}.heading{margin-top:22px}}
 </style></head><body>
 <svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 <aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><span class="avatar">🏡</span><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><button class="person" onclick="navigate('profile')"><span class="avatar">👩🏻</span><div><strong id="sidebar-name">Alex Chen</strong><small>Profile &nbsp; ›</small></div></button></div></aside>
-<main class="main"><header class="top"><div class="eyebrow">Your household</div><div class="right"><label class="roommate-picker">View for <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden><strong>Changes are not saved to this browser.</strong><p>Your changes remain in this tab only. Export a backup before refreshing or closing.</p><button type="button" onclick="exportData()">Export backup now</button><button type="button" onclick="retrySave()">Retry saving</button></div><div id="content"></div><footer class="footer"><span>Roomie · Made for living together.</span><button onclick="navigate('settings')" class="link">Settings</button></footer></main>
-<div class="welcome" id="welcome"><div class="welcome-inner"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><h1>Better roommates.<br>Happier living.</h1><p>Expenses, shopping and chores.<br>One place for your home.</p><div class="illustration">🌳🏡🌿</div><button class="btn" onclick="enter()">Get started →</button><p style="font-size:10px;margin-top:20px">A shared home starts with a little teamwork.</p></div></div>
+<main class="main"><header class="top"><div class="right"><label class="roommate-picker">View for <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden><strong>Changes are not saved to this browser.</strong><p>Your changes remain in this tab only. Export a backup before refreshing or closing.</p><button type="button" onclick="exportData()">Export backup now</button><button type="button" onclick="retrySave()">Retry saving</button></div><div id="content"></div><footer class="footer"><button onclick="navigate('settings')" class="link">Settings</button></footer></main>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="cardhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()" aria-label="Close">×</button></div><form id="form"></form></div></div><div class="toast" id="toast" role="status"></div>
 <script>
 function isSafeRecordId(value) {
@@ -538,14 +538,14 @@ function render() {
         "Add expense",
         "expense",
       ) +
-      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><p class="note">Planned expenses enter balances when marked paid.</p></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
+      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
         settlementPlan(state)
           .map(
             (s) =>
               `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong></div><span class="money">${money(s.cents)}</span></div>`,
           )
           .join("") || '<p class="note">Everyone is settled up.</p>'
-      }</div><p class="note">Record repayments you’ve already made.</p></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}</span><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
+      }</div></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}</span><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
   }
   if (page === "shopping") {
     const rows = state.shopping.filter(matchesSearch).filter(
@@ -564,7 +564,7 @@ function render() {
         "Add purchase",
         "purchase",
       ) +
-      `<div class="card list-card">${searchList("shopping")}<p class="result-count" role="status">${rows.length} of ${state.shopping.length} items</p>${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div><p class="note">Choose “Split cost” to add a purchase to expenses.</p></div>`;
+      `<div class="card list-card">${searchList("shopping")}<p class="result-count" role="status">${rows.length} of ${state.shopping.length} items</p>${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div></div>`;
   }
   if (page === "chores") {
     const rows = state.chores
@@ -972,13 +972,6 @@ function openReset() {
       );
     },
   );
-}
-function showWelcome() {
-  $("welcome").classList.add("show");
-}
-function enter() {
-  $("welcome").classList.remove("show");
-  navigate("home");
 }
 const fileInput = document.createElement("input");
 fileInput.id = "import-file";
