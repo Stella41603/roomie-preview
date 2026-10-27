@@ -605,120 +605,62 @@ const today = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 function seed() {
-  const date = today();
+  const now=new Date(),date=today();
+  const offset=days=>localISO(new Date(now.getFullYear(),now.getMonth(),now.getDate()+days,12));
+  const current=day=>localISO(new Date(now.getFullYear(),now.getMonth(),Math.min(day,now.getDate()),12));
+  const previous=day=>localISO(new Date(now.getFullYear(),now.getMonth()-1,day,12));
+  const rentRatios={Alex:3500,Jamie:2500,Taylor:2000,Sam:2000};
+  const expense=(name,cents,payer,category,date,extra={})=>({id:uid(),name,cents,payer,category,date,participants:[...MEMBER_IDS],paid:true,splitMethod:'equal',...extra});
+  const purchase=(name,cents,owner,done=false)=>({id:uid(),name,cents,owner,done});
+  const chore=(name,owner,due,repeat,extra={})=>({id:uid(),name,owner,due,repeat,done:false,...extra});
   return {
-    version: 2,
-    viewer: "Alex",
-    houseName: "Maple Residence",
-    expenses: [
-      {
-        id: uid(),
-        name: "October rent",
-        cents: 240000,
-        payer: "Alex",
-        participants: [...MEMBER_IDS],
-        paid: true,
-        category: "Housing",
-        date,
-      },
-      {
-        id: uid(),
-        name: "Shared groceries",
-        cents: 6230,
-        payer: "Taylor",
-        participants: [...MEMBER_IDS],
-        paid: true,
-        category: "Groceries",
-        date,
-      },
-      {
-        id: uid(),
-        name: "Internet bill",
-        cents: 7100,
-        payer: "Jamie",
-        participants: [...MEMBER_IDS],
-        paid: true,
-        category: "Utilities",
-        date,
-      },
-      {
-        id: uid(),
-        name: "Next water bill",
-        cents: 3800,
-        payer: "Sam",
-        participants: [...MEMBER_IDS],
-        paid: false,
-        category: "Utilities",
-        date: nextDue(date, "Weekly"),
-      },
+    version:2,
+    viewer:'Alex',
+    houseName:'Cedar House',
+    expenses:[
+      expense('Monthly rent',228000,'Alex','Housing',current(1),{splitMethod:'percent',ratios:{...rentRatios}}),
+      expense('Weekly groceries',14685,'Taylor','Groceries',current(20)),
+      expense('Internet plan',7999,'Jamie','Utilities',current(10)),
+      expense('Electricity bill',11240,'Sam','Utilities',current(14)),
+      expense('Dinner ingredients',4875,'Taylor','Groceries',current(22),{participants:['Alex','Jamie','Taylor']}),
+      expense('Front door keys',3200,'Alex','Other',current(23),{participants:['Alex','Sam'],notes:'Two replacement keys for the front door.',splitMethod:'percent',ratios:{Alex:5000,Sam:5000}}),
+      expense('Cleaning supplies',2830,'Jamie','Other',current(24),{notes:'Sponges, gloves and bathroom cleaner for shared spaces.'}),
+      expense('Water bill',4600,'Sam','Utilities',offset(3),{paid:false}),
+      expense('Shared pantry restock',6800,'Taylor','Groceries',offset(5),{paid:false}),
+      expense('Monthly rent',228000,'Alex','Housing',previous(1),{splitMethod:'percent',ratios:{...rentRatios}}),
+      expense('Internet plan',7350,'Jamie','Utilities',previous(10)),
+      expense('Groceries',17540,'Taylor','Groceries',previous(18)),
+      expense('Kitchen equipment',7200,'Sam','Other',previous(22),{notes:'A drying rack and a shared frying pan.'}),
     ],
-    shopping: [
-      {
-        id: uid(),
-        name: "Toilet paper",
-        cents: 1299,
-        owner: "Alex",
-        done: true,
-      },
-      {
-        id: uid(),
-        name: "Laundry detergent",
-        cents: 1549,
-        owner: "Jamie",
-        done: false,
-      },
-      { id: uid(), name: "Milk", cents: 429, owner: "Taylor", done: false },
-      { id: uid(), name: "Eggs", cents: 399, owner: "Sam", done: false },
-      { id: uid(), name: "Dish soap", cents: 299, owner: "Jamie", done: false },
+    shopping:[
+      purchase('Paper towels',1299,'Alex',true),
+      purchase('Dishwasher pods',1599,'Jamie'),
+      purchase('Olive oil',1299,'Taylor'),
+      purchase('Oat milk',599,'Sam'),
+      purchase('Garbage bags',849,'Alex'),
+      purchase('Fresh basil',349,'Sam'),
     ],
-    chores: [
-      {
-        id: uid(),
-        name: "Clean kitchen",
-        owner: "Alex",
-        due: date,
-        repeat: "Weekly",
-        done: true,
-      },
-      {
-        id: uid(),
-        name: "Take out trash",
-        owner: "Jamie",
-        due: date,
-        repeat: "Weekly",
-        done: false,
-      },
-      {
-        id: uid(),
-        name: "Clean bathroom",
-        owner: "Taylor",
-        due: nextDue(date, "Daily"),
-        repeat: "Weekly",
-        done: false,
-      },
-      {
-        id: uid(),
-        name: "Vacuum living room",
-        owner: "Sam",
-        due: nextDue(date, "Weekly"),
-        repeat: "Weekly",
-        done: false,
-      },
+    chores:[
+      chore('Take out recycling','Jamie',offset(-1),'Custom',{everyDays:3}),
+      chore('Wipe kitchen counters','Alex',date,'Daily'),
+      chore('Clean bathroom','Taylor',offset(1),'Custom',{everyDays:5}),
+      chore('Vacuum shared spaces','Sam',offset(3),'Weekly'),
+      chore('Mop kitchen floor','Alex',offset(-2),'Weekly',{done:true}),
+      chore('Replace kitchen bulb','Sam',offset(5),'One time'),
     ],
-    settlements: [],
-    reminders: [],
-    activity: [
-      {
-        id: uid(),
-        actor: "Alex",
-        text: "Welcome to Maple Residence",
-        detail: "Household created",
-        type: "Household",
-        at: new Date().toISOString(),
-      },
+    settlements:[
+      {id:uid(),from:'Jamie',to:'Alex',cents:12000,date:current(18)},
+      {id:uid(),from:'Sam',to:'Alex',cents:7500,date:current(21)},
     ],
+    reminders:[
+      {id:uid(),title:'Rent repayment',date:localISO(new Date(now.getFullYear(),now.getMonth(),1,12)),repeat:'Monthly',owner:'Jamie',notes:'Repay your share of the monthly rent.'},
+      {id:uid(),title:'Utility repayment',date:localISO(new Date(now.getFullYear(),now.getMonth(),20,12)),repeat:'Monthly',owner:'Sam',notes:'Settle the shared internet and electricity bills.'},
+      {id:uid(),title:'Shared dinner repayment',date:offset(2),repeat:'One time',owner:'Alex',notes:'Repay Taylor for the shared dinner ingredients.'},
+    ],
+    activity:[{id:uid(),actor:'Alex',text:'Welcome to Cedar House',detail:'Household created',type:'Household',at:now.toISOString()}],
   };
 }
+
 let state,
   loadIssue = false;
 try {
@@ -1433,6 +1375,8 @@ function openReset() {
     async () => {
       const oldReceipts=[...receiptRefs().keys()];
       state = seed();
+      calendarSelected=today();calendarMonth=calendarSelected.slice(0,7);
+      spendingMonth=calendarMonth;spendingScope='mine';
       const saved = persist();
       closeModal(true);
       render();
