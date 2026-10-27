@@ -14,11 +14,14 @@
 
 
 .split-preview{background:#f6f3ff;border:1px solid #e5ddff;border-radius:13px;padding:16px;margin-top:20px}.split-title{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:13px}.split-title>span{font-size:11px;color:#73658e}.split-person{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e9e2f7;font-size:12px}.split-person strong{font-variant-numeric:tabular-nums}.split-preview p{font-size:11px;margin-top:12px;color:#726289}.draft-warning{background:#fff5e8;border:1px solid #ebc991;border-radius:12px;padding:16px;margin-top:18px;font-size:13px}.draft-warning p{color:#765c36}.draft-warning>div{display:flex;gap:10px}.draft-warning .btn{margin-top:12px;font-size:12px}.list-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:-5px 0 18px;font-size:12px;color:var(--muted)}.list-meta select{padding:8px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);margin-left:6px}.result-count{margin:-8px 0 15px;font-size:12px}.dialog>.cardhead{position:sticky;top:-28px;z-index:2;background:white;padding:12px 0;margin-top:-12px}.dialog .close{min-width:44px;min-height:44px}.dialog input[type=date]{min-width:0;width:100%}@media(max-width:760px){.modal{padding:0;align-items:flex-end}.dialog{width:100%;max-height:94dvh;border-radius:22px 22px 0 0;padding:22px 20px max(22px,env(safe-area-inset-bottom))}.dialog input,.dialog select{font-size:16px}.dialog>.cardhead{top:-22px}.split-title{flex-wrap:wrap}.dialog form>.btn[type=submit]{position:sticky;bottom:0;z-index:1;box-shadow:0 -6px 14px #ffffffdd}.draft-warning{position:relative;z-index:3}}
+
+/* User-facing layout: keep actions prominent and remove promotional chrome. */
+.heading{margin-top:28px;margin-bottom:24px}.heading h1:last-child{margin-bottom:0}.balancefoot{justify-content:flex-end}.top{min-height:56px}.sidebar .bottom{padding-top:24px;border-top:1px solid var(--line)}.footer .link{font-size:11px}.note:empty{display:none}.card .note{max-width:65ch}.person{text-align:left}@media(max-width:760px){.top .right{justify-content:flex-end}.roommate-picker{margin-right:auto}.heading{margin-top:25px}.heading h1{font-size:28px}.balance{min-height:210px}.balancefoot{margin-top:18px}}
 </style></head><body>
 <svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
-<aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><span class="avatar">🏡</span><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><div class="help"><strong>A little more harmony. ✨</strong>Less keeping tabs.<br>More feeling at home.</div><button class="person" onclick="navigate('profile')"><span class="avatar">👩🏻</span><div><strong id="sidebar-name">Alex Chen</strong><small>Local preview &nbsp; ›</small></div></button></div></aside>
-<main class="main"><header class="top"><div class="eyebrow">Your home, in harmony</div><div class="right"><span class="demo">NO LOGIN REQUIRED</span><label class="roommate-picker">Viewing as <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden><strong>Changes are not saved to this browser.</strong><p>Your changes remain in this tab only. Export a backup before refreshing or closing.</p><button type="button" onclick="exportData()">Export backup now</button><button type="button" onclick="retrySave()">Retry saving</button></div><div id="content"></div><footer class="footer"><span>Roomie · Made for living together.</span><button onclick="showWelcome()" style="font-size:10px;color:var(--purple)">View welcome screen ↗</button></footer></main>
-<div class="welcome" id="welcome"><div class="welcome-inner"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><h1>Better roommates.<br>Happier living.</h1><p>The operating system for shared living.<br>Expenses, groceries, and chores. All under one roof.</p><div class="illustration">🌳🏡🌿</div><button class="btn" onclick="enter()">Get started →</button><button class="btn secondary" onclick="enter()">Explore preview</button><p style="font-size:10px;margin-top:20px">A shared home starts with a little teamwork.</p></div></div>
+<aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><span class="avatar">🏡</span><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><button class="person" onclick="navigate('profile')"><span class="avatar">👩🏻</span><div><strong id="sidebar-name">Alex Chen</strong><small>Profile &nbsp; ›</small></div></button></div></aside>
+<main class="main"><header class="top"><div class="eyebrow">Your household</div><div class="right"><label class="roommate-picker">View for <select id="viewer" aria-label="Current roommate"></select></label><button aria-label="House settings" onclick="navigate('settings')">♧</button><button aria-label="View profile" onclick="navigate('profile')" class="avatar">👩🏻</button></div></header><div id="storage-warning" class="storage-warning" role="alert" hidden><strong>Changes are not saved to this browser.</strong><p>Your changes remain in this tab only. Export a backup before refreshing or closing.</p><button type="button" onclick="exportData()">Export backup now</button><button type="button" onclick="retrySave()">Retry saving</button></div><div id="content"></div><footer class="footer"><span>Roomie · Made for living together.</span><button onclick="navigate('settings')" class="link">Settings</button></footer></main>
+<div class="welcome" id="welcome"><div class="welcome-inner"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><h1>Better roommates.<br>Happier living.</h1><p>Expenses, shopping and chores.<br>One place for your home.</p><div class="illustration">🌳🏡🌿</div><button class="btn" onclick="enter()">Get started →</button><p style="font-size:10px;margin-top:20px">A shared home starts with a little teamwork.</p></div></div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="cardhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()" aria-label="Close">×</button></div><form id="form"></form></div></div><div class="toast" id="toast" role="status"></div>
 <script>
 function isSafeRecordId(value) {
@@ -358,7 +361,7 @@ function seed() {
         id: uid(),
         actor: "Alex",
         text: "Welcome to Maple Residence",
-        detail: "Sample records · explore with any roommate",
+        detail: "Household created",
         type: "Household",
         at: new Date().toISOString(),
       },
@@ -456,7 +459,7 @@ function tabs(items) {
   );
 }
 function head(title, sub, action, type) {
-  return `<div class="heading"><div><h1>${esc(title)}</h1><p>${esc(sub)}</p></div>${action ? `<button class="btn" onclick="openAdd('${type}')">＋ ${action}</button>` : ""}</div>`;
+  return `<div class="heading"><div><h1>${esc(title)}</h1>${sub ? `<p>${esc(sub)}</p>` : ""}</div>${action ? `<button class="btn" onclick="openAdd('${type}')">＋ ${action}</button>` : ""}</div>`;
 }
 const categoryIcon = (c) =>
   ({ Housing: "⌂", Utilities: "ϟ", Groceries: "🛒", Other: "＄" })[c];
@@ -472,7 +475,7 @@ function activityRows(limit = 500) {
     rows
       .map(
         (a) =>
-          `<div class="row"><span class="avatar">${faces[a.actor]}</span><div class="info"><strong>${esc(a.text)}</strong><small>${esc(a.detail)} · ${esc(new Date(a.at).toLocaleString("en-CA", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</small></div></div>`,
+          `<div class="row"><span class="avatar">${faces[a.actor]}</span><div class="info"><strong>${esc(a.text)}</strong><small>${esc(a.detail === "Sample records · explore with any roommate" ? "Household created" : a.detail)} · ${esc(new Date(a.at).toLocaleString("en-CA", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }))}</small></div></div>`,
       )
       .join("") ||
     '<div class="board-empty">No activity in this view yet.</div>'
@@ -515,9 +518,9 @@ function render() {
   let html = "";
   if (page === "home")
     html =
-      head(`Hey, ${me()}! 👋`, "A little teamwork. A happier home.") +
+      head(`Hey, ${me()}! 👋`, "") +
       `<section class="attention-bar" aria-label="Household overview"><button onclick="showDue('Overdue')"><span class="attention-dot overdue"></span><strong>${chores.filter(c=>c.due<today()).length}</strong><span>overdue chores</span><span aria-hidden="true">→</span></button><button onclick="showDue('Due today')"><span class="attention-dot"></span><strong>${chores.filter(c=>c.due===today()).length}</strong><span>due today</span><span aria-hidden="true">→</span></button><button onclick="navigate('shopping');setFilter('To buy')"><span class="attention-dot shopping-dot"></span><strong>${state.shopping.filter(s=>!s.done).length}</strong><span>items to buy</span><span aria-hidden="true">→</span></button></section>` +
-      `<div class="grid"><div><div class="card balance"><p>Your shared expense balance · CAD</p><div class="amount">${money(Math.abs(balance))}</div><span class="pill">${balance > 0 ? "↗ You are owed" : balance < 0 ? "↘ You owe" : "✓ All settled up"}</span><div class="balancefoot"><span>Calculated from paid expenses & settlements</span><button onclick="navigate('expenses')">View breakdown →</button></div></div><div class="quick"><button onclick="openAdd('expense')"><span class="bubble mint">＄</span>Add expense</button><button onclick="openAdd('purchase')"><span class="bubble lavender">♧</span>Add purchase</button><button onclick="openAdd('chore')"><span class="bubble blue">✓</span>Add chore</button></div><div class="stats"><div class="card stat"><small>Total recorded expenses</small><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><div class="card stat"><small>Your chores to do</small><strong>${myChores.length}<span style="font-size:12px;color:var(--muted)"> assigned to you</span></strong></div></div></div><div class="card"><div class="cardhead"><h2>Coming up</h2><button class="link" onclick="navigate('expenses')">View all →</button></div>${pending.map(expenseRow).join("") || '<div class="board-empty">No unpaid bills. Nice work!</div>'}<div style="margin-top:25px"><div class="cardhead"><h2>Household chores</h2><button class="link" onclick="navigate('chores')">See all →</button></div><p>${state.chores.filter((c) => c.done).length} of ${state.chores.length} completed</p><div class="board-meter" style="margin-top:12px"><span style="width:${state.chores.length ? (state.chores.filter((c) => c.done).length / state.chores.length) * 100 : 0}%"></span></div>${myChores.slice(0, 2).map(choreRow).join("")}</div></div></div><div class="grid lower"><div class="card"><div class="cardhead"><h2>What’s happening</h2><button class="link" onclick="navigate('activity')">All activity →</button></div>${activityRows(3)}</div><div class="card"><div class="cardhead"><h2>Your people</h2><button class="link" onclick="navigate('settings')">Manage →</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}${id === me() ? " · You" : ""}</strong><small>${all[id] > 0 ? "Owed " + money(all[id]) : all[id] < 0 ? "Owes " + money(-all[id]) : "Settled up"}</small></div></div>`).join("")}</div></div>`;
+      `<div class="grid"><div><div class="card balance"><p>Your balance · CAD</p><div class="amount">${money(Math.abs(balance))}</div><span class="pill">${balance > 0 ? "↗ You are owed" : balance < 0 ? "↘ You owe" : "✓ All settled up"}</span><div class="balancefoot"><button onclick="navigate('expenses')">View breakdown →</button></div></div><div class="quick"><button onclick="openAdd('expense')"><span class="bubble mint">＄</span>Add expense</button><button onclick="openAdd('purchase')"><span class="bubble lavender">♧</span>Add purchase</button><button onclick="openAdd('chore')"><span class="bubble blue">✓</span>Add chore</button></div><div class="stats"><div class="card stat"><small>Total paid</small><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><div class="card stat"><small>Your chores</small><strong>${myChores.length}<span style="font-size:12px;color:var(--muted)"> remaining</span></strong></div></div></div><div class="card"><div class="cardhead"><h2>Coming up</h2><button class="link" onclick="navigate('expenses')">View all →</button></div>${pending.map(expenseRow).join("") || '<div class="board-empty">No unpaid bills. Nice work!</div>'}<div style="margin-top:25px"><div class="cardhead"><h2>Household chores</h2><button class="link" onclick="navigate('chores')">See all →</button></div><p>${state.chores.filter((c) => c.done).length} of ${state.chores.length} completed</p><div class="board-meter" style="margin-top:12px"><span style="width:${state.chores.length ? (state.chores.filter((c) => c.done).length / state.chores.length) * 100 : 0}%"></span></div>${myChores.slice(0, 2).map(choreRow).join("")}</div></div></div><div class="grid lower"><div class="card"><div class="cardhead"><h2>What’s happening</h2><button class="link" onclick="navigate('activity')">All activity →</button></div>${activityRows(3)}</div><div class="card"><div class="cardhead"><h2>Your people</h2><button class="link" onclick="navigate('settings')">Manage →</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}${id === me() ? " · You" : ""}</strong><small>${all[id] > 0 ? "Owed " + money(all[id]) : all[id] < 0 ? "Owes " + money(-all[id]) : "Settled up"}</small></div></div>`).join("")}</div></div>`;
   if (page === "expenses") {
     const rows = state.expenses.filter(matchesSearch).filter(
       (e) =>
@@ -531,18 +534,18 @@ function render() {
     html =
       head(
         "Expenses",
-        "Clear splits. No awkward conversations.",
+        "",
         "Add expense",
         "expense",
       ) +
-      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><p class="note">Planned bills don’t affect balances until marked paid. Rounding is allocated consistently, down to the cent.</p></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
+      `<div class="grid"><div class="card list-card"><div class="cardhead"><h2>Shared expenses</h2><span class="link">CAD · equal splits</span></div>${searchList("expenses")}<div class="list-meta"><span role="status">${rows.length} of ${state.expenses.length} expenses</span><label>Sort <select aria-label="Sort expenses" onchange="expenseSort=this.value;render()">${["Newest","Oldest","Largest"].map(x=>`<option ${expenseSort===x?"selected":""}>${x}</option>`).join("")}</select></label></div>${tabs(["All", "My expenses", "Recorded", "Planned"])}${rows.map(expenseRow).join("") || '<div class="board-empty">No matching expenses. Clear your search or choose another filter.</div>'}<div class="summary-total"><strong>Total paid</strong><strong>${money(paid.reduce((a, e) => a + e.cents, 0))}</strong></div><p class="note">Planned expenses enter balances when marked paid.</p></div><div><div class="card"><div class="cardhead"><h2>Household balances</h2><button class="link" onclick="openSettle()">Record settlement</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${esc(id)}</strong><small>${all[id] >= 0 ? "Is owed" : "Owes"}</small></div><strong style="font-size:14px;color:${all[id] >= 0 ? "#179c7e" : "#c05973"}">${money(Math.abs(all[id]))}</strong></div>`).join("")}<div class="settlement"><h2>Suggested transfers</h2>${
         settlementPlan(state)
           .map(
             (s) =>
               `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong></div><span class="money">${money(s.cents)}</span></div>`,
           )
           .join("") || '<p class="note">Everyone is settled up.</p>'
-      }</div><p class="note">Record transfers made outside Roomie. This preview does not move money.</p></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}</span><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
+      }</div><p class="note">Record repayments you’ve already made.</p></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row"><div class="info"><strong>${s.from} → ${s.to}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}</span><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
   }
   if (page === "shopping") {
     const rows = state.shopping.filter(matchesSearch).filter(
@@ -557,11 +560,11 @@ function render() {
     html =
       head(
         "Shopping list",
-        "The essentials, without the “did anyone buy milk?”",
+        "",
         "Add purchase",
         "purchase",
       ) +
-      `<div class="card list-card">${searchList("shopping")}<p class="result-count" role="status">${rows.length} of ${state.shopping.length} items</p>${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div><p class="note">Buying an item doesn’t automatically add an expense. Choose “Split cost” once the actual purchase is ready to record.</p></div>`;
+      `<div class="card list-card">${searchList("shopping")}<p class="result-count" role="status">${rows.length} of ${state.shopping.length} items</p>${tabs(["All", "To buy", "Purchased", "Mine"])}${rows.map(shoppingRow).join("") || '<div class="board-empty">No matching items. Try another filter or add a purchase.</div>'}<div class="summary-total"><strong>Still to buy · ${state.shopping.filter((s) => !s.done).length} items</strong><strong>${money(state.shopping.filter((s) => !s.done).reduce((a, s) => a + s.cents, 0))}</strong></div><p class="note">Choose “Split cost” to add a purchase to expenses.</p></div>`;
   }
   if (page === "chores") {
     const rows = state.chores
@@ -583,30 +586,28 @@ function render() {
     html =
       head(
         "Chores",
-        "A fair share makes a happier home.",
+        "",
         "Add chore",
         "chore",
       ) +
-      `<div class="card list-card"><div class="week-strip"><strong>${state.chores.filter((c) => c.done).length} completed</strong><span>${chores.length} to do · ${today()}</span></div>${searchList("chores")}<p class="result-count" role="status">${rows.length} of ${state.chores.length} chores</p>${tabs(["All", "Mine", "To do", "Overdue", "Due today", "Completed"])}${rows.map(choreRow).join("") || '<div class="board-empty">No chores in this view.</div>'}<p class="note">Repeating chores create their next occurrence when completed. Reopening removes that untouched occurrence so it isn’t duplicated.</p></div>`;
+      `<div class="card list-card"><div class="week-strip"><strong>${state.chores.filter((c) => c.done).length} completed</strong><span>${chores.length} to do · ${today()}</span></div>${searchList("chores")}<p class="result-count" role="status">${rows.length} of ${state.chores.length} chores</p>${tabs(["All", "Mine", "To do", "Overdue", "Due today", "Completed"])}${rows.map(choreRow).join("") || '<div class="board-empty">No chores in this view.</div>'}</div>`;
   }
   if (page === "activity")
     html =
-      head("Activity", "The little updates that keep your home running.") +
+      head("Activity", "") +
       `<div class="card list-card">${searchList("activity")}${tabs(["All", "Expenses", "Purchases", "Chores", "Household"])}${activityRows()}</div>`;
   if (page === "settings")
     html =
-      head("House settings", "Make yourself at home.") +
-      `<div class="grid"><div class="card"><div class="cardhead"><h2>${esc(state.houseName)}</h2><button class="link" onclick="openHouse()">Edit name</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${names[id]}</strong><small>${id === me() ? "Current preview roommate" : "Sample roommate"}</small></div><button class="link" onclick="switchViewer('${id}')">View as</button></div>`).join("")}<div class="settings-row"><strong>Split method</strong><span>Equal · selected participants</span></div><div class="settings-row"><strong>Currency</strong><span>CAD ($)</span></div><p class="note">These are sample people on one device. Switching a roommate changes your view, not permissions or a real account.</p></div><div class="card"><h2>Your preview data</h2><p class="note">Stored in this browser. Back it up before changing devices or clearing browser data.</p><div class="file-controls"><button class="btn secondary" onclick="exportData()">Export backup</button><button class="btn secondary" onclick="$('import-file').click()">Import backup</button></div><div class="line" style="margin:25px 0;border-top:1px solid var(--line)"></div><button class="btn secondary" onclick="openReset()">Restore sample data</button><p class="note">The connected account app is separate. No Supabase requests are made from this preview.</p></div></div>`;
+      head("House settings", "") +
+      `<div class="grid"><div class="card"><div class="cardhead"><h2>${esc(state.houseName)}</h2><button class="link" onclick="openHouse()">Edit name</button></div>${MEMBER_IDS.map((id) => `<div class="row"><span class="avatar">${faces[id]}</span><div class="info"><strong>${names[id]}</strong><small>${id === me() ? "Selected" : "Example roommate"}</small></div><button class="link" onclick="switchViewer('${id}')">View as</button></div>`).join("")}<div class="settings-row"><strong>Split method</strong><span>Equal · selected participants</span></div><div class="settings-row"><strong>Currency</strong><span>CAD ($)</span></div><p class="note">Example household · saved on this device. Roommates do not sync across devices.</p></div><div class="card"><h2>Data & backups</h2><p class="note">Saved on this device. Export a backup to move your data.</p><div class="file-controls"><button class="btn secondary" onclick="exportData()">Export backup</button><button class="btn secondary" onclick="$('import-file').click()">Import backup</button></div><div class="line" style="margin:25px 0;border-top:1px solid var(--line)"></div><button class="btn secondary" onclick="openReset()">Restore sample data</button></div></div>`;
   if (page === "profile")
     html =
       head(
         "Your profile",
-        "Try living together from every roommate’s perspective.",
+        "",
       ) +
       `<div class="card"><div class="person"><span class="avatar" style="width:60px;height:60px;font-size:36px">${faces[me()]}</span><div><strong>${names[me()]}</strong><small>${esc(state.houseName)}</small></div></div><div class="settings-row"><strong>Shared balance</strong><span>${balance >= 0 ? "You are owed " : "You owe "}${money(Math.abs(balance))}</span></div><div class="settings-row"><strong>Your remaining chores</strong><span>${myChores.length}</span></div><button class="btn secondary" style="margin-top:20px" onclick="navigate('settings')">Switch roommate</button></div>`;
-  $("content").innerHTML =
-    '<div class="prototype-note">✦ &nbsp; No account needed · Open and use Roomie. Data stays in this browser; export a backup to move devices. Roommate switching is a preview.</div>' +
-    html;
+  $("content").innerHTML = html;
 }
 function switchViewer(id) {
   if (!MEMBER_IDS.includes(id)) return;
@@ -733,8 +734,8 @@ function openAdd(type, id, source) {
   if(expense){
     const update=()=>{
       const panel=$("split-preview"),fd=new FormData($("form"));
-      try{const cents=parseMoney(fd.get("amount"));const people=fd.getAll("participants");const shares=splitCents(cents,people);panel.innerHTML=`<div class="split-title"><strong>Everyone’s share</strong><span>${people.length} people · ${money(cents)}</span></div>${Object.entries(shares).map(([name,value])=>`<div class="split-person"><span>${faces[name]} ${esc(name)}${name===fd.get("owner")?' · Pays upfront':''}</span><strong>${money(value)}</strong></div>`).join('')}<p>Equal split · every cent accounted for.${fd.get("status")==='planned'?' Planned bills enter balances only when marked paid.':''}</p>`;}
-      catch{panel.innerHTML='<strong>Everyone’s share</strong><p>Enter an amount and choose at least one roommate to preview the split.</p>';}
+      try{const cents=parseMoney(fd.get("amount"));const people=fd.getAll("participants");const shares=splitCents(cents,people);panel.innerHTML=`<div class="split-title"><strong>Everyone’s share</strong><span>${people.length} people · ${money(cents)}</span></div>${Object.entries(shares).map(([name,value])=>`<div class="split-person"><span>${faces[name]} ${esc(name)}${name===fd.get("owner")?' · Pays upfront':''}</span><strong>${money(value)}</strong></div>`).join('')}<p>Equal split.${fd.get("status")==='planned'?' Included after payment.':''}</p>`;}
+      catch{panel.innerHTML='<strong>Everyone’s share</strong><p>Enter an amount and select roommates.</p>';}
     };
     $("form").oninput=()=>{modalDirty=true;update();};$("form").onchange=()=>{modalDirty=true;update();};update();
   }
@@ -770,7 +771,7 @@ function expenseDetails(id) {
       )
       .join(
         "",
-      )}<p class="note">Shares always add up to the exact expense amount.</p><button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
+      )}<button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
     () => {},
   );
 }
@@ -851,7 +852,7 @@ function openSettle() {
   if (!item) return toast("Everyone is already settled up.");
   modal(
     "Record a settlement",
-    `<p>Record a transfer that already happened outside Roomie.</p><label for="from">From</label><select id="from" name="from">${options(item.from)}</select><label for="to">To</label><select id="to" name="to">${options(item.to)}</select><label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${(item.cents / 100).toFixed(2)}" required><p class="note">This records a transfer only. Roomie does not move money.</p><button class="btn" type="submit">Record settlement</button>`,
+    `<p>Record a transfer that already happened outside Roomie.</p><label for="from">From</label><select id="from" name="from">${options(item.from)}</select><label for="to">To</label><select id="to" name="to">${options(item.to)}</select><label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${(item.cents / 100).toFixed(2)}" required><button class="btn" type="submit">Record settlement</button>`,
     (fd) => {
       const from = fd.get("from"),
         to = fd.get("to"),
@@ -933,8 +934,8 @@ async function importData(file) {
       throw new Error("Choose a Roomie backup smaller than 2 MB.");
     const incoming = validateData(JSON.parse(await file.text()));
     modal(
-      "Replace preview data?",
-      `<p>Import ${incoming.expenses.length} expenses, ${incoming.shopping.length} shopping items and ${incoming.chores.length} chores for ${esc(incoming.houseName)}?</p><p class="note">This replaces this browser’s preview data. Export a backup first if you want to keep it.</p><button class="btn" type="submit">Import backup</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
+      "Replace saved data?",
+      `<p>Import ${incoming.expenses.length} expenses, ${incoming.shopping.length} shopping items and ${incoming.chores.length} chores for ${esc(incoming.houseName)}?</p><p class="note">This replaces your saved data. Export a backup first to keep a copy.</p><button class="btn" type="submit">Import backup</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
       () => {
         state = incoming;
         const saved = persist();
@@ -1014,7 +1015,7 @@ render();
 if (!loadIssue) persist();
 if (loadIssue)
   toast(
-    "Saved preview data could not be loaded. It has not been overwritten; export or restore samples to continue.",
+    "Your saved data could not be opened. It has not been overwritten. Import a backup or restore sample data in Settings.",
   );
 
 window.addEventListener("beforeunload", (e) => {
