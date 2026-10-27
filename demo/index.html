@@ -32,6 +32,9 @@
 
 .avatar{position:relative;overflow:hidden}.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.avatar img[hidden]{display:none}.avatar-large{width:72px;height:72px;font-size:22px}.profile-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);gap:24px;align-items:start}.profile-heading{display:flex;align-items:center;gap:18px}.profile-heading>div{min-width:0;flex:1}.profile-heading h2{font-size:21px;overflow-wrap:anywhere;margin:0 0 6px}.profile-heading .btn{white-space:nowrap}.profile-bio{margin:22px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink);font-size:14px}.profile-stats{display:grid;grid-template-columns:1fr 1fr;margin-top:26px;border-top:1px solid var(--line);padding-top:20px;gap:20px}.profile-stats small{display:block;color:var(--muted);font-size:12px}.profile-stats strong{display:block;font-size:25px;font-weight:500;margin-top:8px;font-variant-numeric:tabular-nums}.profile-photo-editor{display:flex;align-items:center;gap:20px;margin:16px 0 18px}.dialog .photo-upload{display:inline-block;margin:0;cursor:pointer;font-size:12px}.photo-upload:focus-within{outline:2px solid var(--purple)}.photo-hint{font-size:11px;margin-top:9px}.profile-photo-editor .link{display:block;margin-top:6px}.dialog textarea{font:inherit;font-size:14px;color:var(--ink);display:block;width:100%;border:1px solid #e2e4ef;border-radius:5px;padding:12px;resize:vertical;min-height:92px}.dialog textarea:focus-visible{outline:3px solid #b8a7ff;outline-offset:3px}.profile-card .person{min-width:0}@media(max-width:1010px){.profile-layout{grid-template-columns:1fr}}@media(max-width:760px){.profile-layout{gap:18px}.profile-heading{gap:12px;flex-wrap:wrap}.profile-heading h2{font-size:19px}.profile-heading>.btn{width:100%;margin-top:6px}.avatar-large{width:64px;height:64px;font-size:20px}.profile-bio{margin-top:18px}.dialog textarea{font-size:16px}.profile-stats strong{font-size:23px}}
 @media(max-width:760px){.main .top .avatar{display:inline-grid;width:36px;height:36px}.top .right{gap:10px}}
+
+.receipt-editor{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}.receipt-editor h3{font-size:13px;font-weight:600;margin:0}.receipt-editor .cardhead{position:static;margin:0 0 10px;padding:0}.receipt-editor .btn{width:auto;margin:0;padding:8px 12px;min-height:36px}.receipt-hint{font-size:11px;color:var(--muted);line-height:1.7;margin:7px 0 12px}.receipt-file{display:flex;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.receipt-name{flex:1;min-width:0;text-align:left;padding:0}.receipt-name strong{font-size:12px;font-weight:500;overflow-wrap:anywhere}.receipt-name small{display:block;font-size:11px;color:var(--muted);margin-top:5px}.receipt-error{color:#ad3c36;font-size:12px;line-height:1.6}.attachment-link{display:block;font-size:11px;color:var(--purple);padding:6px 0;white-space:nowrap}.receipt-viewer{width:min(1000px,calc(100% - 32px));max-height:92dvh;padding:24px;border:1px solid var(--line);border-radius:8px;color:var(--ink);z-index:60}.receipt-viewer::backdrop{background:#17203380}.receipt-viewer h2{font-size:18px;margin:0;font-weight:600}.receipt-viewer .close{min-width:40px;min-height:40px}.receipt-viewer-layout{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px}.receipt-viewer nav{display:flex;flex-direction:column;gap:6px}.receipt-viewer [data-file]{font-size:12px;text-align:left;overflow-wrap:anywhere;padding:10px;border-radius:4px}.receipt-viewer [aria-pressed=true]{background:#f1edff;color:var(--purple)}#receipt-preview{min-height:180px;font-size:13px;line-height:1.7}#receipt-preview img{display:block;max-width:100%;max-height:65dvh;object-fit:contain;margin:auto}#receipt-preview iframe{display:block;width:100%;height:60dvh;border:1px solid var(--line)}#receipt-download{display:inline-block;text-decoration:none;margin-top:16px}#receipt-download[hidden]{display:none}.receipt-viewer-layout>section{min-width:0}.receipt-viewer .btn{width:auto}.detail-attachments{margin-top:14px}@media(max-width:760px){.receipt-viewer{width:calc(100% - 20px);padding:18px;max-height:94dvh}.receipt-viewer-layout{grid-template-columns:1fr;gap:14px}.receipt-viewer nav{flex-direction:row;overflow-x:auto;max-width:100%}.receipt-viewer [data-file]{flex:0 0 auto;max-width:180px}.receipt-file .link{white-space:nowrap}.receipt-editor .cardhead{position:static}#receipt-preview iframe{height:52dvh}}
+body:has(.receipt-viewer[open]){overflow:hidden}@media(max-width:760px){.settlement-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.settlement-row>.info{grid-column:1;grid-row:1}.settlement-row>.money{grid-column:2;grid-row:1}.settlement-row>.mini-btn:nth-last-child(2){grid-column:1;justify-self:start}.settlement-row>.mini-btn:last-child{grid-column:2;justify-self:end}}
 </style></head><body>
 <svg style="display:none"><symbol id="house-logo" viewBox="0 0 50 55"><defs><linearGradient id="lg" x2="0" y2="1"><stop stop-color="#7642ff"/><stop offset="1" stop-color="#148cdd"/></linearGradient></defs><path d="M6 46V22L25 6l19 16v24" fill="none" stroke="#7047ff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M17 35v10h16V35" fill="none" stroke="#40d68f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 <aside class="sidebar"><div class="logo"><svg class="mark"><use href="#house-logo"/></svg>Roomie</div><div class="house"><svg class="house-small" aria-hidden="true"><use href="#house-logo"/></svg><div><strong>Maple Residence</strong><small>4 roommates · Toronto, ON</small></div></div><nav class="nav" id="nav"></nav><div class="bottom"><button class="person" onclick="navigate('profile')"><span class="avatar">AC</span><div><strong id="sidebar-name">Alex Chen</strong><small>Profile &nbsp; ›</small></div></button></div></aside>
@@ -171,6 +174,20 @@ function validateData(data) {
       seen.add(item.id);
     }
   }
+  const attachmentRefs = new Map();
+  for(const key of ['expenses','shopping','settlements']) for(const item of data[key]) {
+    if(item.attachments===undefined) continue;
+    if(!Array.isArray(item.attachments)||item.attachments.length>5) fail();
+    const ids=new Set();
+    for(const f of item.attachments) {
+      if(!f||!isSafeRecordId(f.id)||ids.has(f.id)||typeof f.name!=='string'||!f.name.trim()||f.name.length>180||
+         !['image/jpeg','image/png','image/webp','application/pdf'].includes(f.mime)||!Number.isInteger(f.size)||f.size<1||f.size>10*1024*1024) fail();
+      ids.add(f.id);
+      const old=attachmentRefs.get(f.id);if(old && (old.name!==f.name||old.mime!==f.mime||old.size!==f.size))fail();
+      attachmentRefs.set(f.id,f);
+    }
+  }
+  if([...attachmentRefs.values()].reduce((n,f)=>n+f.size,0)>50*1024*1024)fail();
   for (const e of data.expenses) {
     if (
       !text(e.name) ||
@@ -246,6 +263,114 @@ function validateData(data) {
     if (c.modified !== undefined && typeof c.modified !== "boolean") fail();
   }
   return data;
+}
+
+const RECEIPT_LIMIT = 10 * 1024 * 1024, RECEIPT_TOTAL = 50 * 1024 * 1024;
+let receiptDBPromise;
+function receiptDB() {
+  if(!receiptDBPromise) receiptDBPromise=new Promise((resolve,reject)=>{
+    const req=indexedDB.open('roomie-receipts-v1',1);
+    req.onupgradeneeded=()=>req.result.createObjectStore('files',{keyPath:'id'});
+    req.onsuccess=()=>{req.result.onversionchange=()=>{req.result.close();receiptDBPromise=null;};resolve(req.result);};
+    req.onerror=()=>{receiptDBPromise=null;reject(new Error('Attachment storage is unavailable. Try another browser or free some space.'));};
+    req.onblocked=()=>{receiptDBPromise=null;reject(new Error('Close other Roomie tabs and try again.'));};
+  }).catch(error=>{receiptDBPromise=null;throw new Error(error.message || 'Attachment storage is unavailable.');});return receiptDBPromise;
+}
+async function receiptRead(id) {
+  const db=await receiptDB();return new Promise((resolve,reject)=>{
+    const tx=db.transaction('files','readonly'),req=tx.objectStore('files').get(id);
+    req.onsuccess=()=>resolve(req.result?.blob);req.onerror=()=>reject(new Error('Could not read this attachment.'));
+  });
+}
+async function receiptWrite(files) {
+  if(!files.length)return;const db=await receiptDB();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction('files','readwrite');for(const f of files)tx.objectStore('files').put({id:f.id,blob:f.blob});
+    tx.oncomplete=()=>resolve();tx.onerror=tx.onabort=()=>reject(new Error('Attachments were not saved. Free some device storage and try again.'));
+  });
+}
+async function receiptDeleteUnreferenced(ids) {
+  const unused=[...new Set(ids)].filter(id=>!receiptRefs().has(id));if(!unused.length)return;
+  try{const db=await receiptDB();await new Promise((resolve,reject)=>{const tx=db.transaction('files','readwrite');for(const id of unused)if(!receiptRefs().has(id))tx.objectStore('files').delete(id);tx.oncomplete=resolve;tx.onerror=tx.onabort=reject;});}catch{/* Records remain saved even if the browser cannot reclaim old file space. */}
+}
+async function receiptType(file) {
+  const b=new Uint8Array(await file.slice(0,1024).arrayBuffer());
+  if(b[0]===0xff&&b[1]===0xd8&&b[2]===0xff)return 'image/jpeg';
+  if([137,80,78,71,13,10,26,10].every((x,i)=>b[i]===x))return 'image/png';
+  const text=new TextDecoder('latin1').decode(b);
+  if(text.startsWith('RIFF')&&text.slice(8,12)==='WEBP')return 'image/webp';
+  if(text.includes('%PDF-'))return 'application/pdf';
+  throw new Error('Choose a JPG, PNG, WebP or PDF file.');
+}
+function receiptRefs(data=state) {
+  const all=new Map();for(const key of ['expenses','shopping','settlements'])for(const r of data[key])for(const f of r.attachments||[])all.set(f.id,f);return all;
+}
+function receiptSize(n){return n<1024*1024?Math.ceil(n/1024)+' KB':(n/1024/1024).toFixed(1)+' MB';}
+function receiptField(){return '<section class="receipt-editor"><div class="cardhead"><h3>Attachments</h3><button type="button" class="btn secondary" id="add-receipt">Add files</button></div><input id="receipt-files" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" multiple hidden><p class="receipt-hint">Images or PDF · 10 MB each · up to 5 files</p><div id="receipt-editor-list"></div><p id="receipt-error" class="receipt-error" role="alert" hidden></p></section>';}
+function bindReceipts(initial=[]) {
+  let draft=structuredClone(initial),pending=new Map(),loading=false;
+  const list=$('receipt-editor-list'),input=$('receipt-files'),error=$('receipt-error'),button=$('add-receipt');
+  const render=()=>{list.innerHTML=draft.map(f=>`<div class="receipt-file"><button type="button" class="receipt-name" data-view="${f.id}"><strong>${esc(f.name)}</strong><small>${f.mime==='application/pdf'?'PDF':'Image'} · ${receiptSize(f.size)}</small></button><button type="button" class="link text-danger" data-remove="${f.id}" aria-label="Remove ${esc(f.name)}">Remove</button></div>`).join('');};
+  button.onclick=()=>input.click();
+  list.onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.remove){draft=draft.filter(f=>f.id!==b.dataset.remove);pending.delete(b.dataset.remove);modalDirty=true;render();}if(b.dataset.view)openReceiptViewer(draft, id=>pending.get(id)||receiptRead(id),b.dataset.view);};
+  input.onchange=async()=>{
+    const files=[...input.files];if(!files.length)return;error.hidden=true;loading=true;button.disabled=true;const batch=[];
+    try{
+      if(draft.length+files.length>5)throw new Error('Attach up to 5 files per record.');
+      for(const file of files){
+        if(!file.size||file.size>RECEIPT_LIMIT)throw new Error('Each attachment must be smaller than 10 MB.');
+        const mime=await receiptType(file),id=uid();
+        batch.push({meta:{id,name:file.name.trim().slice(0,180)||'Attachment',mime,size:file.size},blob:new Blob([file],{type:mime})});
+      }
+      if(!list.isConnected || !$('modal').classList.contains('show'))return;
+      for(const f of batch){draft.push(f.meta);pending.set(f.meta.id,f.blob);}modalDirty=true;render();
+    }catch(e){if(error.isConnected){error.textContent=e.message;error.hidden=false;}}
+    finally{loading=false;button.disabled=false;input.value='';}
+  };
+  render();return {save:async()=>{
+    if(loading)throw new Error('Wait for the attachments to finish loading.');
+    const refs=receiptRefs();for(const f of draft)refs.set(f.id,f);
+    if([...refs.values()].reduce((n,f)=>n+f.size,0)>RECEIPT_TOTAL)throw new Error('This device has reached the 50 MB attachment limit. Export a backup before removing old records.');
+    await receiptWrite([...pending.entries()].filter(([id])=>draft.some(f=>f.id===id)).map(([id,blob])=>({id,blob})));
+    return structuredClone(draft);
+  }};
+}
+function attachmentLink(type,r){return r.attachments?.length?`<button type="button" class="attachment-link" onclick="viewReceipts('${type}','${r.id}')">${r.attachments.length} attachment${r.attachments.length===1?'':'s'}</button>`:'';}
+function editRecordReceipts(type,id) {
+  const key={expense:'expenses',purchase:'shopping',settlement:'settlements'}[type],record=state[key]?.find(r=>r.id===id);if(!record)return;
+  let editor;modal('Edit attachments',receiptField()+'<button type="submit" class="btn">Save attachments</button>',async()=>{
+    const old=(record.attachments||[]).map(f=>f.id),files=await editor.save();record.attachments=files;if(finish(`${me()} updated attachments`,record.name||'Repayment','Expenses'))await receiptDeleteUnreferenced(old);
+  });editor=bindReceipts(record.attachments||[]);
+}
+function viewReceipts(type,id){const key={expense:'expenses',purchase:'shopping',settlement:'settlements'}[type];const record=state[key]?.find(r=>r.id===id);if(record?.attachments?.length)openReceiptViewer(record.attachments);}
+async function openReceiptViewer(files,read=receiptRead,selected=files[0]?.id) {
+  document.querySelector('.receipt-viewer')?.close();
+  const dialog=document.createElement('dialog');dialog.className='receipt-viewer';const urls=[];let version=0;
+  dialog.innerHTML=`<div class="cardhead"><h2>Attachments</h2><button type="button" class="close" aria-label="Close attachments">×</button></div><div class="receipt-viewer-layout"><nav aria-label="Attachment files">${files.map(f=>`<button type="button" data-file="${f.id}">${esc(f.name)}</button>`).join('')}</nav><section><div id="receipt-preview"></div><a class="btn secondary" id="receipt-download" hidden>Download original</a><p class="receipt-hint">An attachment is a supporting document, not a verified payment.</p></section></div>`;
+  const preview=dialog.querySelector('#receipt-preview'),download=dialog.querySelector('#receipt-download');
+  async function select(id){const ticket=++version,f=files.find(x=>x.id===id);if(!f)return;
+    dialog.querySelectorAll('[data-file]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.file===id)));
+    preview.textContent='Loading…';download.hidden=true;
+    try{const blob=await read(id);if(ticket!==version||!dialog.open)return;if(!blob)throw new Error('The original file is unavailable on this device. Import a backup containing its attachments.');
+      const url=URL.createObjectURL(blob);urls.push(url);download.href=url;download.download=/\.(pdf|png|jpe?g|webp)$/i.test(f.name)?f.name:f.name+({"application/pdf":'.pdf',"image/png":'.png',"image/jpeg":'.jpg',"image/webp":'.webp'}[f.mime]);download.hidden=false;
+      if(f.mime==='application/pdf')preview.innerHTML=`<iframe title="PDF attachment" sandbox src="${url}"></iframe><p class="receipt-hint">If the PDF does not display, download the original.</p>`;
+      else{const img=new Image();img.alt=f.name;img.src=url;preview.replaceChildren(img);}
+    }catch(e){if(ticket===version)preview.textContent=e.message;}
+  }
+  dialog.querySelector('.close').onclick=()=>dialog.close();dialog.onclick=e=>{const b=e.target.closest('[data-file]');if(b)select(b.dataset.file);};
+  dialog.onclose=()=>{version++;urls.forEach(URL.revokeObjectURL);dialog.remove();};document.body.append(dialog);dialog.showModal();await select(selected);
+}
+function blobDataURL(blob){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(new Error('Could not prepare the attachment backup.'));r.readAsDataURL(blob);});}
+async function receiptBackup(data){const files=[];for(const f of receiptRefs(data).values()){const blob=await receiptRead(f.id);if(!blob)throw new Error(`Missing attachment: ${f.name}. Restore its original before exporting.`);files.push({id:f.id,data:await blobDataURL(blob)});}return files;}
+async function receiptImport(data){
+  const refs=receiptRefs(data),entries=data.receiptFiles||[];
+  if(!Array.isArray(entries)||entries.length!==refs.size)throw new Error('This backup is missing attachments. Export a new backup from the original device.');
+  const files=[],seen=new Set();
+  for(const e of entries){const f=refs.get(e.id);if(!f||seen.has(e.id)||typeof e.data!=='string'||e.data.length>14*1024*1024)throw new Error('Invalid attachment backup.');seen.add(e.id);
+    const match=e.data.match(/^data:(image\/(?:jpeg|png|webp)|application\/pdf);base64,([A-Za-z0-9+/]+={0,2})$/);if(!match||match[1]!==f.mime)throw new Error('Invalid attachment backup.');
+    const raw=atob(match[2]),bytes=Uint8Array.from(raw,c=>c.charCodeAt(0)),blob=new Blob([bytes],{type:f.mime});
+    if(blob.size!==f.size||await receiptType(blob)!==f.mime)throw new Error('An attachment in this backup is damaged.');files.push({id:f.id,blob});
+  }return files;
 }
 
 const $ = (id) => document.getElementById(id),
@@ -501,7 +626,7 @@ function uiIcon(name){return `<svg class="ui-icon" viewBox="0 0 24 24" fill="non
 const categoryIcon = c => uiIcon(({Housing:'home',Utilities:'utility',Groceries:'shopping',Other:'other'})[c]);
 function expenseRow(e) {
   const shares = splitCents(e.cents, e.participants);
-  return `<div class="row expense-row"><span class="bubble ${e.category === "Housing" ? "lavender" : "mint"}">${categoryIcon(e.category)}</span><div class="info"><strong>${esc(e.name)}</strong><small>${esc(memberLabel(e.payer))} ${e.paid ? "paid" : "will pay"} · ${esc(e.date)} · ${e.participants.length} people</small><small>${shares[me()] !== undefined ? "Your share: " + money(shares[me()]) : "You are not in this split"}</small></div><div class="money">${money(e.cents)}<br><button class="tag ${e.paid ? "" : "pending"}" onclick="${e.paid ? `expenseDetails('${e.id}')` : `markPaid('${e.id}')`}">${e.paid ? "Paid" : "Mark paid"}</button></div><div class="row-actions"><button aria-label="Edit ${esc(e.name)}" onclick="openAdd('expense','${e.id}')">Edit</button></div></div>`;
+  return `<div class="row expense-row"><span class="bubble ${e.category === "Housing" ? "lavender" : "mint"}">${categoryIcon(e.category)}</span><div class="info"><strong>${esc(e.name)}</strong><small>${esc(memberLabel(e.payer))} ${e.paid ? "paid" : "will pay"} · ${esc(e.date)} · ${e.participants.length} people</small><small>${shares[me()] !== undefined ? "Your share: " + money(shares[me()]) : "You are not in this split"}</small></div><div class="money">${money(e.cents)}<br><button class="tag ${e.paid ? "" : "pending"}" onclick="${e.paid ? `expenseDetails('${e.id}')` : `markPaid('${e.id}')`}">${e.paid ? "Paid" : "Mark paid"}</button>${attachmentLink("expense",e)}</div><div class="row-actions"><button aria-label="Edit ${esc(e.name)}" onclick="openAdd('expense','${e.id}')">Edit</button></div></div>`;
 }
 function activityTitle(item) {
   const name=memberLabel(item.actor);
@@ -527,7 +652,7 @@ function activityRows(limit = 500) {
   );
 }
 function shoppingRow(s) {
-  return `<div class="row shopping-row"><input class="check" type="checkbox" aria-label="Purchased ${esc(s.name)}" ${s.done ? "checked" : ""} onchange="toggleShopping('${s.id}')"><div class="info"><strong class="${s.done ? "done" : ""}">${esc(s.name)}</strong><small>${esc(memberLabel(s.owner))}${s.expenseId ? " · Added to expenses" : ""}</small></div><div class="money">${money(s.cents)}${s.done && !s.expenseId ? `<br><button class="mini-btn" onclick="purchaseExpense('${s.id}')">Split cost</button>` : ""}</div><div class="row-actions"><button aria-label="Edit ${esc(s.name)}" onclick="openAdd('purchase','${s.id}')">Edit</button></div></div>`;
+  return `<div class="row shopping-row"><input class="check" type="checkbox" aria-label="Purchased ${esc(s.name)}" ${s.done ? "checked" : ""} onchange="toggleShopping('${s.id}')"><div class="info"><strong class="${s.done ? "done" : ""}">${esc(s.name)}</strong><small>${esc(memberLabel(s.owner))}${s.expenseId ? " · Added to expenses" : ""}</small></div><div class="money">${money(s.cents)}${attachmentLink("purchase",s)}${s.done && !s.expenseId ? `<br><button class="mini-btn" onclick="purchaseExpense('${s.id}')">Split cost</button>` : ""}</div><div class="row-actions"><button aria-label="Edit ${esc(s.name)}" onclick="openAdd('purchase','${s.id}')">Edit</button></div></div>`;
 }
 function choreRow(c) {
   const overdue = !c.done && c.due < today();
@@ -591,7 +716,7 @@ function render() {
               `<div class="row"><div class="info"><strong>${esc(memberLabel(s.from))} → ${esc(memberLabel(s.to))}</strong></div><span class="money">${money(s.cents)}</span></div>`,
           )
           .join("") || '<p class="note">Everyone is settled up.</p>'
-      }</div></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row"><div class="info"><strong>${esc(memberLabel(s.from))} → ${esc(memberLabel(s.to))}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}</span><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
+      }</div></div><div class="card lower"><h2>Recorded settlements</h2>${state.settlements.map((s) => `<div class="row settlement-row"><div class="info"><strong>${esc(memberLabel(s.from))} → ${esc(memberLabel(s.to))}</strong><small>${s.date}</small></div><span class="money">${money(s.cents)}${attachmentLink("settlement",s)}</span><button class="mini-btn" onclick="editRecordReceipts('settlement','${s.id}')">Edit attachments</button><button class="mini-btn" onclick="removeRecord('settlement','${s.id}')">Undo</button></div>`).join("") || '<div class="board-empty">No settlements recorded yet.</div>'}</div></div></div>`;
   }
   if (page === "shopping") {
     const rows = state.shopping.filter(matchesSearch).filter(
@@ -667,16 +792,19 @@ function modal(title, html, save) {
   modalDirty = false;
   $("form").oninput = () => {modalDirty=true;};
   $("form").onchange = () => {modalDirty=true;};
-  $("form").onsubmit = (e) => {
+  let submitting=false;
+  $("form").onsubmit = async (e) => {
     e.preventDefault();
+    if(submitting)return;submitting=true;
+    const buttons=[...e.target.querySelectorAll("button")];buttons.forEach(b=>b.disabled=true);
     const error = $("form-error");
     error.hidden = true;
     try {
-      save(new FormData(e.target));
+      await save(new FormData(e.target));
     } catch (e) {
       error.textContent = e.message;
       error.hidden = false;
-    }
+    } finally {submitting=false;buttons.forEach(b=>b.disabled=false);}
   };
   $("modal").classList.add("show");
   document.body.classList.add("dialog-open");
@@ -687,6 +815,7 @@ const options = (selected) =>
     (id) => `<option value="${id}" ${id === selected ? "selected" : ""}>${esc(memberLabel(id))}</option>`,
   ).join("");
 function closeModal(force = false) {
+  if(document.querySelector(".receipt-viewer[open]"))return;
   if (modalDirty && !force) {
     let warning=$("discard-draft");
     if(!warning){warning=document.createElement("div");warning.id="discard-draft";warning.className="draft-warning";warning.setAttribute("role","alert");warning.innerHTML='<strong>Keep your changes?</strong><p>You have an unsaved draft.</p><div><button type="button" class="btn secondary" onclick="keepEditing()">Keep editing</button><button type="button" class="btn" onclick="closeModal(true)">Discard draft</button></div>';$("form").append(warning);}
@@ -707,6 +836,7 @@ function finish(text, detail, type) {
       ? "Saved successfully"
       : "Not saved to this browser. Export a backup before closing.",
   );
+  return saved;
 }
 function openAdd(type, id, source) {
   const key = { expense: "expenses", purchase: "shopping", chore: "chores" }[
@@ -718,10 +848,11 @@ function openAdd(type, id, source) {
   const chore = type === "chore",
     expense = type === "expense";
   const participants = item.participants || [...MEMBER_IDS];
+  let receipts;
   modal(
     (existing ? "Edit " : "Add ") + type,
-    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${esc(memberLabel(w))}</label>`).join("")}</div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}${expense ? '<section id="split-preview" class="split-preview" aria-label="Split preview"></section>' : ""}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
-    (fd) => {
+    `<label for="name">${chore ? "Chore name" : expense ? "Expense name" : "Item"}</label><input id="name" name="name" maxlength="120" value="${esc(item.name || "")}" required placeholder="${chore ? "e.g. Clean bathroom" : expense ? "e.g. Shared groceries" : "e.g. Milk"}">${!chore ? `<label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${item.cents ? (item.cents / 100).toFixed(2) : ""}" placeholder="0.00" required>` : ""}<label for="owner">${chore ? "Assigned to" : expense ? "Paid by" : "Bought / assigned to"}</label><select id="owner" name="owner">${options(item.payer || item.owner || me())}</select>${expense ? `<label>Split between</label><div class="participants">${MEMBER_IDS.map((w) => `<label><input type="checkbox" name="participants" value="${w}" ${participants.includes(w) ? "checked" : ""}>${esc(memberLabel(w))}</label>`).join("")}</div><label for="category">Category</label><select id="category" name="category">${["Groceries", "Housing", "Utilities", "Other"].map((c) => `<option ${c === (item.category || "Groceries") ? "selected" : ""}>${c}</option>`).join("")}</select><label for="date">Date / due date</label><input id="date" type="date" name="date" value="${item.date || today()}" required><label for="status">Status</label><select id="status" name="status"><option value="paid" ${item.paid !== false ? "selected" : ""}>Paid · included in balances</option><option value="planned" ${item.paid === false ? "selected" : ""}>Planned · not yet paid</option></select>` : chore ? `<label for="repeat">Repeat</label><select id="repeat" name="repeat">${["One time", "Daily", "Weekly", "Monthly"].map((r) => `<option ${r === (item.repeat || "One time") ? "selected" : ""}>${r}</option>`).join("")}</select><label for="due">Due date</label><input id="due" type="date" name="due" value="${item.due || today()}" required>` : `<label for="status">Status</label><select id="status" name="status"><option value="pending" ${!item.done ? "selected" : ""}>To buy</option><option value="done" ${item.done ? "selected" : ""}>Purchased</option></select>${item.expenseId ? '<p class="note">Its expense is separate. Edit or delete the recorded expense in Expenses.</p>' : ""}`}${!chore?receiptField():""}${expense ? '<section id="split-preview" class="split-preview" aria-label="Split preview"></section>' : ""}<button type="submit" class="btn">Save ${type}</button>${existing ? `<button type="button" class="btn secondary text-danger" onclick="removeRecord('${type}','${id}')">Delete ${type}</button>` : ""}`,
+    async (fd) => {
       const name = fd.get("name").trim();
       if (!name) throw new Error("Enter a name.");
       const owner = fd.get("owner");
@@ -760,6 +891,7 @@ function openAdd(type, id, source) {
           cents: parseMoney(fd.get("amount")),
           done: fd.get("status") === "done",
         });
+      if(!chore) record.attachments=await receipts.save();
       if (existing)
         state[key][state[key].findIndex((x) => x.id === id)] = record;
       else state[key].unshift(record);
@@ -768,13 +900,15 @@ function openAdd(type, id, source) {
         purchase.expenseId = record.id;
         delete record.purchaseId;
       }
-      finish(
+      const saved=finish(
         `${me()} ${existing ? "updated" : "added"} ${name}`,
         expense ? money(record.cents) + " · " + record.payer + " paid" : owner,
         expense ? "Expenses" : chore ? "Chores" : "Purchases",
       );
+      if(saved && !chore)await receiptDeleteUnreferenced((item.attachments||[]).map(f=>f.id));
     },
   );
+  if(!chore)receipts=bindReceipts(item.attachments||[]);
   if(expense){
     const update=()=>{
       const panel=$("split-preview"),fd=new FormData($("form"));
@@ -815,7 +949,7 @@ function expenseDetails(id) {
       )
       .join(
         "",
-      )}<button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
+      )}<div class="detail-attachments">${attachmentLink("expense",e)}</div><button class="btn" type="button" onclick="openAdd('expense','${id}')">Edit expense</button>`,
     () => {},
   );
 }
@@ -846,6 +980,7 @@ function purchaseExpense(id) {
     payer: s.owner,
     category: "Groceries",
     purchaseId: id,
+    attachments: structuredClone(s.attachments||[]),
     paid: true,
   });
 }
@@ -894,10 +1029,11 @@ function openSettle() {
   const plan = settlementPlan(state),
     item = plan.find((s) => s.from === me() || s.to === me()) || plan[0];
   if (!item) return toast("Everyone is already settled up.");
+  let receipts;
   modal(
     "Record a settlement",
-    `<p>Record a transfer that already happened outside Roomie.</p><label for="from">From</label><select id="from" name="from">${options(item.from)}</select><label for="to">To</label><select id="to" name="to">${options(item.to)}</select><label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${(item.cents / 100).toFixed(2)}" required><button class="btn" type="submit">Record settlement</button>`,
-    (fd) => {
+    `<p>Record a transfer that already happened outside Roomie.</p><label for="from">From</label><select id="from" name="from">${options(item.from)}</select><label for="to">To</label><select id="to" name="to">${options(item.to)}</select><label for="amount">Amount · CAD</label><input id="amount" name="amount" inputmode="decimal" value="${(item.cents / 100).toFixed(2)}" required>${receiptField()}<button class="btn" type="submit">Record settlement</button>`,
+    async (fd) => {
       const from = fd.get("from"),
         to = fd.get("to"),
         cents = parseMoney(fd.get("amount")),
@@ -906,7 +1042,8 @@ function openSettle() {
         throw new Error("Choose someone who owes and someone who is owed.");
       if (cents > Math.min(-all[from], all[to]))
         throw new Error("This amount is larger than the outstanding balance.");
-      state.settlements.unshift({ id: uid(), from, to, cents, date: today() });
+      const attachments=await receipts.save();
+      state.settlements.unshift({ id: uid(), from, to, cents, date: today(), attachments });
       finish(
         `${me()} recorded a settlement`,
         from + " → " + to + " · " + money(cents),
@@ -914,6 +1051,7 @@ function openSettle() {
       );
     },
   );
+  receipts=bindReceipts();
 }
 function removeRecord(type, id) {
   const key = {
@@ -927,7 +1065,7 @@ function removeRecord(type, id) {
   modal(
     `Delete ${type}?`,
     `<p>${type === "settlement" ? "Undo this settlement record?" : esc(item.name) + " will be removed."}</p><p class="note">Balances and totals will be recalculated.${type === "chore" && item.nextId ? " Only this occurrence will be deleted; its next occurrence will be kept." : ""}${type === "purchase" && item.expenseId ? " The linked expense will stay in Expenses." : ""}</p><button class="btn" type="submit">Confirm delete</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
-    () => {
+    async () => {
       state[key] = state[key].filter((x) => x.id !== id);
       if (type === "expense")
         for (const s of state.shopping)
@@ -935,7 +1073,7 @@ function removeRecord(type, id) {
       if (type === "chore") {
         for (const c of state.chores) if (c.nextId === id) delete c.nextId;
       }
-      finish(
+      const saved=finish(
         `${me()} deleted a ${type}`,
         item.name || "Settlement record",
         type === "purchase"
@@ -944,6 +1082,7 @@ function removeRecord(type, id) {
             ? "Chores"
             : "Expenses",
       );
+      if(saved)await receiptDeleteUnreferenced((item.attachments||[]).map(f=>f.id));
     },
   );
 }
@@ -998,28 +1137,32 @@ function openHouse() {
     },
   );
 }
-function exportData() {
-  const blob = new Blob([JSON.stringify(state, null, 2)], {
-      type: "application/json",
-    }),
-    url = URL.createObjectURL(blob),
-    a = document.createElement("a");
-  a.href = url;
-  a.download = "roomie-backup-" + today() + ".json";
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  toast("Backup exported");
+async function exportData() {
+  try {
+    const data=structuredClone(state), receiptFiles=await receiptBackup(data);
+    const backup=receiptFiles.length?{...data,receiptFiles}:data;
+    const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}), url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download='roomie-backup-'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Backup exported');
+  }catch(error){toast(error.message);}
 }
 async function importData(file) {
   if (!file) return;
   try {
-    if (file.size > 2000000)
-      throw new Error("Choose a Roomie backup smaller than 2 MB.");
+    if (file.size > 80*1024*1024)
+      throw new Error("Choose a Roomie backup smaller than 80 MB.");
     const incoming = validateData(JSON.parse(await file.text()));
+    const files=await receiptImport(incoming);
+    // New local IDs prevent a failed import from overwriting files in the existing ledger.
+    const receiptIds=new Map(files.map(f=>[f.id,uid()]));
+    for(const f of files)f.id=receiptIds.get(f.id);
+    for(const key of ['expenses','shopping','settlements'])for(const record of incoming[key])for(const f of record.attachments||[])f.id=receiptIds.get(f.id);
+    delete incoming.receiptFiles;
     modal(
       "Replace saved data?",
-      `<p>Import ${incoming.expenses.length} expenses, ${incoming.shopping.length} shopping items and ${incoming.chores.length} chores for ${esc(incoming.houseName)}?</p><p class="note">This replaces your saved data. Export a backup first to keep a copy.</p><button class="btn" type="submit">Import backup</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
-      () => {
+      `<p>Import ${incoming.expenses.length} expenses, ${incoming.shopping.length} shopping items and ${incoming.chores.length} chores for ${esc(incoming.houseName)}${files.length?` with ${files.length} attachments`:""}?</p><p class="note">This replaces your saved data. Export a backup first to keep a copy.</p><button class="btn" type="submit">Import backup</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
+      async () => {
+        const oldReceipts=[...receiptRefs().keys()];
+        await receiptWrite(files);
         state = incoming;
         const saved = persist();
         closeModal(true);
@@ -1029,6 +1172,7 @@ async function importData(file) {
             ? "Backup imported"
             : "Backup loaded in this tab only. Export before closing.",
         );
+        if(saved)await receiptDeleteUnreferenced(oldReceipts);
       },
     );
   } catch (error) {
@@ -1043,7 +1187,8 @@ function openReset() {
   modal(
     "Restore sample data?",
     `<p>This replaces your local entries with the sample household. Export a backup first if you want to keep your records.</p><button class="btn" type="submit">Restore samples</button><button class="btn secondary" type="button" onclick="closeModal()">Cancel</button>`,
-    () => {
+    async () => {
+      const oldReceipts=[...receiptRefs().keys()];
       state = seed();
       const saved = persist();
       closeModal(true);
@@ -1053,6 +1198,7 @@ function openReset() {
           ? "Sample household restored"
           : "Samples restored in this tab only. Browser saving is unavailable.",
       );
+      if(saved)await receiptDeleteUnreferenced(oldReceipts);
     },
   );
 }
